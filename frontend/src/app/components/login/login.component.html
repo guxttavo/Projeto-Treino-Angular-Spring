@@ -1,5 +1,5 @@
 <form>
-    <p-card class="flex justify-content-center align-items-center h-full">
+    <p-card header="Login" class="alinhamento flex justify-content-center align-items-center">
         <div class="field">
             <label for="email">Email</label>
             <input type="text" pInputText formControlName="email" class="w-full" name="email"
@@ -11,6 +11,6 @@
                 placeholder="Type your password" />
         </div>
         <p-button label="Entrar" styleClass="w-full" type="submit"></p-button>
-
+        <div class="mt-2">Não tem conta? <a routerLink="/register">Cadastre-se</a></div>
     </p-card>
 </form>
