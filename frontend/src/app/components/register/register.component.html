@@ -1,39 +1,25 @@
-<form>
-    <p-card header="Cadastre-se" class="alinhamento flex justify-content-center align-items-center" [style]="{ width: '360px' }">
+<form [formGroup]="form">
+    <p-card header="Cadastre-se" class="alinhamento flex justify-content-center align-items-center"
+        [style]="{ width: '360px' }">
         <div class="field">
-            <label for="email">Nome Completo</label>
-            <input type="text" pInputText formControlName="email" class="w-full" name="email"
-                placeholder="Digite seu nome completo" />
+            <label for="cep">CEP</label>
+            <input type="text" pInputText formControlName="cep" class="w-full" id="cep" name="cep" />
         </div>
         <div class="field">
-            <label for="email">Email</label>
-            <input type="text" pInputText formControlName="email" class="w-full" name="email"
-                placeholder="Digite seu melhor email" />
+            <label for="logradouro">Logradouro</label>
+            <input type="text" pInputText formControlName="logradouro" class="w-full" id="logradouro" name="logradouro" />
         </div>
         <div class="field">
-            <label for="email">CPF</label>
-            <input type="text" pInputText formControlName="email" class="w-full" name="email"
-                placeholder="Digite seu CPF" />
+            <label for="text">Bairro</label>
+            <input type="text" pInputText formControlName="bairro" class="w-full" id="bairro" name="bairro" />
         </div>
         <div class="field">
-            <label for="email">Telefone</label>
-            <input type="text" pInputText formControlName="email" class="w-full" name="email"
-                placeholder="Digite seu telefone" />
+            <label for="text">Cidade</label>
+            <input type="text" pInputText formControlName="cidade" class="w-full" id="cidade" name="cidade" />
         </div>
         <div class="field">
-            <label for="email">CEP</label>
-            <input type="text" pInputText formControlName="email" class="w-full" name="email"
-                placeholder="Digite seu CEP" />
-        </div>
-        <div class="field">
-            <label for="password">Senha</label>
-            <input type="password" pInputText formControlName="password" class="w-full" name="password"
-                placeholder="Digite sua senha" />
-        </div>
-        <div class="field">
-            <label for="password">Confirme sua senha</label>
-            <input type="password" pInputText formControlName="password" class="w-full" name="password"
-                placeholder="Digite novamente sua senha" />
+            <label for="text">Estado</label>
+            <input type="text" pInputText formControlName="estado" class="w-full" id="estado" name="estado" />
         </div>
         <p-button label="Entrar" styleClass="w-full" type="submit"></p-button>
     </p-card>

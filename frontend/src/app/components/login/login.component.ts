@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 
 @Component({
@@ -8,6 +8,10 @@ import { SharedModule } from '../../shared.module';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+
+export class LoginComponent implements OnInit {
+  
+  ngOnInit(): void {
+  }
 
 }

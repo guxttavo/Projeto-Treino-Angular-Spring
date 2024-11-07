@@ -1,13 +1,13 @@
 <form>
-    <p-card header="Login" class="alinhamento flex justify-content-center align-items-center" [style]="{ width: '360px' }">
+    <p-card header="Login" class="alinhamento flex justify-content-center align-items-center"
+        [style]="{ width: '360px' }">
         <div class="field">
-            <label for="email">Email</label>
-            <input type="text" pInputText formControlName="email" class="w-full" name="email"
-                placeholder="Type your email" />
+            <label for="cpf">CPF</label>
+            <input type="text" pInputText class="w-full" name="cpf" />
         </div>
         <div class="field">
             <label for="password">Password</label>
-            <input type="password" pInputText formControlName="password" class="w-full" name="password"
+            <input type="password" pInputText class="w-full" name="password"
                 placeholder="Type your password" />
         </div>
         <p-button label="Entrar" styleClass="w-full" type="submit"></p-button>
