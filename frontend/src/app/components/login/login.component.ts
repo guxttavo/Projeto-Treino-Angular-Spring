@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
-import { CardModule } from 'primeng/card';
-import { InputTextModule } from 'primeng/inputtext';
-import { ButtonModule } from 'primeng/button';
-import { RegisterComponent } from '../register/register.component';
-import { RouterModule } from '@angular/router';
+import { SharedModule } from '../../shared.module';
 
 
 // import { AuthService } from 'src/app/services/auth.service';
@@ -14,7 +7,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CardModule, InputTextModule, ButtonModule, RegisterComponent, RouterModule],
+  imports: [SharedModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
