@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 
-
-// import { AuthService } from 'src/app/services/auth.service';
-
 @Component({
   selector: 'app-login',
   standalone: true,

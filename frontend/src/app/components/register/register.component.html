@@ -1,1 +1,40 @@
-<p>register works!</p>
+<form>
+    <p-card header="Cadastre-se" class="alinhamento flex justify-content-center align-items-center" [style]="{ width: '360px' }">
+        <div class="field">
+            <label for="email">Nome Completo</label>
+            <input type="text" pInputText formControlName="email" class="w-full" name="email"
+                placeholder="Digite seu nome completo" />
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="text" pInputText formControlName="email" class="w-full" name="email"
+                placeholder="Digite seu melhor email" />
+        </div>
+        <div class="field">
+            <label for="email">CPF</label>
+            <input type="text" pInputText formControlName="email" class="w-full" name="email"
+                placeholder="Digite seu CPF" />
+        </div>
+        <div class="field">
+            <label for="email">Telefone</label>
+            <input type="text" pInputText formControlName="email" class="w-full" name="email"
+                placeholder="Digite seu telefone" />
+        </div>
+        <div class="field">
+            <label for="email">CEP</label>
+            <input type="text" pInputText formControlName="email" class="w-full" name="email"
+                placeholder="Digite seu CEP" />
+        </div>
+        <div class="field">
+            <label for="password">Senha</label>
+            <input type="password" pInputText formControlName="password" class="w-full" name="password"
+                placeholder="Digite sua senha" />
+        </div>
+        <div class="field">
+            <label for="password">Confirme sua senha</label>
+            <input type="password" pInputText formControlName="password" class="w-full" name="password"
+                placeholder="Digite novamente sua senha" />
+        </div>
+        <p-button label="Entrar" styleClass="w-full" type="submit"></p-button>
+    </p-card>
+</form>
