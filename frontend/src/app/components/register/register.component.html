@@ -1,0 +1,26 @@
+<form [formGroup]="form">
+    <p-card header="Cadastre-se" class="alinhamento flex justify-content-center align-items-center"
+        [style]="{ width: '360px' }">
+        <div class="field">
+            <label for="cep">CEP</label>
+            <input type="text" pInputText formControlName="cep" class="w-full" id="cep" name="cep" />
+        </div>
+        <div class="field">
+            <label for="logradouro">Logradouro</label>
+            <input type="text" pInputText formControlName="logradouro" class="w-full" id="logradouro" name="logradouro" />
+        </div>
+        <div class="field">
+            <label for="text">Bairro</label>
+            <input type="text" pInputText formControlName="bairro" class="w-full" id="bairro" name="bairro" />
+        </div>
+        <div class="field">
+            <label for="text">Cidade</label>
+            <input type="text" pInputText formControlName="cidade" class="w-full" id="cidade" name="cidade" />
+        </div>
+        <div class="field">
+            <label for="text">Estado</label>
+            <input type="text" pInputText formControlName="estado" class="w-full" id="estado" name="estado" />
+        </div>
+        <p-button label="Entrar" styleClass="w-full" type="submit"></p-button>
+    </p-card>
+</form>
