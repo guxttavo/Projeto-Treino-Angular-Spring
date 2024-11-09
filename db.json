@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": "b430",
+      "nome": "Gustavo Barbosa Da Cunha Rego",
+      "email": "gustavowbarbosas@gmail.com",
+      "cpf": "115.350.124-47",
+      "telefone": "83996765975",
+      "senha": "11111111",
+      "cep": "58077065",
+      "logradouro": "Rua Waldemar Dornelas dos Santos",
+      "bairro": "Cuiá",
+      "cidade": "João Pessoa",
+      "estado": "PB"
+    },
+    {
+      "id": "1eef",
+      "nome": "Gustavo Barbosa Da Cunha Rego",
+      "email": "gustavowbarbosas@gmail.com",
+      "cpf": "115.350.124-47",
+      "telefone": "83996765975",
+      "senha": "11111111",
+      "cep": "58077065",
+      "logradouro": "Rua Waldemar Dornelas dos Santos",
+      "bairro": "Cuiá",
+      "cidade": "João Pessoa",
+      "estado": "PB"
+    }
+  ]
+}

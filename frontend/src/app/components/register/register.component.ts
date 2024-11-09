@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViacepService } from '../../services/viacep.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private viaCepService: ViacepService) {
+  constructor(private fb: FormBuilder, private viaCepService: ViacepService, private authService: AuthService) {
 
   }
 
@@ -40,10 +41,17 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      const formData = this.form.getRawValue(); // Captura todos os valores, incluindo os campos desativados
-      console.log(formData);
+      const formData = this.form.getRawValue();
+      this.authService.registerUser(formData).subscribe({
+        next: (response) => {
+          console.log('Usuário cadastrado com sucesso:', response);
+        },
+        error: (error) => {
+          console.error('Erro ao cadastrar usuário:', error);
+        }
+      });
     } else {
-      console.log("valores invalidos!")
+      console.log("valores invalidos!");
     }
   }
 
