@@ -3,8 +3,6 @@ import { SharedModule } from '../../shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViacepService } from '../../services/viacep.service';
 
-
-
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -27,12 +25,26 @@ export class RegisterComponent implements OnInit {
 
   initializeForm() {
     this.form = this.fb.group({
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      cpf: ['', [Validators.required]],
+      telefone: ['', [Validators.required, Validators.pattern(/^\d{10,11}$/)]],
+      senha: ['', [Validators.required, Validators.minLength(6)]],
       cep: ['', [Validators.required]],
-      logradouro: [{value: '', disabled: true}],
-      bairro: [{value: '', disabled: true}],
-      cidade: [{value: '', disabled: true}],
-      estado: [{value: '', disabled: true}],
+      logradouro: [{ value: '', disabled: true }],
+      bairro: [{ value: '', disabled: true }],
+      cidade: [{ value: '', disabled: true }],
+      estado: [{ value: '', disabled: true }],
     })
+  }
+
+  onSubmit(): void {
+    if (this.form.valid) {
+      const formData = this.form.getRawValue(); // Captura todos os valores, incluindo os campos desativados
+      console.log(formData);
+    } else {
+      console.log("valores invalidos!")
+    }
   }
 
   observePreenchimentoCep() {
