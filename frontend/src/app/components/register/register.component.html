@@ -3,7 +3,7 @@
         [style]="{ width: '360px' }">
         <div class="field">
             <label for="nome">Nome</label>
-            <input type="text" pInputText formControlName="nome" class="w-full" id="nome" name="nome" />
+            <input type="text" pInputText formControlName="nome" class="w-full" />
             <small *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched">
                 <span *ngIf="form.get('nome')?.errors?.['required']">Nome é obrigatório</span>
                 <span *ngIf="form.get('nome')?.errors?.['minlength']">Nome deve ter no mínimo 3 caracteres.</span>
@@ -11,40 +11,39 @@
         </div>
         <div class="field">
             <label for="email">Email</label>
-            <input type="text" pInputText formControlName="email" class="w-full" id="email" name="email" />
+            <input type="text" pInputText formControlName="email" class="w-full" />
         </div>
         <div class="field">
             <label for="cpf">CPF</label>
-            <input type="text" pInputText formControlName="cpf" class="w-full" id="cpf" name="cpf" />
+            <input type="text" pInputText formControlName="cpf" class="w-full" />
         </div>
         <div class="field">
             <label for="telefone">Telefone</label>
-            <input type="text" pInputText formControlName="telefone" class="w-full" id="telefone" name="telefone" />
+            <input type="text" pInputText formControlName="telefone" class="w-full" />
         </div>
         <div class="field">
             <label for="cep">CEP</label>
-            <input type="text" pInputText formControlName="cep" class="w-full" id="cep" name="cep" />
+            <input type="text" pInputText formControlName="cep" class="w-full" />
         </div>
         <div class="field">
-            <label for="logradouro">logradouro</label>
-            <input type="text" pInputText formControlName="logradouro" class="w-full" id="logradouro"
-                name="logradouro" />
+            <label for="logradouro">Logradouro</label>
+            <input type="text" pInputText formControlName="logradouro" class="w-full" />
         </div>
         <div class="field">
             <label for="bairro">Bairro</label>
-            <input type="text" pInputText formControlName="bairro" class="w-full" id="bairro" name="bairro" />
+            <input type="text" pInputText formControlName="bairro" class="w-full" />
         </div>
         <div class="field">
             <label for="cidade">Cidade</label>
-            <input type="text" pInputText formControlName="cidade" class="w-full" id="cidade" name="cidade" />
+            <input type="text" pInputText formControlName="cidade" class="w-full" />
         </div>
         <div class="field">
             <label for="estado">Estado</label>
-            <input type="text" pInputText formControlName="estado" class="w-full" id="estado" name="estado" />
+            <input type="text" pInputText formControlName="estado" class="w-full" />
         </div>
         <div class="field">
             <label for="senha">Senha</label>
-            <input type="password" pInputText formControlName="senha" class="w-full" id="senha" name="senha" />
+            <input type="password" pInputText formControlName="senha" class="w-full" />
         </div>
         <p-button label="Cadastrar" styleClass="w-full" type="submit"></p-button>
     </p-card>

@@ -25,6 +25,32 @@
       "bairro": "Cuiá",
       "cidade": "João Pessoa",
       "estado": "PB"
+    },
+    {
+      "id": "2ad1",
+      "nome": "Gustavo Barbosa Da Cunha Rego",
+      "email": "gustavowbarbosas@gmail.com",
+      "cpf": "115.350.124-47",
+      "telefone": "83996765975",
+      "senha": "1223345",
+      "cep": "58077065",
+      "logradouro": "Rua Waldemar Dornelas dos Santos",
+      "bairro": "Cuiá",
+      "cidade": "João Pessoa",
+      "estado": "PB"
+    },
+    {
+      "id": "1e03",
+      "nome": "Gustavo Barbosa Da Cunha Rego",
+      "email": "gustavowbarbosas@gmail.com",
+      "cpf": "11535012447",
+      "telefone": "83996765975",
+      "senha": "12345677",
+      "cep": "58077065",
+      "logradouro": "Rua Waldemar Dornelas dos Santos",
+      "bairro": "Cuiá",
+      "cidade": "João Pessoa",
+      "estado": "PB"
     }
   ]
 }
