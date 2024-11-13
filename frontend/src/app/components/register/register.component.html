@@ -4,6 +4,10 @@
         <div class="field">
             <label for="nome">Nome</label>
             <input type="text" pInputText formControlName="nome" class="w-full" id="nome" name="nome" />
+            <small *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched">
+                <span *ngIf="form.get('nome')?.errors?.['required']">Nome é obrigatório</span>
+                <span *ngIf="form.get('nome')?.errors?.['minlength']">Nome deve ter no mínimo 3 caracteres.</span>
+            </small>
         </div>
         <div class="field">
             <label for="email">Email</label>
@@ -28,8 +32,7 @@
         </div>
         <div class="field">
             <label for="bairro">Bairro</label>
-            <input type="text" pInputText formControlName="bairro" class="w-full" id="bairro"
-                name="bairro" />
+            <input type="text" pInputText formControlName="bairro" class="w-full" id="bairro" name="bairro" />
         </div>
         <div class="field">
             <label for="cidade">Cidade</label>
