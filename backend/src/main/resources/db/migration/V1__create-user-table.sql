@@ -9,6 +9,5 @@ CREATE TABLE usuario (
                       bairro VARCHAR(100) NOT NULL,
                       cidade VARCHAR(100) NOT NULL,
                       estado VARCHAR(100) NOT NULL,
-                      senha VARCHAR(100) NOT NULL,
-                      confirma_senha VARCHAR(100) NOT NULL
+                      senha VARCHAR(100) NOT NULL
 );

@@ -27,5 +27,4 @@ public class Usuario {
     private String cidade;
     private String estado;
     private String senha;
-    private String confirma_senha;
 }
