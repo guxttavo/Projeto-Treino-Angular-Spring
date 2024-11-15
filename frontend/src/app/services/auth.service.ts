@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs'
-import { user } from '../interfaces/user';
+import { usuario } from '../interfaces/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:3000/users';
+  private apiUrl = 'http://localhost:8080/usuario';
 
   constructor(private http: HttpClient) { }
 
-  registerUser(userDetails: user) {
-    return this.http.post(`${this.apiUrl}`, userDetails);
+  cadastrarUsuario(usuarioDetails: usuario) {
+    return this.http.post(`${this.apiUrl}`, usuarioDetails);
   }
 }

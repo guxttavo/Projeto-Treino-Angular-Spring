@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "usuario")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +16,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
     private String nome;
     private String email;
     private Long cpf;
@@ -27,5 +27,5 @@ public class Usuario {
     private String cidade;
     private String estado;
     private String senha;
-    private String confirmaSenha;
+    private String confirma_senha;
 }

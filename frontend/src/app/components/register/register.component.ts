@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
-      this.authService.registerUser(formData).subscribe({
+      this.authService.cadastrarUsuario(formData).subscribe({
         next: (response) => {
           console.log('Usuário cadastrado com sucesso:', response);
         },
