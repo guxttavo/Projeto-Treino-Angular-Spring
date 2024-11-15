@@ -31,12 +31,24 @@ export class RegisterComponent implements OnInit {
       cpf: ['', [Validators.required]],
       telefone: ['', [Validators.required, Validators.pattern(/^\d{10,11}$/)]],
       senha: ['', [Validators.required, Validators.minLength(6)]],
+      confirmarSenha: ['', [Validators.required]],
       cep: ['', [Validators.required]],
       logradouro: [{ value: '', disabled: true }],
       bairro: [{ value: '', disabled: true }],
       cidade: [{ value: '', disabled: true }],
       estado: [{ value: '', disabled: true }],
-    })
+    }, { validators: this.senhasDevemCoincidir});
+  }
+
+  senhasDevemCoincidir(group: FormGroup) {
+    const senha = group.get('senha')?.value;
+    const confirmarSenha = group.get('confirmarSenha');
+
+    if (senha !== confirmarSenha?.value) {
+      confirmarSenha?.setErrors({ Mustmatch: true });
+    } else {
+      confirmarSenha?.setErrors(null);
+    }
   }
 
   onSubmit(): void {

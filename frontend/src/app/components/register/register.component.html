@@ -49,6 +49,14 @@
             <label for="senha">Senha</label>
             <input type="password" pInputText formControlName="senha" class="w-full" />
         </div>
+        <div class="field">
+            <label for="confirmarSenha">Confirmar Senha</label>
+            <input type="password" pInputText formControlName="confirmarSenha" class="w-full" />
+            <small *ngIf="form.get('confirmarSenha')?.invalid && form.get('confirmarSenha')?.touched">
+                <span *ngIf="form.get('confirmarSenha')?.errors?.['required']">Confirmar senha é obrigatório</span>
+                <span *ngIf="form.get('confirmarSenha')?.errors?.['Mustmatch']">As senhas não coincidem</span>
+            </small>
+        </div>
         <p-button label="Cadastrar" styleClass="w-full" type="submit"></p-button>
     </p-card>
 </form>
