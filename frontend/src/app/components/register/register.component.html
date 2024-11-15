@@ -12,6 +12,10 @@
         <div class="field">
             <label for="email">Email</label>
             <input type="text" pInputText formControlName="email" class="w-full" />
+            <small *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched ) ">
+                <span *ngIf="form.get('email')?.errors?.['required']">Email é obrigatório</span>
+                <span *ngIf="form.get('email')?.errors?.['email']">O email precisa ser válido</span>
+            </small>
         </div>
         <div class="field">
             <label for="cpf">CPF</label>
