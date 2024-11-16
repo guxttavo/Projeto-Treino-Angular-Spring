@@ -1,4 +1,4 @@
-export interface ViacepResult {
+export interface viaCepResult {
     cep: string;
     logradouro: string;
     complemento: string;

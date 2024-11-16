@@ -3,14 +3,17 @@ import { SharedModule } from '../../shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViacepService } from '../../services/viacep.service';
 import { UsuarioService } from '../../services/Usuario.service';
+import { provideNgxMask, NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [SharedModule],
+  imports: [SharedModule, NgxMaskDirective],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.css',
+  providers: [provideNgxMask()]
 })
+
 export class RegisterComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
@@ -30,14 +33,14 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required]],
       telefone: ['', [Validators.required, Validators.pattern(/^\d{10,11}$/)]],
-      senha: ['', [Validators.required, Validators.minLength(6)]],
+      senha: ['', [Validators.required, Validators.minLength(3)]],
       confirmarSenha: ['', [Validators.required]],
       cep: ['', [Validators.required]],
       logradouro: [{ value: '', disabled: true }],
       bairro: [{ value: '', disabled: true }],
       cidade: [{ value: '', disabled: true }],
       estado: [{ value: '', disabled: true }],
-    }, { validators: this.senhasDevemCoincidir});
+    }, { validators: this.senhasDevemCoincidir });
   }
 
   senhasDevemCoincidir(group: FormGroup) {
