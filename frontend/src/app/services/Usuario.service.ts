@@ -6,7 +6,7 @@ import { usuario } from '../interfaces/usuario';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class UsuarioService {
 
   private apiUrl = 'http://localhost:8080/usuario';
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViacepService } from '../../services/viacep.service';
-import { AuthService } from '../../services/auth.service';
+import { UsuarioService } from '../../services/Usuario.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private viaCepService: ViacepService, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private viaCepService: ViacepService, private usuarioService: UsuarioService) {
 
   }
 
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
-      this.authService.cadastrarUsuario(formData).subscribe({
+      this.usuarioService.cadastrarUsuario(formData).subscribe({
         next: (response) => {
           console.log('Usuário cadastrado com sucesso:', response);
         },
