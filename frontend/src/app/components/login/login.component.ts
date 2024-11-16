@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedModule } from '../../shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';  // <-- Import this
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [SharedModule, CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
