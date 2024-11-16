@@ -19,7 +19,8 @@ import { CommonModule } from '@angular/common';
         ButtonModule,
         RouterModule,
         ReactiveFormsModule,
-        CommonModule
+        CommonModule,
+        NgxMaskDirective
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
