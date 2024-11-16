@@ -18,9 +18,10 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private viaCepService: ViacepService, private usuarioService: UsuarioService) {
-
-  }
+  constructor(
+    private fb: FormBuilder,
+    private viaCepService: ViacepService,
+    private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
     this.initializeForm();
