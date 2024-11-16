@@ -3,9 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViacepService } from '../../services/viacep.service';
 import { UsuarioService } from '../../services/Usuario.service';
 import { provideNgxMask, NgxMaskDirective } from 'ngx-mask';
-import { InputTextModule } from 'primeng/inputtext';
-import { CardModule } from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -14,9 +11,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-register',
   standalone: true,
   imports: [
-        CardModule,
-        InputTextModule,
-        ButtonModule,
         RouterModule,
         ReactiveFormsModule,
         CommonModule,
