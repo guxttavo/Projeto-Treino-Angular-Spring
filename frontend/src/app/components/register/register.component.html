@@ -1,62 +1,77 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <p-card header="Cadastre-se" class="alinhamento flex justify-content-center align-items-center"
-        [style]="{ width: '360px' }">
-        <div class="field">
-            <label for="nome">Nome</label>
-            <input type="text" pInputText formControlName="nome" class="w-full" />
-            <small *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched">
-                <span *ngIf="form.get('nome')?.errors?.['required']">Nome é obrigatório</span>
-                <span *ngIf="form.get('nome')?.errors?.['minlength']">Nome deve ter no mínimo 3 caracteres.</span>
-            </small>
+    <div class="card" style="width: 360px; margin: 0 auto;">
+        <div class="card-header text-center">
+            <h5>Cadastre-se</h5>
         </div>
-        <div class="field">
-            <label for="email">Email</label>
-            <input type="text" pInputText formControlName="email" class="w-full" />
-            <small *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched ) ">
-                <span *ngIf="form.get('email')?.errors?.['required']">Email é obrigatório</span>
-                <span *ngIf="form.get('email')?.errors?.['email']">O email precisa ser válido</span>
-            </small>
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" formControlName="nome" />
+                <div *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched" class="text-danger">
+                    <small *ngIf="form.get('nome')?.errors?.['required']">Nome é obrigatório</small>
+                    <small *ngIf="form.get('nome')?.errors?.['minlength']">Nome deve ter no mínimo 3 caracteres.</small>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email" />
+                <div *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)" class="text-danger">
+                    <small *ngIf="form.get('email')?.errors?.['required']">Email é obrigatório</small>
+                    <small *ngIf="form.get('email')?.errors?.['email']">O email precisa ser válido</small>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="cpf" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="cpf" formControlName="cpf" />
+            </div>
+
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="text" class="form-control" id="telefone" formControlName="telefone" />
+            </div>
+
+            <div class="mb-3">
+                <label for="cep" class="form-label">CEP</label>
+                <input type="text" class="form-control" id="cep" formControlName="cep" />
+            </div>
+
+            <div class="mb-3">
+                <label for="logradouro" class="form-label">Logradouro</label>
+                <input type="text" class="form-control" id="logradouro" formControlName="logradouro" />
+            </div>
+
+            <div class="mb-3">
+                <label for="bairro" class="form-label">Bairro</label>
+                <input type="text" class="form-control" id="bairro" formControlName="bairro" />
+            </div>
+
+            <div class="mb-3">
+                <label for="cidade" class="form-label">Cidade</label>
+                <input type="text" class="form-control" id="cidade" formControlName="cidade" />
+            </div>
+
+            <div class="mb-3">
+                <label for="estado" class="form-label">Estado</label>
+                <input type="text" class="form-control" id="estado" formControlName="estado" />
+            </div>
+
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" formControlName="senha" />
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+                <input type="password" class="form-control" id="confirmarSenha" formControlName="confirmarSenha" />
+                <div *ngIf="form.get('confirmarSenha')?.invalid && form.get('confirmarSenha')?.touched" class="text-danger">
+                    <small *ngIf="form.get('confirmarSenha')?.errors?.['required']">Confirmar senha é obrigatório</small>
+                    <small *ngIf="form.get('confirmarSenha')?.errors?.['Mustmatch']">As senhas não coincidem</small>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
         </div>
-        <div class="field">
-            <label for="cpf">CPF</label>
-            <input type="text" pInputText formControlName="cpf" class="w-full" />
-        </div>
-        <div class="field">
-            <label for="telefone">Telefone</label>
-            <input type="text" pInputText formControlName="telefone" class="w-full" />
-        </div>
-        <div class="field">
-            <label for="cep">CEP</label>
-            <input type="text" pInputText formControlName="cep" class="w-full" />
-        </div>
-        <div class="field">
-            <label for="logradouro">Logradouro</label>
-            <input type="text" pInputText formControlName="logradouro" class="w-full" />
-        </div>
-        <div class="field">
-            <label for="bairro">Bairro</label>
-            <input type="text" pInputText formControlName="bairro" class="w-full" />
-        </div>
-        <div class="field">
-            <label for="cidade">Cidade</label>
-            <input type="text" pInputText formControlName="cidade" class="w-full" />
-        </div>
-        <div class="field">
-            <label for="estado">Estado</label>
-            <input type="text" pInputText formControlName="estado" class="w-full" />
-        </div>
-        <div class="field">
-            <label for="senha">Senha</label>
-            <input type="password" pInputText formControlName="senha" class="w-full" />
-        </div>
-        <div class="field">
-            <label for="confirmarSenha">Confirmar Senha</label>
-            <input type="password" pInputText formControlName="confirmarSenha" class="w-full" />
-            <small *ngIf="form.get('confirmarSenha')?.invalid && form.get('confirmarSenha')?.touched">
-                <span *ngIf="form.get('confirmarSenha')?.errors?.['required']">Confirmar senha é obrigatório</span>
-                <span *ngIf="form.get('confirmarSenha')?.errors?.['Mustmatch']">As senhas não coincidem</span>
-            </small>
-        </div>
-        <p-button label="Cadastrar" styleClass="w-full" type="submit"></p-button>
-    </p-card>
+    </div>
 </form>

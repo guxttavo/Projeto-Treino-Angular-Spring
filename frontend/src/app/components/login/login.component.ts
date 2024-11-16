@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Password } from 'primeng/password';
 import { CommonModule } from '@angular/common';
 
 @Component({
