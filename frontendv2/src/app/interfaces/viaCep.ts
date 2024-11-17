@@ -8,8 +8,4 @@ export interface viaCep {
     uf: string;
     estado: string;
     regiao: string;
-    ibge: string;
-    gia: string;
-    ddd: string;
-    siafi: string;
 }

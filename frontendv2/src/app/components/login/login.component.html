@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="alinhamento d-flex justify-content-center align-items-center">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="card">
+            <div class="card-header text-center">
+                <h5>Login</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email"
+                        placeholder="Digite seu email">
+                </div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" formControlName="senha"
+                        placeholder="Digite sua senha">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Entrar</button>
+            </div>
+            <div class="card-footer text-center">
+                Não tem conta? <a [routerLink]="['/register']">Cadastre-se</a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,6 +1,13 @@
+// Módulos
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
+// Componentes
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -16,9 +23,15 @@ import { RegisterComponent } from './components/register/register.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    RouterModule,
+    CommonModule,
+    HttpClientModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [provideNgxMask()],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
