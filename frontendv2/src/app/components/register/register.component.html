@@ -74,8 +74,10 @@
                     <small *ngIf="form.get('confirmarSenha')?.errors?.['Mustmatch']">As senhas não coincidem</small>
                 </div>
             </div>
-
             <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+            <div class="card-footer text-center">
+                <a [routerLink]="['/login']">Voltar</a>
+            </div>
         </div>
     </div>
 </form>

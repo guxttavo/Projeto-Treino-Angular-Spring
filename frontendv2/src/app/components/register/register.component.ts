@@ -21,7 +21,7 @@ export class RegisterComponent {
 
   ngOnInit(): void {
     this.initializeForm();
-    this.observePreenchimentoCep();
+    this.preenchimentoCep();
   }
 
   initializeForm() {
@@ -38,17 +38,6 @@ export class RegisterComponent {
       cidade: [{ value: '', disabled: true }],
       estado: [{ value: '', disabled: true }],
     }, { validators: this.senhasDevemCoincidir });
-  }
-
-  senhasDevemCoincidir(group: FormGroup) {
-    const senha = group.get('senha')?.value;
-    const confirmarSenha = group.get('confirmarSenha');
-
-    if (senha !== confirmarSenha?.value) {
-      confirmarSenha?.setErrors({ Mustmatch: true });
-    } else {
-      confirmarSenha?.setErrors(null);
-    }
   }
 
   onSubmit(): void {
@@ -75,16 +64,23 @@ export class RegisterComponent {
       this.showErrorToast = true;
       setTimeout(() => {
         this.showErrorToast = false;
-      }, 100000);
+      }, 3000);
       console.log("valores invalidos!");
     }
   }
 
-  closeToast() {
-    this.showToast = false; // Esconde o toast manualmente
+  senhasDevemCoincidir(group: FormGroup) {
+    const senha = group.get('senha')?.value;
+    const confirmarSenha = group.get('confirmarSenha');
+
+    if (senha !== confirmarSenha?.value) {
+      confirmarSenha?.setErrors({ Mustmatch: true });
+    } else {
+      confirmarSenha?.setErrors(null);
+    }
   }
 
-  observePreenchimentoCep() {
+  preenchimentoCep() {
     this.form.get('cep')?.valueChanges.subscribe(value => {
       if (value?.length == 8) {
         this.buscarCep();

@@ -16,8 +16,6 @@
                         placeholder="Digite sua senha">
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Entrar</button>
-                <!-- Botão para disparar o toast -->
-                <button type="button" class="btn btn-info w-100 mt-2" (click)="showToast()">Testar Toast</button>
             </div>
             <div class="card-footer text-center">
                 Não tem conta? <a [routerLink]="['/register']">Cadastre-se</a>
@@ -26,16 +24,3 @@
     </form>
 </div>
 
-<!-- Toast -->
-<div *ngIf="show" class="toast-container position-fixed top-0 end-0 p-3">
-    <div class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive"
-        aria-atomic="true" [ngClass]="{'show': show}">
-        <div class="d-flex">
-            <div class="toast-body">
-                Teste de Toast realizado com sucesso!
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                aria-label="Close"></button>
-        </div>
-    </div>
-</div>
