@@ -79,3 +79,25 @@
         </div>
     </div>
 </form>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div *ngIf="showToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive"
+        aria-atomic="true" [ngClass]="{'show': showToast}">
+        <div class="d-flex">
+            <div class="toast-body">
+                Usuário cadastrado com sucesso!
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div *ngIf="showErrorToast" class="toast align-items-center text-bg-danger border-0" role="alert"
+        aria-live="assertive" aria-atomic="true" [ngClass]="{'show': showErrorToast}">
+        <div class="d-flex">
+            <div class="toast-body">
+                Erro ao cadastrar usuário. Verifique os dados.
+            </div>
+        </div>
+    </div>
+</div>

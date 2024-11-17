@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
+  show: boolean = false;
 
   constructor(private fb: FormBuilder) { }
 
@@ -28,5 +29,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
+  showToast(): void {
+    this.show = true;
+    setTimeout(() => {
+      this.show = false;
+    }, 3000);
+  }
+  
 }

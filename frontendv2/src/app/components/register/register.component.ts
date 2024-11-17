@@ -11,6 +11,8 @@ import { ViacepService } from 'src/app/services/viaCep.service';
 export class RegisterComponent {
 
   form: FormGroup = new FormGroup({});
+  showToast: boolean = false;
+  showErrorToast: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -54,15 +56,32 @@ export class RegisterComponent {
       const formData = this.form.getRawValue();
       this.usuarioService.cadastrarUsuario(formData).subscribe({
         next: (response) => {
+          this.showToast = true;
+          setTimeout(() => {
+            this.showToast = false;
+          }, 3000);
           console.log('Usuário cadastrado com sucesso:', response);
         },
         error: (error) => {
+          this.showErrorToast = true;
+          setTimeout(() => {
+            this.showErrorToast = false;
+          }, 3000);
           console.error('Erro ao cadastrar usuário:', error);
         }
       });
     } else {
+
+      this.showErrorToast = true;
+      setTimeout(() => {
+        this.showErrorToast = false;
+      }, 100000);
       console.log("valores invalidos!");
     }
+  }
+
+  closeToast() {
+    this.showToast = false; // Esconde o toast manualmente
   }
 
   observePreenchimentoCep() {
