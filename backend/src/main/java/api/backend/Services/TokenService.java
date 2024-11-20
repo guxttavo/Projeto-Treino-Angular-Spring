@@ -1,16 +1,24 @@
-package api.backend.Infra.Security;
+package api.backend.Services;
 
 import api.backend.Entities.Usuario;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import javax.crypto.SecretKey;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
+import java.util.Date;
 
 @Service
 public class TokenService {
@@ -28,21 +36,26 @@ public class TokenService {
                     .withExpiresAt(this.generateExpirationDate())
                     .sign(algorithm);
             return token;
-
         } catch (JWTCreationException exception) {
             throw new RuntimeException("Error while authenticating");
         }
     }
 
-    public String validateToken(String token){
-        try{
+    private SecretKey getSigningKey() {
+        String secret = "secretkeysecretkeysecretkeysecretkeysecretkey";
+        byte[] keyBytes = Decoders.BASE64.decode(secret);
+        return Keys.hmacShaKeyFor(keyBytes);
+    }
+
+    public String validateToken(String token) {
+        try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
             return JWT.require(algorithm)
                     .withIssuer("login-auth-api")
                     .build()
                     .verify(token)
                     .getSubject();
-        } catch (JWTVerificationException exception){
+        } catch (JWTVerificationException exception) {
             return null;
         }
     }
