@@ -1,21 +1,26 @@
 package api.backend.Security;
 
+import api.backend.Entities.Usuario;
 import api.backend.Repositories.UsuarioRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
-public class SecurityService implements UserDetailsService {
+import java.util.ArrayList;
+
+@Component
+public class CustomUserDetailsService implements UserDetailsService {
 
     private final UsuarioRepository usuarioRepository;
 
-    public SecurityService(UsuarioRepository usuarioRepository) {
+    public CustomUserDetailsService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return usuarioRepository.findByLogin(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Dados inválidos"));
+        Usuario user = this.usuarioRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
 }

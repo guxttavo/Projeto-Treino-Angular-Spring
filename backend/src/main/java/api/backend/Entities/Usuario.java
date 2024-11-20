@@ -1,9 +1,7 @@
 package api.backend.Entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,6 +11,8 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "usuario")
+@Getter
+@Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
