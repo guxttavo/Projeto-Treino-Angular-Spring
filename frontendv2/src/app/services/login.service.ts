@@ -1,17 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { login } from '../interfaces/login';
+import { tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class loginService {
 
-  private apiUrl = 'http://localhost:8080/auth';
+    private apiUrl = 'http://localhost:8080/auth';
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-  login(loginDetails: login) {
-    return this.http.post(`${this.apiUrl}`, loginDetails);
-  }
+    login(email: string, senha: string) {
+        return this.http.post<login>(this.apiUrl + "/login", { email, senha }).pipe(
+            tap((value) => {
+                sessionStorage.setItem("auth-token", value.email)
+                sessionStorage.setItem("username", value.nome)
+            }
+            )
+        );
+    }
 }

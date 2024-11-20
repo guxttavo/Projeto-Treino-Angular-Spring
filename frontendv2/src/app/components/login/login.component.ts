@@ -27,13 +27,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      const formData = this.form.value;
-      this.loginService.login(formData).subscribe({
+      this.loginService.login(this.form.value.email, this.form.value.senha).subscribe({
         next: (response) => {
-          console.log('Usuário cadastrado com sucesso:', response);
+          console.log('Usuário logado', response);
         },
         error: (error) => {
-          console.error('Erro ao cadastrar usuário:', error);
+          console.error('Erro ao realizar o login :', error);
         }
       });
     } else {
