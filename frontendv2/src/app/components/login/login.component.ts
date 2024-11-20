@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { loginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,10 @@ export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   show: boolean = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private loginService: loginService
+  ) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -24,6 +28,14 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     if (this.form.valid) {
       const formData = this.form.value;
+      this.loginService.login(formData).subscribe({
+        next: (response) => {
+          console.log('Usuário cadastrado com sucesso:', response);
+        },
+        error: (error) => {
+          console.error('Erro ao cadastrar usuário:', error);
+        }
+      });
     } else {
       console.log("valores invalidos!")
     }
@@ -35,5 +47,5 @@ export class LoginComponent implements OnInit {
       this.show = false;
     }, 3000);
   }
-  
+
 }
