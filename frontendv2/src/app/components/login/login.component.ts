@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { loginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private loginService: loginService
+    private loginService: loginService,
+    private router: Router
+
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +33,8 @@ export class LoginComponent implements OnInit {
       this.loginService.login(this.form.value.email, this.form.value.senha).subscribe({
         next: (response) => {
           console.log('Usuário logado', response);
+          this.router.navigate(['/home']); 
+
         },
         error: (error) => {
           console.error('Erro ao realizar o login :', error);
