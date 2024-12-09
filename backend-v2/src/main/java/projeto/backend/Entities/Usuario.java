@@ -32,6 +32,9 @@ public class Usuario implements UserDetails {
     private String cidade;
     private String estado;
 
+    @OneToMany
+    private List<Carro> carros;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
