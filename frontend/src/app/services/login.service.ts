@@ -9,6 +9,7 @@ import { tap } from 'rxjs';
 export class loginService {
 
     private apiUrl = 'http://localhost:8080/auth';
+    usuarioLogado: boolean = false;
 
     constructor(private http: HttpClient) { }
 
@@ -17,8 +18,19 @@ export class loginService {
             tap((value) => {
                 sessionStorage.setItem("username", value.nome)
                 sessionStorage.setItem("auth-token", value.token)
+                this.usuarioLogado = true;
             }
             )
         );
+    }
+
+    verificaLogin(): boolean {
+        const token = sessionStorage.getItem("auth-token");
+
+        if (token) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

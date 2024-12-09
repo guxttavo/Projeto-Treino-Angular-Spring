@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
   show: boolean = false;
+  usuarioLogado: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       senha: ['', Validators.required]
     });
+    
   }
 
   onSubmit(): void {
@@ -33,8 +35,10 @@ export class LoginComponent implements OnInit {
       this.loginService.login(this.form.value.email, this.form.value.senha).subscribe({
         next: (response) => {
           console.log('Usuário logado', response);
-          this.router.navigate(['/home']); 
-
+          this.usuarioLogado = false;
+          this.router.navigate(['/home']).then(() => { 
+            window.location.reload();
+          });
         },
         error: (error) => {
           console.error('Erro ao realizar o login :', error);
