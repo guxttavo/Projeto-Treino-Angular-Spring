@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <a class="navbar-brand" [routerLink]="['/home']">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
@@ -6,18 +6,18 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto ">
             <li class="nav-item" *ngIf="!usuarioLogado">
-                <a class="nav-link" [routerLink]="['/login']">Login</a>
+                <a class="nav-link estilizacao" [routerLink]="['/login']">Login</a>
             </li>
             <li class="nav-item" *ngIf="!usuarioLogado">
-                <a class="nav-link" [routerLink]="['/register']">Cadastro</a>
+                <a class="nav-link estilizacao" [routerLink]="['/register']">Cadastro</a>
             </li>
             <li class="nav-item" *ngIf="usuarioLogado">
-                <a class="nav-link" [routerLink]="['/usuario']">Meu Perfil</a>
+                <a class="nav-link estilizacao" [routerLink]="['/usuario']">Meu Perfil</a>
             </li>
             <li class="nav-item btn-sair" *ngIf="usuarioLogado">
-                <a class="nav-link" (click)="sair()">Sair</a>
+                <a class="nav-link estilizacao" (click)="sair()">Sair</a>
             </li>
         </ul>
     </div>
