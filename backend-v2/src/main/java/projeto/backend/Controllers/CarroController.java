@@ -10,7 +10,6 @@ import projeto.backend.Entities.Categoria;
 import projeto.backend.Services.CarroService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/carro")
@@ -20,7 +19,8 @@ public class CarroController {
     private CarroService carroService;
 
     @GetMapping("/categoria")
-    public List<Categoria> buscarCategoria(@RequestParam String nome){
-        return carroService.buscarCategoriaPorNome(nome);
+    public ResponseEntity<List<Categoria>> buscarCategorias() {
+        List<Categoria> categorias = carroService.buscarCategorias();
+        return ResponseEntity.ok(categorias);
     }
 }

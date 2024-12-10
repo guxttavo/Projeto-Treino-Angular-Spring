@@ -6,7 +6,6 @@ import projeto.backend.Entities.Categoria;
 import projeto.backend.Repositories.CategoriaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CarroService {
@@ -14,8 +13,8 @@ public class CarroService {
     @Autowired
     private CategoriaRepository repository;
 
-    public List<Categoria> buscarCategoriaPorNome(String nome){
-        return repository.findByNome(nome);
+    public List<Categoria> buscarCategorias(){
+        return repository.findAll();
     }
 
 }

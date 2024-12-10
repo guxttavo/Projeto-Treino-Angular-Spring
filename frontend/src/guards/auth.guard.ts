@@ -34,7 +34,6 @@ export class AuthGuard implements CanActivate {
     const rotasPublicas = ['/carro/categoria', '/home', '/usuario']
 
     const baseUrl = url;
-    console.log(baseUrl);
 
     return rotasPublicas.includes(url);
   }

@@ -44,7 +44,7 @@ export class CarroComponent {
   }
 
   dropDownCategorias() {
-    this.carroService.buscarCategorias('')
+    this.carroService.buscarCategorias()
       .subscribe(
         (dados: categoria[]) => {
           this.categorias = dados;

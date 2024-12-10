@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
-    List<Categoria> findByNome(String nome);
+    List<Categoria> findAll();
 
 }
