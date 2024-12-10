@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
   usuarioLogado: boolean = false;
   
   constructor(private authService: AuthService, private router: Router) {
-    
+
     this.usuarioLogado = this.authService.usuarioLogado();
   }
   
@@ -32,6 +32,9 @@ export class AuthGuard implements CanActivate {
 
   private rotaPublica(url: string): boolean {
     const rotasPublicas = ['/carro/categoria', '/home', '/usuario']
+
+    const baseUrl = url;
+    console.log(baseUrl);
 
     return rotasPublicas.includes(url);
   }

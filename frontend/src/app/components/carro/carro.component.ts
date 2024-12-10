@@ -44,11 +44,17 @@ export class CarroComponent {
   }
 
   dropDownCategorias() {
-    this.carroService.buscarCategorias().subscribe(data => {
-      this.categorias = data;
-    })
+    this.carroService.buscarCategorias('')
+      .subscribe(
+        (dados: categoria[]) => {
+          this.categorias = dados;
+        },
+        (erro) => {
+          console.error('Erro ao buscar categorias:', erro);
+        }
+      );
   }
-
+  
 
 
 }
