@@ -25,13 +25,4 @@ export class loginService {
         );
     }
 
-    verificaLogin(): boolean {
-        const token = sessionStorage.getItem("auth-token");
-
-        if (token) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

@@ -14,6 +14,6 @@ export class carroService {
     constructor(private http: HttpClient) { }
 
     buscarCategorias(): Observable<categoria[]> {
-        return this.http.get<categoria[]>(`${this.apiUrl}/categoria`)
+        return this.http.get<categoria[]>(`${this.apiUrl}/categoria`, { headers: {} })
     }
 }
