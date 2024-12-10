@@ -5,11 +5,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { CarroComponent } from './components/carro/carro.component';
+import { AuthGuard } from 'src/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'register',
@@ -21,11 +22,13 @@ const routes: Routes = [
   },
   {
     path: 'usuario',
-    component: UsuarioComponent
+    component: UsuarioComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'carro',
-    component: CarroComponent
+    component: CarroComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',
