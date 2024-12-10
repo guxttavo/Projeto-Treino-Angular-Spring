@@ -19,6 +19,7 @@ export class MenuComponent implements OnInit {
   sair(): void {
     sessionStorage.clear();
     this.usuarioLogado = false;
+    window.location.reload();
   }
 
 }

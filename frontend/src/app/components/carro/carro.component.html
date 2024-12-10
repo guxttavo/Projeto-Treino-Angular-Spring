@@ -1,1 +1,104 @@
-<p>carro works!</p>
+<div class="container mt-4 p-4 bg-light rounded">
+    <h2 class="text-center" style="font-size: 1.8rem;">Cadastro de Carro</h2>
+    <form [formGroup]="form" class="form-large">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" id="nome" formControlName="nome" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label for="ano" class="form-label">Ano</label>
+                <input type="number" id="ano" formControlName="ano" class="form-control" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="quilometragem" class="form-label">Quilometragem</label>
+                <input type="number" id="quilometragem" formControlName="quilometragem" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label for="concessionaria" class="form-label">Concessionária</label>
+                <input type="text" id="concessionaria" formControlName="concessionaria" class="form-control" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="placa" class="form-label">Placa</label>
+                <input type="text" id="placa" formControlName="placa" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label for="estado" class="form-label">Estado</label>
+                <input type="text" id="estado" formControlName="estado" class="form-control" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="cidade" class="form-label">Cidade</label>
+                <input type="text" id="cidade" formControlName="cidade" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label for="numeroDeDonos" class="form-label">Número de Donos</label>
+                <input type="number" id="numeroDeDonos" formControlName="numeroDeDonos" class="form-control" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="categoria" class="form-label">Categoria</label>
+                <select id="categoria" formControlName="categoria" class="form-control">
+                    <option value="" disabled selected>Selecione a categoria</option>
+                    <option *ngFor="let categoria of categorias" [value]="categoria.nome">{{ categoria.nome }}</option>
+                </select>
+
+            </div>
+            <div class="col-md-6">
+                <label for="cor" class="form-label">Cor</label>
+                <select id="cor" formControlName="cor" class="form-control">
+                    <option value="" disabled selected>Selecione a cor</option>
+                    <option value="Branco">Branco</option>
+                    <option value="Preto">Preto</option>
+                    <option value="Prata">Prata</option>
+                    <option value="Vermelho">Vermelho</option>
+                    <option value="Azul">Azul</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="marca" class="form-label">Marca</label>
+                <select id="marca" formControlName="marca" class="form-control">
+                    <option value="" disabled selected>Selecione a marca</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Chevrolet">Chevrolet</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="combustivel" class="form-label">Tipo de Combustível</label>
+                <select id="combustivel" formControlName="combustivel" class="form-control">
+                    <option value="" disabled selected>Selecione o combustível</option>
+                    <option value="Gasolina">Gasolina</option>
+                    <option value="Etanol">Etanol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Flex">Flex</option>
+                    <option value="Elétrico">Elétrico</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="valorBruto" class="form-label">Valor Bruto</label>
+                <input type="number" id="valorBruto" formControlName="valorBruto" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label for="valorLiquido" class="form-label">Valor Líquido</label>
+                <input type="number" id="valorLiquido" formControlName="valorLiquido" class="form-control" />
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn btn-primary mx-2">Cadastrar</button>
+            <button type="button" class="btn btn-secondary mx-2">Voltar</button>
+        </div>
+    </form>
+</div>

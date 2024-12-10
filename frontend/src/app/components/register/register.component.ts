@@ -8,6 +8,7 @@ import { ViacepService } from 'src/app/services/viaCep.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent {
 
   form: FormGroup = new FormGroup({});

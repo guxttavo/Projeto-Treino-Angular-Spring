@@ -1,0 +1,7 @@
+.form-large .form-control,
+.form-large .form-label {
+  font-size: 1.2rem; /* Mantém o tamanho maior para melhor legibilidade */
+}
+.form-large .btn {
+  font-size: 1.1rem; /* Tamanho dos botões */
+}

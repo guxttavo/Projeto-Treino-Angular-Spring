@@ -1,1 +1,3 @@
-<h1>Meus Carros:</h1>
+<li class="nav-item" *ngIf="usuarioLogado">
+    <a class="nav-link estilizacao" [routerLink]="['/carro']">Cadastrar um carro</a>
+</li>
