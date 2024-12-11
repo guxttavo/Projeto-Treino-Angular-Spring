@@ -3,7 +3,9 @@ package projeto.backend.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projeto.backend.Entities.Categoria;
+import projeto.backend.Entities.Cor;
 import projeto.backend.Repositories.CategoriaRepository;
+import projeto.backend.Repositories.CorRepository;
 
 import java.util.List;
 
@@ -11,10 +13,16 @@ import java.util.List;
 public class CarroService {
 
     @Autowired
-    private CategoriaRepository repository;
+    private CategoriaRepository categoriaRepository;
+
+    @Autowired
+    private CorRepository corRepository;
 
     public List<Categoria> buscarCategorias(){
-        return repository.findAll();
+        return categoriaRepository.findAll();
     }
 
+    public List<Cor> buscarCor(){
+        return corRepository.findAll();
+    }
 }

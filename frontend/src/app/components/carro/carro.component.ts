@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { categoria } from 'src/app/interfaces/categoria';
+import { cor } from 'src/app/interfaces/cor';
 import { carroService } from 'src/app/services/carro.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class CarroComponent {
 
   form: FormGroup = new FormGroup({});
   categorias: categoria[] = [];
+  cores: cor[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -22,6 +24,7 @@ export class CarroComponent {
   ngOnInit(): void {
     this.initializeForm();
     this.dropDownCategorias();
+    this.dropDownCor();
   }
 
   initializeForm() {
@@ -45,16 +48,25 @@ export class CarroComponent {
 
   dropDownCategorias() {
     this.carroService.buscarCategorias()
-      .subscribe(
-        (dados: categoria[]) => {
-          this.categorias = dados;
+      .subscribe({
+        next: (categorias: categoria[]) => {
+          this.categorias = categorias;
         },
-        (erro) => {
+        error: (erro) => {
           console.error('Erro ao buscar categorias:', erro);
         }
-      );
+      });
   }
-  
 
-
+  dropDownCor() {
+    this.carroService.buscarCor()
+      .subscribe({
+        next: (cores: cor[]) => {
+          this.cores = cores;
+        },
+        error: (erro) => {
+          console.error('Erro ao buscar cores:', erro);
+        }
+      });
+  }
 }

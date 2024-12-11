@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { categoria } from '../interfaces/categoria';
+import { cor } from '../interfaces/cor';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,5 +16,9 @@ export class carroService {
 
     buscarCategorias(): Observable<categoria[]> {
         return this.http.get<categoria[]>(`${this.apiUrl}/categoria`);
+    }
+
+    buscarCor(): Observable<cor[]>{
+        return this.http.get<cor[]>(`${this.apiUrl}/cor`)
     }
 }
