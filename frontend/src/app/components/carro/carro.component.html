@@ -2,7 +2,7 @@
     <h2 class="text-center" style="font-size: 1.8rem;">Cadastro de Carro</h2>
     <form [formGroup]="form" class="form-large">
         <div class="row mb-3">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label for="nome" class="form-label">Nome</label>
                 <input type="text" id="nome" formControlName="nome" class="form-control" />
             </div>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label for="concessionaria" class="form-label">Concessionária</label>
                 <input type="text" id="concessionaria" formControlName="concessionaria" class="form-control" />
             </div>
@@ -69,9 +69,8 @@
                 </select>
             </div>
         </div>
-        <!-- Campo de Observações -->
         <div class="row mb-3">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <label for="observacoes" class="form-label">Observações</label>
                 <textarea id="observacoes" formControlName="observacoes" class="form-control" rows="4"></textarea>
             </div>
