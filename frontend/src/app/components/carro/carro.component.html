@@ -1,56 +1,51 @@
-<div class="container mt-4 p-4 bg-light rounded">
+<div class="container p-4 bg-light rounded">
     <h2 class="text-center" style="font-size: 1.8rem;">Cadastro de Carro</h2>
     <form [formGroup]="form" class="form-large">
         <div class="row mb-3">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="nome" class="form-label">Nome</label>
                 <input type="text" id="nome" formControlName="nome" class="form-control" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-1">
                 <label for="ano" class="form-label">Ano</label>
                 <input type="number" id="ano" formControlName="ano" class="form-control" />
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <label for="quilometragem" class="form-label">Quilometragem</label>
+            <div class="col-md-1">
+                <label for="quilometragem" class="form-label">KMs</label>
                 <input type="number" id="quilometragem" formControlName="quilometragem" class="form-control" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-2">
+                <label for="valorBruto" class="form-label">Valor Bruto</label>
+                <input type="number" id="valorBruto" formControlName="valorBruto" class="form-control" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3">
                 <label for="concessionaria" class="form-label">Concessionária</label>
                 <input type="text" id="concessionaria" formControlName="concessionaria" class="form-control" />
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-6">
+            <div class="col-md-1">
                 <label for="placa" class="form-label">Placa</label>
                 <input type="text" id="placa" formControlName="placa" class="form-control" />
             </div>
-            <div class="col-md-6">
-                <label for="estado" class="form-label">Estado</label>
-                <input type="text" id="estado" formControlName="estado" class="form-control" />
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <label for="cidade" class="form-label">Cidade</label>
-                <input type="text" id="cidade" formControlName="cidade" class="form-control" />
-            </div>
-            <div class="col-md-6">
-                <label for="numeroDeDonos" class="form-label">Número de Donos</label>
+            <div class="col-md-1">
+                <label for="numeroDeDonos" class="form-label">Donos</label>
                 <input type="number" id="numeroDeDonos" formControlName="numeroDeDonos" class="form-control" />
             </div>
+            <div class="col-md-2">
+                <label for="valorLiquido" class="form-label">Valor Líquido</label>
+                <input type="number" id="valorLiquido" formControlName="valorLiquido" class="form-control" />
+            </div>
         </div>
         <div class="row mb-3">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="categoria" class="form-label">Categoria</label>
                 <select id="categoria" formControlName="categoria" class="form-control">
                     <option value="" disabled selected>Selecione a categoria</option>
                     <option *ngFor="let categoria of categorias" [value]="categoria.nome">{{ categoria.nome }}</option>
                 </select>
-
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="cor" class="form-label">Cor</label>
                 <select id="cor" formControlName="cor" class="form-control">
                     <option value="" disabled selected>Selecione a cor</option>
@@ -59,15 +54,14 @@
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="marca" class="form-label">Marca</label>
                 <select id="marca" formControlName="marca" class="form-control">
                     <option value="" disabled selected>Selecione a marca</option>
                     <option *ngFor="let marca of marcas" [value]="marca.nome">{{ marca.nome }}</option>       
-                    
                 </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="combustivel" class="form-label">Tipo de Combustível</label>
                 <select id="combustivel" formControlName="combustivel" class="form-control">
                     <option value="" disabled selected>Selecione o tipo de combustivel</option>
@@ -75,14 +69,11 @@
                 </select>
             </div>
         </div>
+        <!-- Campo de Observações -->
         <div class="row mb-3">
-            <div class="col-md-6">
-                <label for="valorBruto" class="form-label">Valor Bruto</label>
-                <input type="number" id="valorBruto" formControlName="valorBruto" class="form-control" />
-            </div>
-            <div class="col-md-6">
-                <label for="valorLiquido" class="form-label">Valor Líquido</label>
-                <input type="number" id="valorLiquido" formControlName="valorLiquido" class="form-control" />
+            <div class="col-md-12">
+                <label for="observacoes" class="form-label">Observações</label>
+                <textarea id="observacoes" formControlName="observacoes" class="form-control" rows="4"></textarea>
             </div>
         </div>
         <div class="d-flex justify-content-center mt-4">

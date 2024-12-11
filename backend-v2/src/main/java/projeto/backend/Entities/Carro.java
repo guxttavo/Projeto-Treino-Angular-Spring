@@ -26,8 +26,6 @@ public class Carro {
     private Integer quilometragem;
     private String concessionaria;
     private String placa;
-    private String estado;
-    private String cidade;
     private Integer numeroDeDonos;
     private String possiveisProblemas;
 
