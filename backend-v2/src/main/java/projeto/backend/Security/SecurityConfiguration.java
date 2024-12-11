@@ -40,6 +40,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.GET, "/carro/categoria").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/cor").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/marca").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/carro/tipoDeCombustivel").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);

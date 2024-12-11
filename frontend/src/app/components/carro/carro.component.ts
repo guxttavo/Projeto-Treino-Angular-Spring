@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { categoria } from 'src/app/interfaces/categoria';
 import { cor } from 'src/app/interfaces/cor';
 import { marca } from 'src/app/interfaces/marca';
+import { tipoDeCombustivel } from 'src/app/interfaces/tipoDeCombustivel';
 import { carroService } from 'src/app/services/carro.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class CarroComponent {
   categorias: categoria[] = [];
   cores: cor[] = [];
   marcas: marca[] = [];
+  tiposDeCombustiveis: tipoDeCombustivel[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -28,6 +30,7 @@ export class CarroComponent {
     this.dropDownCategorias();
     this.dropDownCor();
     this.dropDownMarca();
+    this.dropDownTipoDeCombustivel();
   }
 
   initializeForm() {
@@ -83,5 +86,17 @@ export class CarroComponent {
           console.error('Erro ao buscar marcas:', erro);
         }
       });
+  }
+
+  dropDownTipoDeCombustivel() {
+    this.carroService.buscarTiposDeCombustiveis()
+    .subscribe({
+      next: (tiposDeCombustiveis: tipoDeCombustivel[]) => {
+        this.tiposDeCombustiveis = tiposDeCombustiveis;
+      },
+      error: (erro) => {
+        console.error('Erro ao buscar tiposDeCombustiveis:', erro);
+      }
+    });
   }
 }

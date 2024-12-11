@@ -62,14 +62,16 @@
             <div class="col-md-6">
                 <label for="marca" class="form-label">Marca</label>
                 <select id="marca" formControlName="marca" class="form-control">
+                    <option value="" disabled selected>Selecione a marca</option>
                     <option *ngFor="let marca of marcas" [value]="marca.nome">{{ marca.nome }}</option>       
-
+                    
                 </select>
             </div>
             <div class="col-md-6">
                 <label for="combustivel" class="form-label">Tipo de Combustível</label>
                 <select id="combustivel" formControlName="combustivel" class="form-control">
-                    <option value="" disabled selected>Selecione o combustível</option>
+                    <option value="" disabled selected>Selecione o tipo de combustivel</option>
+                    <option *ngFor="let tipoDeCombustivel of tiposDeCombustiveis" [value]="tipoDeCombustivel.nome">{{ tipoDeCombustivel.nome }}</option>       
                 </select>
             </div>
         </div>

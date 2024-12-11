@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { categoria } from '../interfaces/categoria';
 import { cor } from '../interfaces/cor';
 import { marca } from '../interfaces/marca';
+import { tipoDeCombustivel } from '../interfaces/tipoDeCombustivel';
 
 @Injectable({
     providedIn: 'root'
@@ -25,5 +26,9 @@ export class carroService {
 
     buscarMarcas(): Observable<marca[]>{
         return this.http.get<marca[]>(`${this.apiUrl}/marca`)
+    }
+
+    buscarTiposDeCombustiveis(): Observable<tipoDeCombustivel[]>{
+        return this.http.get<tipoDeCombustivel[]>(`${this.apiUrl}/tipoDeCombustivel`)
     }
 }
