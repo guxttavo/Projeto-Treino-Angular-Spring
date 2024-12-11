@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import projeto.backend.Entities.Categoria;
 import projeto.backend.Entities.Cor;
+import projeto.backend.Entities.Marca;
 import projeto.backend.Services.CarroService;
 
 import java.util.List;
@@ -26,9 +27,16 @@ public class CarroController {
 
     @GetMapping("/cor")
     public ResponseEntity<List<Cor>> buscarCores() {
-        List<Cor> cores = carroService.buscarCor();
+        List<Cor> cores = carroService.buscarCores();
         return ResponseEntity.ok(cores);
     }
+
+    @GetMapping("/marca")
+    public ResponseEntity<List<Marca>> buscarMarcas() {
+        List<Marca> marcas = carroService.buscarMarcas();
+        return ResponseEntity.ok(marcas);
+    }
+
 
 
 }

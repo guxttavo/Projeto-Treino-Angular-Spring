@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { categoria } from 'src/app/interfaces/categoria';
 import { cor } from 'src/app/interfaces/cor';
+import { marca } from 'src/app/interfaces/marca';
 import { carroService } from 'src/app/services/carro.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class CarroComponent {
   form: FormGroup = new FormGroup({});
   categorias: categoria[] = [];
   cores: cor[] = [];
+  marcas: marca[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -25,6 +27,7 @@ export class CarroComponent {
     this.initializeForm();
     this.dropDownCategorias();
     this.dropDownCor();
+    this.dropDownMarca();
   }
 
   initializeForm() {
@@ -59,13 +62,25 @@ export class CarroComponent {
   }
 
   dropDownCor() {
-    this.carroService.buscarCor()
+    this.carroService.buscarCores()
       .subscribe({
         next: (cores: cor[]) => {
           this.cores = cores;
         },
         error: (erro) => {
           console.error('Erro ao buscar cores:', erro);
+        }
+      });
+  }
+
+  dropDownMarca() {
+    this.carroService.buscarMarcas()
+      .subscribe({
+        next: (marcas: marca[]) => {
+          this.marcas = marcas;
+        },
+        error: (erro) => {
+          console.error('Erro ao buscar marcas:', erro);
         }
       });
   }
