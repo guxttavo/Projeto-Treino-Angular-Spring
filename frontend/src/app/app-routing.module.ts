@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { UsuarioComponent } from './components/usuario/usuario.component';
 import { CarroComponent } from './components/carro/carro.component';
 import { AuthGuard } from 'src/guards/auth.guard';
+import { CadastrarUsuarioComponent } from './components/usuario/cadastrar-usuario/cadastrar-usuario.component';
 
 const routes: Routes = [
   {
@@ -13,17 +12,12 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
     path: 'home',
     component: HomeComponent
   },
   {
-    path: 'usuario',
-    component: UsuarioComponent,
-    canActivate: [AuthGuard]
+    path: 'usuario/cadastrar-usuario',
+    component: CadastrarUsuarioComponent,
   },
   {
     path: 'carro',

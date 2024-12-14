@@ -4,12 +4,11 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { ViacepService } from 'src/app/services/viaCep.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-cadastrar-usuario',
+  templateUrl: './cadastrar-usuario.component.html',
+  styleUrls: ['./cadastrar-usuario.component.css']
 })
-
-export class RegisterComponent {
+export class CadastrarUsuarioComponent {
 
   form: FormGroup = new FormGroup({});
   showToast: boolean = false;
@@ -45,14 +44,14 @@ export class RegisterComponent {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
       this.usuarioService.cadastrarUsuario(formData).subscribe({
-        next: (response) => {
+        next: (response: any) => {
           this.showToast = true;
           setTimeout(() => {
             this.showToast = false;
           }, 3000);
           console.log('Usuário cadastrado com sucesso:', response);
         },
-        error: (error) => {
+        error: (error: any) => {
           this.showErrorToast = true;
           setTimeout(() => {
             this.showErrorToast = false;

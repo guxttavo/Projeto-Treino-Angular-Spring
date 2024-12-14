@@ -34,29 +34,4 @@ public class AuthenticationController {
         }
         return ResponseEntity.badRequest().build();
     }
-
-    @PostMapping("/register")
-    public ResponseEntity register(@RequestBody Usuario usuario) {
-        Optional<Usuario> verificaUsuario = this.usuarioRepository.findByEmail(usuario.getEmail());
-
-        if (verificaUsuario.isEmpty()) {
-            Usuario novoUsuario = new Usuario();
-            novoUsuario.setNome(usuario.getNome());
-            novoUsuario.setEmail(usuario.getEmail());
-            novoUsuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
-            novoUsuario.setCpf(usuario.getCpf());
-            novoUsuario.setTelefone(usuario.getTelefone());
-            novoUsuario.setCep(usuario.getCep());
-            novoUsuario.setLogradouro(usuario.getLogradouro());
-            novoUsuario.setBairro(usuario.getBairro());
-            novoUsuario.setCidade(usuario.getCidade());
-            novoUsuario.setEstado(usuario.getEstado());
-
-            this.usuarioRepository.save(novoUsuario);
-
-            String token = this.tokenService.generateToken(novoUsuario);
-            return ResponseEntity.ok(new ResponseDTO(novoUsuario.getNome(), token));
-        }
-        return ResponseEntity.badRequest().build();
-    }
 }

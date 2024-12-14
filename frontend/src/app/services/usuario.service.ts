@@ -7,11 +7,11 @@ import { usuario } from '../interfaces/usuario';
 })
 export class UsuarioService {
 
-  private apiUrl = 'http://localhost:8080/auth';
+  private apiUrl = 'http://localhost:8080/usuario';
 
   constructor(private http: HttpClient) { }
 
   cadastrarUsuario(usuarioDetails: usuario) {
-    return this.http.post(`${this.apiUrl + "/register"}`, usuarioDetails);
+    return this.http.post(`${this.apiUrl + "/cadastrar"}`, usuarioDetails);
   }
 }
