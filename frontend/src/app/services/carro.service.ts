@@ -31,4 +31,8 @@ export class carroService {
     buscarTiposDeCombustiveis(): Observable<tipoDeCombustivel[]>{
         return this.http.get<tipoDeCombustivel[]>(`${this.apiUrl}/tipoDeCombustivel`)
     }
+
+    cadastrarCarro(){
+        // return 
+    }
 }

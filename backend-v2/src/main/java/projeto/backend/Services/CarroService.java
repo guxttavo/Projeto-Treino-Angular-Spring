@@ -21,23 +21,27 @@ public class CarroService {
     @Autowired
     private CarroRepository carroRepository;
 
-    public List<Categoria> buscarCategorias(){
+    public List<Categoria> buscarCategorias() {
         return categoriaRepository.findAll();
     }
 
-    public List<Cor> buscarCores(){
+    public List<Cor> buscarCores() {
         return corRepository.findAll();
     }
 
-    public List<Marca> buscarMarcas(){
+    public List<Marca> buscarMarcas() {
         return marcaRepository.findAll();
     }
 
-    public List<TipoDeCombustivel> buscarTipoDeCombustive(){
+    public List<TipoDeCombustivel> buscarTipoDeCombustive() {
         return tipoDeCombustivelRepository.findAll();
     }
 
-    public Carro buscarCarroPorPlaca(Carro placa){
+    public Carro buscarCarroPorPlaca(String placa) {
         return carroRepository.findByPlaca(placa);
+    }
+
+    public Carro cadastrarCarro(Carro carro){
+        return carroRepository.save(carro);
     }
 }

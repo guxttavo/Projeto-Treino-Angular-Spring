@@ -5,25 +5,38 @@ import { cor } from 'src/app/interfaces/cor';
 import { marca } from 'src/app/interfaces/marca';
 import { tipoDeCombustivel } from 'src/app/interfaces/tipoDeCombustivel';
 import { carroService } from 'src/app/services/carro.service';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-carro',
-  templateUrl: './carro.component.html',
-  styleUrls: ['./carro.component.css']
+  templateUrl: './cadastrar-carro.component.html',
+  styleUrls: ['./cadastrar-carro.component.css']
 })
 
-export class CarroComponent {
+export class CadastrarCarroComponent {
 
   form: FormGroup = new FormGroup({});
+  datepickerConfig: Partial<BsDatepickerConfig> | undefined;
   categorias: categoria[] = [];
   cores: cor[] = [];
   marcas: marca[] = [];
   tiposDeCombustiveis: tipoDeCombustivel[] = [];
+  startDate: Date = new Date();
+  minDate: Date = new Date(2000, 0, 1);  // Definindo ano mínimo
+  maxDate: Date = new Date(2025, 11, 31);
 
   constructor(
     private fb: FormBuilder,
     private carroService: carroService
-  ) { }
+  ) {
+
+    this.datepickerConfig = {
+      dateInputFormat: 'YYYY',
+      minMode: 'year',
+      minDate: new Date(2000, 0, 1),
+      maxDate: new Date(2025, 11, 31)
+    };
+  }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -36,7 +49,7 @@ export class CarroComponent {
   initializeForm() {
     this.form = this.fb.group({
       nome: ['', Validators.required],
-      ano: ['', [Validators.required, Validators.min(1886)]], // Exemplo de validação
+      ano: ['', [Validators.required, Validators.min(1900), Validators.max(2099)]],
       quilometragem: ['', Validators.required],
       concessionaria: ['', Validators.required],
       placa: ['', Validators.required],
@@ -49,8 +62,23 @@ export class CarroComponent {
       combustivel: ['', Validators.required],
       valorBruto: ['', Validators.required],
       valorLiquido: ['', Validators.required],
+      observacoes: ['', Validators.required]
     });
   }
+
+  onSubmit(): void {
+    if (this.form.valid) {
+      const formData = this.form.getRawValue();
+      console.log(formData);
+    }
+  }
+
+  anoSelecionado(event: any, picker: any) {
+    const ano = event.getFullYear(); // Obtém o ano selecionado
+    this.form.get('ano')?.setValue(ano); // Define o valor no formulário
+    picker.close(); // Fecha o seletor de data
+  }
+
 
   dropDownCategorias() {
     this.carroService.buscarCategorias()
@@ -90,13 +118,13 @@ export class CarroComponent {
 
   dropDownTipoDeCombustivel() {
     this.carroService.buscarTiposDeCombustiveis()
-    .subscribe({
-      next: (tiposDeCombustiveis: tipoDeCombustivel[]) => {
-        this.tiposDeCombustiveis = tiposDeCombustiveis;
-      },
-      error: (erro) => {
-        console.error('Erro ao buscar tiposDeCombustiveis:', erro);
-      }
-    });
+      .subscribe({
+        next: (tiposDeCombustiveis: tipoDeCombustivel[]) => {
+          this.tiposDeCombustiveis = tiposDeCombustiveis;
+        },
+        error: (erro) => {
+          console.error('Erro ao buscar tiposDeCombustiveis:', erro);
+        }
+      });
   }
 }

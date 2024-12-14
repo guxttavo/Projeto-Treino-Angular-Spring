@@ -27,7 +27,7 @@ public class Carro {
     private String concessionaria;
     private String placa;
     private Integer numeroDeDonos;
-    private String possiveisProblemas;
+    private String observacoes;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")

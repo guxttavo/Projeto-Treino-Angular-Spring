@@ -16,6 +16,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CadastrarUsuarioComponent } from './components/usuario/cadastrar-usuario/cadastrar-usuario.component';
 import { EditarUsuarioComponent } from './components/usuario/editar-usuario/editar-usuario.component';
 import { CadastrarCarroComponent } from './components/carro/cadastrar-carro/cadastrar-carro.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core'; 
 
 @NgModule({
   declarations: [
@@ -35,9 +39,15 @@ import { CadastrarCarroComponent } from './components/carro/cadastrar-carro/cada
     CommonModule,
     HttpClientModule,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule
   ],
-  providers: [provideNgxMask()],
+  providers: [
+    provideNgxMask()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
