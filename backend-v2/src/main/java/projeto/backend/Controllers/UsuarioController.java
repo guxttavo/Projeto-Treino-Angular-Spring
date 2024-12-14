@@ -22,15 +22,13 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
     @Autowired
-    private UsuarioRepository usuarioRepository;
-    @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
     private TokenService tokenService;
 
     @PostMapping("/cadastrar")
     public ResponseEntity<ResponseDTO> cadastrarUsuario(@RequestBody Usuario usuario) {
-        Optional<Usuario> verificaUsuario = this.usuarioRepository.findByEmail(usuario.getEmail());
+        Optional<Usuario> verificaUsuario = this.usuarioService.buscarUsuarioPorEmail(usuario.getEmail());
 
         if (verificaUsuario.isEmpty()) {
             Usuario novoUsuario = new Usuario();
@@ -45,7 +43,7 @@ public class UsuarioController {
             novoUsuario.setCidade(usuario.getCidade());
             novoUsuario.setEstado(usuario.getEstado());
 
-            this.usuarioRepository.save(novoUsuario);
+            this.usuarioService.salvarUsuario(novoUsuario);
 
             String token = this.tokenService.generateToken(novoUsuario);
             return ResponseEntity.ok(new ResponseDTO(novoUsuario.getNome(), token));

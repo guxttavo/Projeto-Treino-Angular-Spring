@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { CarroComponent } from './components/carro/carro.component';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { CadastrarUsuarioComponent } from './components/usuario/cadastrar-usuario/cadastrar-usuario.component';
+import { CadastrarCarroComponent } from './components/carro/cadastrar-carro/cadastrar-carro.component';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'carro',
-    component: CarroComponent,
+    component: CadastrarCarroComponent,
     canActivate: [AuthGuard]
   },
   {

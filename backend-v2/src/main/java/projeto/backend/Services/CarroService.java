@@ -2,14 +2,8 @@ package projeto.backend.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import projeto.backend.Entities.Categoria;
-import projeto.backend.Entities.Cor;
-import projeto.backend.Entities.Marca;
-import projeto.backend.Entities.TipoDeCombustivel;
-import projeto.backend.Repositories.CategoriaRepository;
-import projeto.backend.Repositories.CorRepository;
-import projeto.backend.Repositories.MarcaRepository;
-import projeto.backend.Repositories.TipoDeCombustivelRepository;
+import projeto.backend.Entities.*;
+import projeto.backend.Repositories.*;
 
 import java.util.List;
 
@@ -24,6 +18,8 @@ public class CarroService {
     private MarcaRepository marcaRepository;
     @Autowired
     private TipoDeCombustivelRepository tipoDeCombustivelRepository;
+    @Autowired
+    private CarroRepository carroRepository;
 
     public List<Categoria> buscarCategorias(){
         return categoriaRepository.findAll();
@@ -39,5 +35,9 @@ public class CarroService {
 
     public List<TipoDeCombustivel> buscarTipoDeCombustive(){
         return tipoDeCombustivelRepository.findAll();
+    }
+
+    public Carro buscarCarroPorPlaca(Carro placa){
+        return carroRepository.findByPlaca(placa);
     }
 }

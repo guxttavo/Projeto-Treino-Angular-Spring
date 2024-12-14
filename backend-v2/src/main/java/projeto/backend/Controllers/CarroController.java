@@ -2,13 +2,8 @@ package projeto.backend.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import projeto.backend.Entities.Categoria;
-import projeto.backend.Entities.Cor;
-import projeto.backend.Entities.Marca;
-import projeto.backend.Entities.TipoDeCombustivel;
+import org.springframework.web.bind.annotation.*;
+import projeto.backend.Entities.*;
 import projeto.backend.Services.CarroService;
 
 import java.util.List;
@@ -38,12 +33,15 @@ public class CarroController {
         return ResponseEntity.ok(marcas);
     }
 
-   @GetMapping("/tipoDeCombustivel")
+    @GetMapping("/tipoDeCombustivel")
     public ResponseEntity<List<TipoDeCombustivel>> buscarTiposDeCombustiveis() {
         List<TipoDeCombustivel> tiposDeCombustiveis = carroService.buscarTipoDeCombustive();
         return ResponseEntity.ok(tiposDeCombustiveis);
     }
 
-
+//    @PostMapping("/cadastrar-carro")
+//    public ResponseEntity<Carro> cadastrarCarro(@RequestBody Carro carro) {
+//        Carro verificaCarro = carroService.buscarCarroPorPlaca(carro.getPlaca());
+//    }
 
 }
