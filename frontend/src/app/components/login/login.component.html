@@ -1,26 +1,27 @@
 <div class="alinhamento d-flex justify-content-center align-items-center">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="card">
-            <div class="card-header text-center">
-                <h5>Login</h5>
-            </div>
-            <div class="card-body">
+        <mat-card>
+            <mat-card-header class="text-center">
+                <mat-card-title>Login</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" formControlName="email"
-                        placeholder="Digite seu email">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" id="email" formControlName="email" placeholder="Digite seu email">
+                    </mat-form-field>
                 </div>
                 <div class="mb-3">
-                    <label for="senha" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="senha" formControlName="senha"
-                        placeholder="Digite sua senha">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Senha</mat-label>
+                        <input matInput type="password" id="senha" formControlName="senha" placeholder="Digite sua senha">
+                    </mat-form-field>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Entrar</button>
-            </div>
-            <div class="card-footer text-center">
-                Não tem conta? <a [routerLink]="['/register']">Cadastre-se</a>
-            </div>
-        </div>
+                <button mat-raised-button color="primary" type="submit" class="w-100">Entrar</button>
+            </mat-card-content>
+            <mat-card-footer class="text-center">
+                Não tem conta? <a [routerLink]="['usuario/cadastrar-usuario']">Cadastre-se</a>
+            </mat-card-footer>
+        </mat-card>
     </form>
 </div>
-

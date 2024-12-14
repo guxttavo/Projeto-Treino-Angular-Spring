@@ -1,26 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand" [routerLink]="['/home']">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<mat-toolbar color="primary">
+    <a mat-button [routerLink]="['/home']" class="navbar-brand">Home</a>
+  
+    <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidenav">
+      <mat-icon>menu</mat-icon>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item" *ngIf="!usuarioLogado">
-                <a class="nav-link estilizacao" [routerLink]="['/login']">Login</a>
-            </li>
-            <li class="nav-item" *ngIf="!usuarioLogado">
-                <a class="nav-link estilizacao" [routerLink]="['/usuario/cadastrar-usuario']">Cadastro</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item" *ngIf="usuarioLogado">
-                <a class="nav-link estilizacao" [routerLink]="['/usuario']">Meu Perfil</a>
-            </li>
-            <li class="nav-item btn-sair" *ngIf="usuarioLogado">
-                <a class="nav-link estilizacao" (click)="sair()">Sair</a>
-            </li>
-        </ul>
+  
+    <mat-sidenav-container class="example-container">
+      <mat-sidenav #sidenav mode="side" opened="false">
+        <div class="menu">
+          <mat-list>
+            <a mat-list-item *ngIf="!usuarioLogado" [routerLink]="['/login']">Login</a>
+            <a mat-list-item *ngIf="!usuarioLogado" [routerLink]="['/usuario/cadastrar-usuario']">Cadastro</a>
+            <a mat-list-item *ngIf="usuarioLogado" [routerLink]="['/usuario']">Meu Perfil</a>
+            <a mat-list-item *ngIf="usuarioLogado" (click)="sair()">Sair</a>
+          </mat-list>
+        </div>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  
+    <span class="spacer"></span> <!-- Spacer to align items to the right -->
+  
+    <div *ngIf="usuarioLogado" class="user-actions">
+      <button mat-button [routerLink]="['/usuario']">Meu Perfil</button>
+      <button mat-button (click)="sair()">Sair</button>
     </div>
-</nav>
+  </mat-toolbar>
+  

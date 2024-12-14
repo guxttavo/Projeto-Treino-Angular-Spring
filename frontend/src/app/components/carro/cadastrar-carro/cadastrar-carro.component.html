@@ -1,107 +1,124 @@
-<div class="container-md p-4 mt-2 bg-light rounded">
+<div class="custom-container p-4 mt-2 bg-light rounded">
     <h2 class="text-center" style="font-size: 1.8rem;">Cadastro de Carro</h2>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="">
-        <div class="row mb-3">
-            <div class="col-md-2">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" id="nome" formControlName="nome" class="form-control" />
-            </div>
-            <div class="col-md-2">
-                <label for="ano" class="form-label">Ano</label>
-                <mat-form-field appearance="fill" class="w-100">
-                    <input matInput [matDatepicker]="picker" formControlName="ano" placeholder="Selecione o ano" readonly />
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker
-                        #picker
-                        startView="multi-year"
-                        panelClass="year-only-picker"
-                        (yearSelected)="anoSelecionado($event, picker)" 
-                        [startAt]="startDate"
-                    ></mat-datepicker>
-                </mat-form-field>
-                
-            </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Nome</mat-label>
+            <input matInput type="text" formControlName="nome" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Ano</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="ano" placeholder="Selecione o ano" readonly />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker
+              #picker
+              startView="multi-year"
+              panelClass="year-only-picker"
+              (yearSelected)="anoSelecionado($event, picker)"
+              [startAt]="startDate"
+            ></mat-datepicker>
+          </mat-form-field>
+        </div>
+  
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>KMs</mat-label>
+            <input matInput type="number" formControlName="quilometragem" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Valor Bruto</mat-label>
+            <input matInput type="number" formControlName="valorBruto" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Concessionária</mat-label>
+            <input matInput type="text" formControlName="concessionaria" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Placa</mat-label>
+            <input matInput type="text" formControlName="placa" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Donos</label>
+          <div class="d-flex align-items-center">
+            <mat-radio-group formControlName="numeroDeDonos">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Valor Líquido</mat-label>
+            <input matInput type="number" formControlName="valorLiquido" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Categoria</mat-label>
+            <mat-select formControlName="categoria">
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria.nome">
+                {{ categoria.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Cor</mat-label>
+            <mat-select formControlName="cor">
+              <mat-option *ngFor="let cor of cores" [value]="cor.nome">{{ cor.nome }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Marca</mat-label>
+            <mat-select formControlName="marca">
+              <mat-option *ngFor="let marca of marcas" [value]="marca.nome">{{ marca.nome }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Combustível</mat-label>
+            <mat-select formControlName="combustivel">
+              <mat-option *ngFor="let tipoDeCombustivel of tiposDeCombustiveis" [value]="tipoDeCombustivel.nome">
+                {{ tipoDeCombustivel.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
 
-            <div class="col-md-2">
-                <label for="quilometragem" class="form-label">KMs</label>
-                <input type="number" id="quilometragem" formControlName="quilometragem" class="form-control" />
-            </div>
-            <div class="col-md-2">
-                <label for="valorBruto" class="form-label">Valor Bruto</label>
-                <input type="number" id="valorBruto" formControlName="valorBruto" class="form-control" />
-            </div>
+      </div>
+      <div class="row mb-3">
+        
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Observações</mat-label>
+            <textarea matInput formControlName="observacoes" rows="4"></textarea>
+          </mat-form-field>
         </div>
-        <div class="row mb-3">
-            <div class="col-md-2">
-                <label for="concessionaria" class="form-label">Concessionária</label>
-                <input type="text" id="concessionaria" formControlName="concessionaria" class="form-control" />
-            </div>
-            <div class="col-md-2">
-                <label for="placa" class="form-label">Placa</label>
-                <input type="text" id="placa" formControlName="placa" class="form-control" />
-            </div>
-            <div class="col-md-2">
-                <label class="form-label">Donos</label>
-                <div class="d-flex align-items-center">
-                    <div class="form-check me-3">
-                        <input class="form-check-input" type="radio" id="dono1" formControlName="numeroDeDonos"
-                            value="1" />
-                        <label class="form-check-label" for="dono1">1</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="dono2" formControlName="numeroDeDonos"
-                            value="2" />
-                        <label class="form-check-label" for="dono2">2</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <label for="valorLiquido" class="form-label">Valor Líquido</label>
-                <input type="number" id="valorLiquido" formControlName="valorLiquido" class="form-control" />
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-3">
-                <label for="categoria" class="form-label">Categoria</label>
-                <select id="categoria" formControlName="categoria" class="form-control">
-                    <option value="" disabled selected>Selecione a categoria</option>
-                    <option *ngFor="let categoria of categorias" [value]="categoria.nome">{{ categoria.nome }}</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="cor" class="form-label">Cor</label>
-                <select id="cor" formControlName="cor" class="form-control">
-                    <option value="" disabled selected>Selecione a cor</option>
-                    <option *ngFor="let cor of cores" [value]="cor.nome">{{ cor.nome }}</option>
-                </select>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-3">
-                <label for="marca" class="form-label">Marca</label>
-                <select id="marca" formControlName="marca" class="form-control">
-                    <option value="" disabled selected>Selecione a marca</option>
-                    <option *ngFor="let marca of marcas" [value]="marca.nome">{{ marca.nome }}</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="combustivel" class="form-label">Tipo de Combustível</label>
-                <select id="combustivel" formControlName="combustivel" class="form-control">
-                    <option value="" disabled selected>Selecione o tipo de combustivel</option>
-                    <option *ngFor="let tipoDeCombustivel of tiposDeCombustiveis" [value]="tipoDeCombustivel.nome">{{
-                        tipoDeCombustivel.nome }}</option>
-                </select>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <label for="observacoes" class="form-label">Observações</label>
-                <textarea id="observacoes" formControlName="observacoes" class="form-control" rows="4"></textarea>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center mt-4">
-            <button type="submit" class="btn btn-primary mx-2">Cadastrar</button>
-            <button type="button" class="btn btn-secondary mx-2">Voltar</button>
-        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <button mat-raised-button color="primary" type="submit" class="mx-2">Cadastrar</button>
+        <button mat-raised-button color="accent" type="button" class="mx-2">Voltar</button>
+      </div>
     </form>
-</div>
+  </div>
+  

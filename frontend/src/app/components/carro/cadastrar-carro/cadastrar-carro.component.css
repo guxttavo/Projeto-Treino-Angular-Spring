@@ -1,8 +1,12 @@
-.form-large .form-control,
-.form-large .form-label {
-  font-size: 1.2rem; /* Mantém o tamanho maior para melhor legibilidade */
+.custom-container {
+  max-width: 800px;  /* Ajuste o valor conforme necessário */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;  /* Cor de fundo do contêiner */
+  border-radius: 10px;
 }
 
-.form-large .btn {
-  font-size: 1.1rem; /* Tamanho dos botões */
+.custom-container .row {
+  margin-left: 0;
+  margin-right: 0;
 }
