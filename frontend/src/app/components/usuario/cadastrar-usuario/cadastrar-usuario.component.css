@@ -1,17 +1,13 @@
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-}
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-.form-row {
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
-}
-.form-row .form-group {
-    flex: 1;
-}
+.custom-container {
+    max-width: 800px;  /* Ajuste o valor conforme necessário */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;  /* Cor de fundo do contêiner */
+    border-radius: 10px;
+  }
+  
+  .custom-container .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
