@@ -2,6 +2,7 @@
   <h2 class="text-center" style="font-size: 1.8rem;">Cadastro de Usuário</h2>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row mb-3">
+      <!-- Campos de formulário -->
       <div class="col-md-3">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Nome</mat-label>
@@ -89,17 +90,15 @@
           </mat-error>
         </mat-form-field>
       </div>
+    </div>
 
-      <div class="form-row">
-        <div class="col-md-3 flex-grow-1">
-          <button mat-raised-button color="primary" type="submit" class="align-self-end">
-            Cadastrar
-          </button>
-          <a [routerLink]="['/login']" mat-button class="align-self-end">
-            Voltar
-          </a>
-        </div>
-      </div>
+    <div class="d-flex justify-content-center mt-4">
+      <button mat-raised-button color="primary" type="submit" class="mx-2">
+        Cadastrar
+      </button>
+      <a [routerLink]="['/login']" mat-button class="mx-2">
+        Voltar
+      </a>
     </div>
   </form>
 </div>
