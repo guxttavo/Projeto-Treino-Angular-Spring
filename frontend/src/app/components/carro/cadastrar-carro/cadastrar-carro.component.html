@@ -17,7 +17,6 @@
             (yearSelected)="anoSelecionado($event, picker)" [startAt]="startDate"></mat-datepicker>
         </mat-form-field>
       </div>
-
       <div class="col-md-3">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>KMs</mat-label>
@@ -43,7 +42,7 @@
       <div class="col-md-3">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Placa</mat-label>
-          <input matInput type="text" formControlName="placa" />
+          <input matInput type="text" formControlName="placa" (input)="formatarPlaca($event)" />
         </mat-form-field>
       </div>
       <div class="col-md-3">

@@ -5,7 +5,6 @@ import { cor } from 'src/app/interfaces/cor';
 import { marca } from 'src/app/interfaces/marca';
 import { tipoDeCombustivel } from 'src/app/interfaces/tipoDeCombustivel';
 import { carroService } from 'src/app/services/carro.service';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-carro',
@@ -16,26 +15,18 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 export class CadastrarCarroComponent {
 
   form: FormGroup = new FormGroup({});
-  datepickerConfig: Partial<BsDatepickerConfig> | undefined;
   categorias: categoria[] = [];
   cores: cor[] = [];
   marcas: marca[] = [];
   tiposDeCombustiveis: tipoDeCombustivel[] = [];
   startDate: Date = new Date();
-  minDate: Date = new Date(2000, 0, 1);  // Definindo ano mínimo
-  maxDate: Date = new Date(2025, 11, 31);
+  minDate: Date = new Date(2000, 0, 1);
+  maxDate: Date = new Date(new Date().getFullYear(), 12, 31);
 
   constructor(
     private fb: FormBuilder,
     private carroService: carroService
   ) {
-
-    this.datepickerConfig = {
-      dateInputFormat: 'YYYY',
-      minMode: 'year',
-      minDate: new Date(2000, 0, 1),
-      maxDate: new Date(2025, 11, 31)
-    };
   }
 
   ngOnInit(): void {
@@ -79,6 +70,13 @@ export class CadastrarCarroComponent {
     const valorFormatado = valorNumerico.toLocaleString('pt-BR');
 
     this.form.get(formControlName)?.setValue(valorFormatado);
+  }
+
+  formatarPlaca(event: Event){
+    const input = event.target as HTMLInputElement
+    const valorFormatado = input.value.toUpperCase();
+    
+    this.form.get('placa')?.setValue(valorFormatado);
   }
 
   anoSelecionado(event: any, picker: any) {
