@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { CadastrarUsuarioComponent } from './components/usuario/cadastrar-usuario/cadastrar-usuario.component';
 import { CadastrarCarroComponent } from './components/carro/cadastrar-carro/cadastrar-carro.component';
+import { EditarUsuarioComponent } from './components/usuario/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'usuario/cadastrar-usuario',
     component: CadastrarUsuarioComponent,
+  },
+  {
+    path: 'usuario/editar-usuario',
+    component: EditarUsuarioComponent
   },
   {
     path: 'carro',
