@@ -73,11 +73,12 @@ export class CadastrarCarroComponent {
     }
   }
 
-  formatarQuilometragem(event: Event) {
+  formatarParaMilhar(event: Event, formControlName: string) {
     const input = event.target as HTMLInputElement;
     const valorNumerico = parseInt(input.value.replace(/\D/g, ''), 10);
     const valorFormatado = valorNumerico.toLocaleString('pt-BR');
-    this.form.get('quilometragem')?.setValue(valorFormatado);
+
+    this.form.get(formControlName)?.setValue(valorFormatado);
   }
 
   anoSelecionado(event: any, picker: any) {

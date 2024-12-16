@@ -22,13 +22,14 @@
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>KMs</mat-label>
           <input matInput placeholder="Digite a quilometragem" formControlName="quilometragem"
-            (input)="formatarQuilometragem($event)" />
+            (input)="formatarParaMilhar($event, 'quilometragem')" />
         </mat-form-field>
       </div>
       <div class="col-md-3">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Valor Bruto</mat-label>
-          <input matInput type="number" formControlName="valorBruto" />
+          <input matInput type="number" formControlName="valorBruto"
+            (input)="formatarParaMilhar($event,'valorBruto')" />
         </mat-form-field>
       </div>
     </div>
@@ -57,7 +58,8 @@
       <div class="col-md-3">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Valor Líquido</mat-label>
-          <input matInput type="number" formControlName="valorLiquido" />
+          <input matInput type="number" formControlName="valorLiquido"
+            (input)="formatarParaMilhar($event,'valorLiquido')" />
         </mat-form-field>
       </div>
     </div>
