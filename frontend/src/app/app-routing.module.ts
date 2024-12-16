@@ -16,7 +16,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'login/usuario/cadastrar-usuario',
+    path: 'usuario/cadastrar-usuario',
     component: CadastrarUsuarioComponent,
   },
   {
