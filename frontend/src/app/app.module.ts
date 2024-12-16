@@ -73,7 +73,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatOptionModule
   ],
   providers: [
-    provideNgxMask()
+    provideNgxMask(),
+    MatDatepickerModule
   ],
   bootstrap: [AppComponent],
 })

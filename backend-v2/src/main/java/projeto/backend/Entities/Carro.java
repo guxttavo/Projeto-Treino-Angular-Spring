@@ -18,15 +18,14 @@ public class Carro {
     @Id
     @GeneratedValue
     private UUID id;
-    private boolean novo;
-    private BigDecimal valorBruto;
-    private BigDecimal valorLiquido;
     private String nome;
-    private Integer ano;
-    private Integer quilometragem;
+    private String ano;
+    private Double quilometragem;
+    private Double valorBruto;
     private String concessionaria;
     private String placa;
-    private Integer numeroDeDonos;
+    private Integer dono;
+    private Double valorLiquido;
     private String observacoes;
 
     @ManyToOne

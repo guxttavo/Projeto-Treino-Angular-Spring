@@ -39,14 +39,15 @@ public class CarroController {
         return ResponseEntity.ok(tiposDeCombustiveis);
     }
 
-    @PostMapping("/cadastrar-carro")
+    @PostMapping("/cadastrarCarro")
     public ResponseEntity<Carro> cadastrarCarro(@RequestBody Carro carro) {
         Carro carroExistente = carroService.buscarCarroPorPlaca(carro.getPlaca());
 
         if (carroExistente != null) {
-            carroService.cadastrarCarro(carro);
+            return ResponseEntity.ok(carroService.cadastrarCarro(carro));
         }
-        return null;
+
+        return ResponseEntity.badRequest().build();
     }
 
 }

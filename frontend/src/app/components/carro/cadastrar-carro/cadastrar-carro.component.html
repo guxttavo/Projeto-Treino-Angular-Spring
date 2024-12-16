@@ -11,10 +11,9 @@
       <div class="col-md-3">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Ano</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="ano" placeholder="Selecione o ano" readonly />
+          <input matInput [matDatepicker]="picker" formControlName="ano" />
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker startView="multi-year" panelClass="year-only-picker"
-            (yearSelected)="anoSelecionado($event, picker)" [startAt]="startDate"></mat-datepicker>
+          <mat-datepicker #picker startView="multi-year"></mat-datepicker>
         </mat-form-field>
       </div>
       <div class="col-md-3">
@@ -48,7 +47,7 @@
       <div class="col-md-3">
         <label class="form-label">Donos</label>
         <div class="d-flex align-items-center">
-          <mat-radio-group formControlName="numeroDeDonos">
+          <mat-radio-group formControlName="donos">
             <mat-radio-button value="1">1</mat-radio-button>
             <mat-radio-button value="2">2</mat-radio-button>
           </mat-radio-group>
@@ -67,7 +66,7 @@
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Categoria</mat-label>
           <mat-select formControlName="categoria">
-            <mat-option *ngFor="let categoria of categorias" [value]="categoria.nome">
+            <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
               {{ categoria.nome }}
             </mat-option>
           </mat-select>
@@ -77,7 +76,7 @@
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Cor</mat-label>
           <mat-select formControlName="cor">
-            <mat-option *ngFor="let cor of cores" [value]="cor.nome">{{ cor.nome }}</mat-option>
+            <mat-option *ngFor="let cor of cores" [value]="cor.id">{{ cor.nome }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -85,7 +84,7 @@
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Marca</mat-label>
           <mat-select formControlName="marca">
-            <mat-option *ngFor="let marca of marcas" [value]="marca.nome">{{ marca.nome }}</mat-option>
+            <mat-option *ngFor="let marca of marcas" [value]="marca.id">{{ marca.nome }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -93,7 +92,7 @@
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Combustível</mat-label>
           <mat-select formControlName="combustivel">
-            <mat-option *ngFor="let tipoDeCombustivel of tiposDeCombustiveis" [value]="tipoDeCombustivel.nome">
+            <mat-option *ngFor="let tipoDeCombustivel of tiposDeCombustiveis" [value]="tipoDeCombustivel.id">
               {{ tipoDeCombustivel.nome }}
             </mat-option>
           </mat-select>

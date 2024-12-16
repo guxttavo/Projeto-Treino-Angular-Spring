@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="card" style="max-width: 800px; margin: 0 auto; padding: 20px;">
       <div class="card-header text-center">
-        <h5>Cadastre-se</h5>
+        <h1>Cadastre-se</h1>
       </div>
       <div class="card-body">
         <div class="form-grid">
@@ -37,14 +37,14 @@
           <div class="form-group">
             <mat-form-field appearance="fill" class="w-100">
               <mat-label>Telefone</mat-label>
-              <input matInput type="text" id="telefone" formControlName="telefone" />
+              <input matInput type="text" id="telefone" formControlName="telefone" mask="(00) 00000-0000" />
             </mat-form-field>
           </div>
   
           <div class="form-group">
             <mat-form-field appearance="fill" class="w-100">
               <mat-label>CEP</mat-label>
-              <input matInput type="text" id="cep" formControlName="cep" />
+              <input matInput type="text" id="cep" formControlName="cep" mask="00000-000" />
             </mat-form-field>
           </div>
   

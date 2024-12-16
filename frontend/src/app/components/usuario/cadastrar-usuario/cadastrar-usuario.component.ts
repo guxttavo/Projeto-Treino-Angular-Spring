@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ViacepService } from 'src/app/services/viaCep.service';
 
@@ -43,7 +44,20 @@ export class CadastrarUsuarioComponent {
   onSubmit(): void {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
-      this.usuarioService.cadastrarUsuario(formData).subscribe({
+
+      const objetoUsuario: usuario = {
+        nome: formData.nome,
+        email: formData.email,
+        cpf: formData.cpf,
+        telefone: formData.telefone,
+        senha: formData.senha,
+        cep: formData.cep,
+        logradouro: formData.logradouro,
+        bairro: formData.bairro,
+        cidade: formData.cidade,
+        estado: formData.estado
+      }
+      this.usuarioService.cadastrarUsuario(objetoUsuario).subscribe({
         next: (response: any) => {
           this.showToast = true;
           setTimeout(() => {

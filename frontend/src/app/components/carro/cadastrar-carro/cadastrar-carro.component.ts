@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { carro } from 'src/app/interfaces/carro';
 import { categoria } from 'src/app/interfaces/categoria';
 import { cor } from 'src/app/interfaces/cor';
 import { marca } from 'src/app/interfaces/marca';
@@ -20,8 +21,6 @@ export class CadastrarCarroComponent {
   marcas: marca[] = [];
   tiposDeCombustiveis: tipoDeCombustivel[] = [];
   startDate: Date = new Date();
-  minDate: Date = new Date(2000, 0, 1);
-  maxDate: Date = new Date(new Date().getFullYear(), 12, 31);
 
   constructor(
     private fb: FormBuilder,
@@ -38,21 +37,20 @@ export class CadastrarCarroComponent {
   }
 
   initializeForm() {
+    console.log(this.form);
     this.form = this.fb.group({
       nome: ['', Validators.required],
-      ano: ['', [Validators.required, Validators.min(1900), Validators.max(2099)]],
+      ano: ['', Validators.required],
       quilometragem: ['', Validators.required],
+      valorBruto: ['', Validators.required],
       concessionaria: ['', Validators.required],
       placa: ['', Validators.required],
-      estado: ['', Validators.required],
-      cidade: ['', Validators.required],
-      numeroDeDonos: ['', Validators.required],
+      donos: ['', Validators.required],
       categoria: ['', Validators.required],
+      valorLiquido: ['', Validators.required],
       cor: ['', Validators.required],
       marca: ['', Validators.required],
       combustivel: ['', Validators.required],
-      valorBruto: ['', Validators.required],
-      valorLiquido: ['', Validators.required],
       observacoes: ['', Validators.required]
     });
   }
@@ -60,9 +58,36 @@ export class CadastrarCarroComponent {
   onSubmit(): void {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
-      console.log(formData);
+
+      const objetoCarro: carro = {
+        nome: formData.nome,
+        ano: parseInt(formData.ano, 10),
+        quilometragem: parseFloat(formData.quilometragem.replace(/\./g, '').replace(',', '.')),
+        valorBruto: parseFloat(formData.valorBruto.replace(/\./g, '').replace(',', '.')),
+        concessionaria: formData.concessionaria,
+        placa: formData.placa,
+        donos: parseInt(formData.donos, 10),
+        valorLiquido: parseFloat(formData.valorLiquido.replace(/\./g, '').replace(',', '.')),
+        categoria: { id: parseInt(formData.categoria, 10) },
+        cor: { id: parseInt(formData.cor, 10) },
+        marca: { id: parseInt(formData.marca, 10) },
+        combustivel: { id: parseInt(formData.combustivel, 10) },
+        observacoes: formData.observacoes,
+      };
+
+      this.carroService.cadastrarCarro(objetoCarro).subscribe({
+        next: (response: any) => {
+          console.log("Carro cadastrado com sucesso!");
+        },
+        error: (erro: any) => {
+          console.error("Erro ao cadastrar carro!", erro);
+        }
+      });
+    } else {
+      console.error("Erro: Formulário inválido!");
     }
   }
+
 
   formatarParaMilhar(event: Event, formControlName: string) {
     const input = event.target as HTMLInputElement;
@@ -72,17 +97,11 @@ export class CadastrarCarroComponent {
     this.form.get(formControlName)?.setValue(valorFormatado);
   }
 
-  formatarPlaca(event: Event){
+  formatarPlaca(event: Event) {
     const input = event.target as HTMLInputElement
     const valorFormatado = input.value.toUpperCase();
-    
-    this.form.get('placa')?.setValue(valorFormatado);
-  }
 
-  anoSelecionado(event: any, picker: any) {
-    const ano = event.getFullYear();
-    this.form.get('ano')?.setValue(ano);
-    picker.close();
+    this.form.get('placa')?.setValue(valorFormatado);
   }
 
   dropDownCategorias() {
