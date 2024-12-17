@@ -4,6 +4,7 @@ import { usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ViacepService } from 'src/app/services/viaCep.service';
 import iziToast from 'izitoast';
+import { Router } from '@angular/router'; // Importa o Router
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -20,6 +21,7 @@ export class CadastrarUsuarioComponent {
     private fb: FormBuilder,
     private viaCepService: ViacepService,
     private usuarioService: UsuarioService,
+    private router: Router
 
   ) { }
 
@@ -45,7 +47,7 @@ export class CadastrarUsuarioComponent {
   }
 
   showSuccess() {
- ;
+    ;
   }
 
   onSubmit(): void {
@@ -71,7 +73,10 @@ export class CadastrarUsuarioComponent {
             message: 'Usuário cadastrado com sucesso!',
             position: 'topRight'
           })
-          console.log('Usuário cadastrado com sucesso:', response);
+          setTimeout(() => {
+            this.router.navigate(['/home'])
+          }, 3000)
+
         },
         error: (error: any) => {
           iziToast.error({
