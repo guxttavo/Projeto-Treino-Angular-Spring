@@ -83,11 +83,11 @@ export class CadastrarUsuarioComponent {
         }
       });
     } else {
-
-      this.showErrorToast = true;
-      setTimeout(() => {
-        this.showErrorToast = false;
-      }, 3000);
+      iziToast.error({
+        title: 'Erro',
+        message: 'Valores Inválidos!',
+        position: 'topRight'
+      });
       console.log("valores invalidos!");
     }
   }
