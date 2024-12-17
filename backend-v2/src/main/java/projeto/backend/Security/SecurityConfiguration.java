@@ -36,7 +36,7 @@ public class SecurityConfiguration {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/usuario/cadastrar").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/usuario/cadastrarUsuario").permitAll()
                         .requestMatchers(HttpMethod.POST, "/carro/cadastrarCarro").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/categoria").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/cor").permitAll()

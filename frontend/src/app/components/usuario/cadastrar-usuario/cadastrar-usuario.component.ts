@@ -18,7 +18,9 @@ export class CadastrarUsuarioComponent {
   constructor(
     private fb: FormBuilder,
     private viaCepService: ViacepService,
-    private usuarioService: UsuarioService) { }
+    private usuarioService: UsuarioService,
+
+  ) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -48,10 +50,10 @@ export class CadastrarUsuarioComponent {
       const objetoUsuario: usuario = {
         nome: formData.nome,
         email: formData.email,
-        cpf: formData.cpf,
-        telefone: formData.telefone,
+        cpf: parseInt(formData.cpf),
+        telefone: parseInt(formData.telefone),
         senha: formData.senha,
-        cep: formData.cep,
+        cep: parseInt(formData.cep),
         logradouro: formData.logradouro,
         bairro: formData.bairro,
         cidade: formData.cidade,
@@ -59,10 +61,6 @@ export class CadastrarUsuarioComponent {
       }
       this.usuarioService.cadastrarUsuario(objetoUsuario).subscribe({
         next: (response: any) => {
-          this.showToast = true;
-          setTimeout(() => {
-            this.showToast = false;
-          }, 3000);
           console.log('Usuário cadastrado com sucesso:', response);
         },
         error: (error: any) => {

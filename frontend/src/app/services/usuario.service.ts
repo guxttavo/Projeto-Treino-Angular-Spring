@@ -13,6 +13,6 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   cadastrarUsuario(usuario: usuario) {
-    return this.http.post(`${this.apiUrl + "/cadastrar"}`, usuario);
+    return this.http.post(`${this.apiUrl + "/cadastrarUsuario"}`, usuario);
   }
 }

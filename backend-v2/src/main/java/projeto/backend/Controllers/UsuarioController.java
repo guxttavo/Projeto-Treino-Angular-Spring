@@ -26,7 +26,7 @@ public class UsuarioController {
     @Autowired
     private TokenService tokenService;
 
-    @PostMapping("/cadastrar-usuario")
+    @PostMapping("/cadastrarUsuario")
     public ResponseEntity<ResponseDTO> cadastrarUsuario(@RequestBody Usuario usuario) {
         Optional<Usuario> usuarioExistente = this.usuarioService.buscarUsuarioPorEmail(usuario.getEmail());
 
