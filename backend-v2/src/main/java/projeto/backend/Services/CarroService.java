@@ -15,7 +15,7 @@ public class CarroService {
     @Autowired
     private CorRepository corRepository;
     @Autowired
-    private MarcaRepository marcaRepository;
+    private FabricanteRepository fabricanteRepository;
     @Autowired
     private TipoDeCombustivelRepository tipoDeCombustivelRepository;
     @Autowired
@@ -29,11 +29,11 @@ public class CarroService {
         return corRepository.findAll();
     }
 
-    public List<Marca> buscarMarcas() {
-        return marcaRepository.findAll();
+    public List<Fabricante> buscarMarcas() {
+        return fabricanteRepository.findAll();
     }
 
-    public List<TipoDeCombustivel> buscarTipoDeCombustive() {
+    public List<Combustivel> buscarTipoDeCombustive() {
         return tipoDeCombustivelRepository.findAll();
     }
 

@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { categoria } from '../interfaces/categoria';
 import { cor } from '../interfaces/cor';
-import { marca } from '../interfaces/marca';
-import { tipoDeCombustivel } from '../interfaces/tipoDeCombustivel';
+import { fabricante } from '../interfaces/fabricante';
+import { combustivel } from '../interfaces/combustivel';
 import { carro } from '../interfaces/carro';
 
 @Injectable({
@@ -29,12 +29,12 @@ export class carroService {
         return this.http.get<cor[]>(`${this.apiUrl}/cor`);
     }
 
-    buscarMarcas(): Observable<marca[]> {
-        return this.http.get<marca[]>(`${this.apiUrl}/marca`);
+    buscarFabricantes(): Observable<fabricante[]> {
+        return this.http.get<fabricante[]>(`${this.apiUrl}/fabricante`);
     }
 
-    buscarTiposDeCombustiveis(): Observable<tipoDeCombustivel[]> {
-        return this.http.get<tipoDeCombustivel[]>(`${this.apiUrl}/tipoDeCombustivel`);
+    buscarTiposDeCombustiveis(): Observable<combustivel[]> {
+        return this.http.get<combustivel[]>(`${this.apiUrl}/tipoDeCombustivel`);
     }
 
   

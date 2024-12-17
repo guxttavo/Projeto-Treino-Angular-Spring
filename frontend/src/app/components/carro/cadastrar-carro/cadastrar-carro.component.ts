@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { carro } from 'src/app/interfaces/carro';
 import { categoria } from 'src/app/interfaces/categoria';
 import { cor } from 'src/app/interfaces/cor';
-import { marca } from 'src/app/interfaces/marca';
-import { tipoDeCombustivel } from 'src/app/interfaces/tipoDeCombustivel';
+import { fabricante } from 'src/app/interfaces/fabricante';
+import { combustivel } from 'src/app/interfaces/combustivel';
 import { carroService } from 'src/app/services/carro.service';
 import iziToast from 'izitoast';
 
@@ -19,8 +19,8 @@ export class CadastrarCarroComponent {
   form: FormGroup = new FormGroup({});
   categorias: categoria[] = [];
   cores: cor[] = [];
-  marcas: marca[] = [];
-  tiposDeCombustiveis: tipoDeCombustivel[] = [];
+  Fabricantes: fabricante[] = [];
+  tiposDeCombustiveis: combustivel[] = [];
   startDate: Date = new Date();
 
   constructor(
@@ -33,7 +33,7 @@ export class CadastrarCarroComponent {
     this.initializeForm();
     this.dropDownCategorias();
     this.dropDownCor();
-    this.dropDownMarca();
+    this.dropDownFabricante();
     this.dropDownTipoDeCombustivel();
   }
 
@@ -50,7 +50,7 @@ export class CadastrarCarroComponent {
       categoria: ['', Validators.required],
       valorLiquido: ['', Validators.required],
       cor: ['', Validators.required],
-      marca: ['', Validators.required],
+      Fabricante: ['', Validators.required],
       combustivel: ['', Validators.required],
       observacoes: ['', Validators.required]
     });
@@ -71,7 +71,7 @@ export class CadastrarCarroComponent {
         valorLiquido: parseFloat(formData.valorLiquido.replace(/\./g, '').replace(',', '.')),
         categoria: { id: parseInt(formData.categoria, 10) },
         cor: { id: parseInt(formData.cor, 10) },
-        marca: { id: parseInt(formData.marca, 10) },
+        Fabricante: { id: parseInt(formData.Fabricante, 10) },
         combustivel: { id: parseInt(formData.combustivel, 10) },
         observacoes: formData.observacoes,
       };
@@ -136,14 +136,14 @@ export class CadastrarCarroComponent {
       });
   }
 
-  dropDownMarca() {
-    this.carroService.buscarMarcas()
+  dropDownFabricante() {
+    this.carroService.buscarFabricantes()
       .subscribe({
-        next: (marcas: marca[]) => {
-          this.marcas = marcas;
+        next: (Fabricantes: fabricante[]) => {
+          this.Fabricantes = Fabricantes;
         },
         error: (erro) => {
-          console.error('Erro ao buscar marcas:', erro);
+          console.error('Erro ao buscar Fabricantes:', erro);
         }
       });
   }
@@ -151,7 +151,7 @@ export class CadastrarCarroComponent {
   dropDownTipoDeCombustivel() {
     this.carroService.buscarTiposDeCombustiveis()
       .subscribe({
-        next: (tiposDeCombustiveis: tipoDeCombustivel[]) => {
+        next: (tiposDeCombustiveis: combustivel[]) => {
           this.tiposDeCombustiveis = tiposDeCombustiveis;
         },
         error: (erro) => {

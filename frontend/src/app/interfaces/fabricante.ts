@@ -1,4 +1,4 @@
-export interface marca {
+export interface fabricante {
     id: number;
     nome: string;
 }

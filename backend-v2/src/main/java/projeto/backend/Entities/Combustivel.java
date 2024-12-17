@@ -6,13 +6,13 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "tipo_de_combustivel")
+@Table(name = "combustivel")
 @Getter
 @Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TipoDeCombustivel {
+public class Combustivel {
 
     @Id
     @GeneratedValue

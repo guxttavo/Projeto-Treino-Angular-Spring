@@ -6,13 +6,13 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "marca")
+@Table(name = "fabricante")
 @Getter
 @Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Marca {
+public class Fabricante {
     @Id
     @GeneratedValue
     private Long id;

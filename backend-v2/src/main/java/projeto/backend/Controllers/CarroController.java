@@ -27,15 +27,15 @@ public class CarroController {
         return ResponseEntity.ok(cores);
     }
 
-    @GetMapping("/marca")
-    public ResponseEntity<List<Marca>> buscarMarcas() {
-        List<Marca> marcas = carroService.buscarMarcas();
-        return ResponseEntity.ok(marcas);
+    @GetMapping("/fabricante")
+    public ResponseEntity<List<Fabricante>> buscarMarcas() {
+        List<Fabricante> fabricantes = carroService.buscarMarcas();
+        return ResponseEntity.ok(fabricantes);
     }
 
     @GetMapping("/tipoDeCombustivel")
-    public ResponseEntity<List<TipoDeCombustivel>> buscarTiposDeCombustiveis() {
-        List<TipoDeCombustivel> tiposDeCombustiveis = carroService.buscarTipoDeCombustive();
+    public ResponseEntity<List<Combustivel>> buscarTiposDeCombustiveis() {
+        List<Combustivel> tiposDeCombustiveis = carroService.buscarTipoDeCombustive();
         return ResponseEntity.ok(tiposDeCombustiveis);
     }
 

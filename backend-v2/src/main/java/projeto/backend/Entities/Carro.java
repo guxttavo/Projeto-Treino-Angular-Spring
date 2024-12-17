@@ -3,9 +3,6 @@ package projeto.backend.Entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
-import java.util.UUID;
-
 @Entity
 @Table(name = "carro")
 @Getter
@@ -17,7 +14,7 @@ public class Carro {
 
     @Id
     @GeneratedValue
-    private UUID id;
+    private Long id;
     private String nome;
     private String ano;
     private Double quilometragem;
@@ -42,9 +39,9 @@ public class Carro {
 
     @ManyToOne
     @JoinColumn(name = "marca_id")
-    private Marca marca;
+    private Fabricante fabricante;
 
     @ManyToOne
     @JoinColumn(name = "tipo_de_combustivel_id")
-    private TipoDeCombustivel combustivel;
+    private Combustivel combustivel;
 }
