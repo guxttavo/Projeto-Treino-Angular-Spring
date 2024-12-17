@@ -1,4 +1,4 @@
-<div class="alinhamento d-flex justify-content-center align-items-center">
+<div class="d-flex justify-content-center align-items-center">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <mat-card>
             <mat-card-header class="text-center">
@@ -14,13 +14,14 @@
                 <div class="mb-3">
                     <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Senha</mat-label>
-                        <input matInput type="password" id="senha" formControlName="senha" placeholder="Digite sua senha">
+                        <input matInput type="password" id="senha" formControlName="senha"
+                            placeholder="Digite sua senha">
                     </mat-form-field>
                 </div>
                 <button mat-raised-button color="primary" type="submit" class="w-100">Entrar</button>
             </mat-card-content>
             <mat-card-footer class="text-center">
-                Não tem conta? <a [routerLink]="['cadastrar-usuario']" >Cadastre-se</a>
+                <h3>Não tem conta? <a [routerLink]="['cadastrar-usuario']">Cadastre-se</a> </h3>
             </mat-card-footer>
         </mat-card>
     </form>
