@@ -4,7 +4,7 @@ import { usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ViacepService } from 'src/app/services/viaCep.service';
 import iziToast from 'izitoast';
-import { Router } from '@angular/router'; // Importa o Router
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -22,7 +22,6 @@ export class CadastrarUsuarioComponent {
     private viaCepService: ViacepService,
     private usuarioService: UsuarioService,
     private router: Router
-
   ) { }
 
   ngOnInit(): void {
@@ -46,8 +45,8 @@ export class CadastrarUsuarioComponent {
     }, { validators: this.senhasDevemCoincidir });
   }
 
-  showSuccess() {
-    ;
+  carregarUsuario(){
+    
   }
 
   onSubmit(): void {

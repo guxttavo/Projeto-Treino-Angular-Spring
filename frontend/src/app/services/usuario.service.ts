@@ -15,4 +15,12 @@ export class UsuarioService {
   cadastrarUsuario(usuario: usuario) {
     return this.http.post(`${this.apiUrl + "/cadastrarUsuario"}`, usuario);
   }
+
+  editarUsuario(usuario: usuario) {
+    return this.http.post(`${this.apiUrl + "/cadastrarUsuario"}`, usuario);
+  }
+
+  buscarUsuarioPorId(id: number) {
+    return this.http.get<usuario>(`${this.apiUrl}/buscarPorId/${id}`)
+  }
 }

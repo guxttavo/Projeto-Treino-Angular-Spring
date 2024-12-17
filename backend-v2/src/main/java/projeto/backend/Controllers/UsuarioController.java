@@ -3,13 +3,9 @@ package projeto.backend.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import projeto.backend.Entities.DTO.ResponseDTO;
 import projeto.backend.Entities.Usuario;
-import projeto.backend.Repositories.UsuarioRepository;
 import projeto.backend.Services.TokenService;
 import projeto.backend.Services.UsuarioService;
 
@@ -46,8 +42,15 @@ public class UsuarioController {
             this.usuarioService.cadastrarUsuario(novoUsuario);
 
             String token = this.tokenService.generateToken(novoUsuario);
-            return ResponseEntity.ok(new ResponseDTO(novoUsuario.getNome(), token));
+            return ResponseEntity.ok(new ResponseDTO(novoUsuario.getNome(), token, novoUsuario.getId()));
         }
         return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping("/buscarPorId/{id}")
+    public ResponseEntity<Optional<Usuario>> buscarUsuario(@PathVariable Long id){
+        Optional<Usuario> usuario = usuarioService.buscarUsuarioPorId(id);
+
+        return ResponseEntity.ok(usuario);
     }
 }

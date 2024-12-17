@@ -6,7 +6,7 @@ import { CadastrarUsuarioComponent } from '../usuario/cadastrar-usuario/cadastra
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';   // Importando MatInputModule
+import { MatInputModule } from '@angular/material/input';   
 import { MatButtonModule } from '@angular/material/button'; 
 
 const routes: Routes = [
@@ -21,10 +21,10 @@ const routes: Routes = [
     imports: [
         MatCardModule,
         MatFormFieldModule,
-        CommonModule,
         ReactiveFormsModule,
         MatInputModule,
         MatButtonModule,
+        CommonModule,
         RouterModule.forChild(routes),
     ],
     exports: [

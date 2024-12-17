@@ -37,6 +37,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/usuario/cadastrarUsuario").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/usuario/buscarPorId/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/carro/cadastrarCarro").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/categoria").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/cor").permitAll()

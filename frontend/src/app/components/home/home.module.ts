@@ -6,23 +6,28 @@ import { CadastrarCarroComponent } from '../carro/cadastrar-carro/cadastrar-carr
 import { AuthGuard } from 'src/guards/auth.guard';
 import { EditarUsuarioComponent } from '../usuario/editar-usuario/editar-usuario.component';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button'; 
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'cadastrar-carro', component: CadastrarCarroComponent, canActivate: [AuthGuard] },
     { path: 'meu-perfil', component: EditarUsuarioComponent, canActivate: [AuthGuard] },
-
 ];
 
 @NgModule({
     declarations: [
-        HomeComponent, 
+        HomeComponent,
     ],
     imports: [
-        CommonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
         MatInputModule,
         MatButtonModule,
+        CommonModule,
         RouterModule.forChild(routes),
     ],
     exports: [
