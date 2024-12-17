@@ -4,10 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { CadastrarCarroComponent } from '../carro/cadastrar-carro/cadastrar-carro.component';
 import { AuthGuard } from 'src/guards/auth.guard';
+import { EditarUsuarioComponent } from '../usuario/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'cadastrar-carro', component: CadastrarCarroComponent, canActivate: [AuthGuard] }
+    { path: 'cadastrar-carro', component: CadastrarCarroComponent, canActivate: [AuthGuard] },
+    { path: 'meu-perfil', component: EditarUsuarioComponent, canActivate: [AuthGuard] },
+
 ];
 
 @NgModule({
