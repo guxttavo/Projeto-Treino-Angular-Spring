@@ -7,6 +7,7 @@ import { fabricante } from 'src/app/interfaces/fabricante';
 import { combustivel } from 'src/app/interfaces/combustivel';
 import { carroService } from 'src/app/services/carro.service';
 import iziToast from 'izitoast';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-carro',
@@ -25,7 +26,8 @@ export class CadastrarCarroComponent {
 
   constructor(
     private fb: FormBuilder,
-    private carroService: carroService
+    private carroService: carroService,
+    private authService: AuthService
   ) {
   }
 
@@ -60,6 +62,8 @@ export class CadastrarCarroComponent {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
 
+      const usuarioId = this.authService.pegarUsuarioIdToken();
+
       const objetoCarro: carro = {
         nome: formData.nome,
         ano: parseInt(formData.ano, 10),
@@ -74,6 +78,7 @@ export class CadastrarCarroComponent {
         Fabricante: { id: parseInt(formData.Fabricante, 10) },
         combustivel: { id: parseInt(formData.combustivel, 10) },
         observacoes: formData.observacoes,
+        usuarioId: usuarioId
       };
 
       this.carroService.cadastrarCarro(objetoCarro).subscribe({

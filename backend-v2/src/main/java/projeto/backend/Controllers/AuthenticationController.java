@@ -30,7 +30,7 @@ public class AuthenticationController {
 
         if (passwordEncoder.matches(login.senha(), usuario.getSenha())) {
             String token = this.tokenService.generateToken(usuario);
-            return ResponseEntity.ok(new ResponseDTO(usuario.getUsername(), token));
+            return ResponseEntity.ok(new ResponseDTO(usuario.getUsername(), token, usuario.getId()));
         }
         return ResponseEntity.badRequest().build();
     }

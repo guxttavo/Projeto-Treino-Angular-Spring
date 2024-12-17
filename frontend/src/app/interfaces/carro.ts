@@ -12,5 +12,6 @@ export interface carro {
     Fabricante: { id: number };
     combustivel: { id: number }; 
     observacoes: string;
+    usuarioId?: number | undefined;  
   }
   
