@@ -10,8 +10,6 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 // Componentes
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CadastrarUsuarioComponent } from './components/usuario/cadastrar-usuario/cadastrar-usuario.component';
 import { EditarUsuarioComponent } from './components/usuario/editar-usuario/editar-usuario.component';
@@ -36,8 +34,6 @@ import { MatOptionModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    LoginComponent,
     MenuComponent,
     CadastrarUsuarioComponent,
     CadastrarCarroComponent,

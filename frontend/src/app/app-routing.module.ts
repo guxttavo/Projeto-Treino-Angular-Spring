@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
-import { AuthGuard } from 'src/guards/auth.guard';
 import { CadastrarUsuarioComponent } from './components/usuario/cadastrar-usuario/cadastrar-usuario.component';
-import { CadastrarCarroComponent } from './components/carro/cadastrar-carro/cadastrar-carro.component';
 import { EditarUsuarioComponent } from './components/usuario/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
+    loadChildren: () =>
+      import('./components/login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'home',
-    component: HomeComponent
+    loadChildren: () =>
+      import('./components/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'usuario/cadastrar-usuario',
@@ -23,11 +21,6 @@ const routes: Routes = [
   {
     path: 'usuario/editar-usuario',
     component: EditarUsuarioComponent
-  },
-  {
-    path: 'carro',
-    component: CadastrarCarroComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: '',
