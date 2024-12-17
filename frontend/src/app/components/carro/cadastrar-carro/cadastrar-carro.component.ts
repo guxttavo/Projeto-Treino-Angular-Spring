@@ -6,6 +6,7 @@ import { cor } from 'src/app/interfaces/cor';
 import { marca } from 'src/app/interfaces/marca';
 import { tipoDeCombustivel } from 'src/app/interfaces/tipoDeCombustivel';
 import { carroService } from 'src/app/services/carro.service';
+import iziToast from 'izitoast';
 
 @Component({
   selector: 'app-carro',
@@ -66,7 +67,7 @@ export class CadastrarCarroComponent {
         valorBruto: parseFloat(formData.valorBruto.replace(/\./g, '').replace(',', '.')),
         concessionaria: formData.concessionaria,
         placa: formData.placa,
-        donos: parseInt(formData.donos, 10),
+        dono: parseInt(formData.donos, 10),
         valorLiquido: parseFloat(formData.valorLiquido.replace(/\./g, '').replace(',', '.')),
         categoria: { id: parseInt(formData.categoria, 10) },
         cor: { id: parseInt(formData.cor, 10) },
@@ -77,17 +78,24 @@ export class CadastrarCarroComponent {
 
       this.carroService.cadastrarCarro(objetoCarro).subscribe({
         next: (response: any) => {
-          console.log("Carro cadastrado com sucesso!");
+          iziToast.success({
+            title: 'Sucesso',
+            message: 'Carro cadastrado com sucesso!',
+            position: 'topRight'
+          })
         },
         error: (erro: any) => {
-          console.error("Erro ao cadastrar carro!", erro);
+          iziToast.error({
+            title: 'Erro',
+            message: 'Erro ao cadastrar carro!',
+            position: 'topRight'
+          });
         }
       });
     } else {
       console.error("Erro: Formulário inválido!");
     }
   }
-
 
   formatarParaMilhar(event: Event, formControlName: string) {
     const input = event.target as HTMLInputElement;

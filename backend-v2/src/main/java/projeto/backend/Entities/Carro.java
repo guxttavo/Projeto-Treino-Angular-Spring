@@ -46,5 +46,5 @@ public class Carro {
 
     @ManyToOne
     @JoinColumn(name = "tipo_de_combustivel_id")
-    private TipoDeCombustivel tipoDeCombustivel;
+    private TipoDeCombustivel combustivel;
 }

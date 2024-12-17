@@ -5,7 +5,7 @@ export interface carro {
     valorBruto: number;
     concessionaria: string;
     placa: string;
-    donos: number;
+    dono: number;
     valorLiquido: number;
     categoria: { id: number };
     cor: { id: number };

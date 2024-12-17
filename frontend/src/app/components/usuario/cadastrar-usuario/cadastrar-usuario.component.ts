@@ -84,7 +84,6 @@ export class CadastrarUsuarioComponent {
             message: 'Ocorreu um problema ao realizar a operação!',
             position: 'topRight'
           });
-          console.error('Erro ao cadastrar usuário:', error);
         }
       });
     } else {

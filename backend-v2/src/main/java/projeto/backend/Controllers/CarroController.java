@@ -43,7 +43,7 @@ public class CarroController {
     public ResponseEntity<Carro> cadastrarCarro(@RequestBody Carro carro) {
         Carro carroExistente = carroService.buscarCarroPorPlaca(carro.getPlaca());
 
-        if (carroExistente != null) {
+        if (carroExistente == null) {
             return ResponseEntity.ok(carroService.cadastrarCarro(carro));
         }
 
