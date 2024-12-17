@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ViacepService } from 'src/app/services/viaCep.service';
+import iziToast from 'izitoast';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -43,6 +44,10 @@ export class CadastrarUsuarioComponent {
     }, { validators: this.senhasDevemCoincidir });
   }
 
+  showSuccess() {
+ ;
+  }
+
   onSubmit(): void {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
@@ -61,13 +66,19 @@ export class CadastrarUsuarioComponent {
       }
       this.usuarioService.cadastrarUsuario(objetoUsuario).subscribe({
         next: (response: any) => {
+          iziToast.success({
+            title: 'Sucesso',
+            message: 'Usuário cadastrado com sucesso!',
+            position: 'topRight'
+          })
           console.log('Usuário cadastrado com sucesso:', response);
         },
         error: (error: any) => {
-          this.showErrorToast = true;
-          setTimeout(() => {
-            this.showErrorToast = false;
-          }, 3000);
+          iziToast.error({
+            title: 'Erro',
+            message: 'Ocorreu um problema ao realizar a operação!',
+            position: 'topRight'
+          });
           console.error('Erro ao cadastrar usuário:', error);
         }
       });
