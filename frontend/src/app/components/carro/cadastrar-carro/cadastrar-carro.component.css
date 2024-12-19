@@ -1,8 +1,8 @@
 .custom-container {
-  max-width: 800px;  /* Ajuste o valor conforme necessário */
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f8f9fa;  /* Cor de fundo do contêiner */
+  background-color: #f8f9fa;
   border-radius: 10px;
 }
 

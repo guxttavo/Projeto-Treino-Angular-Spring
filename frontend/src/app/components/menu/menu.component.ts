@@ -32,9 +32,7 @@ export class MenuComponent implements OnInit {
         }
         )
       }
-    } else {
-
-    }
+    } 
   }
 
   sair(): void {

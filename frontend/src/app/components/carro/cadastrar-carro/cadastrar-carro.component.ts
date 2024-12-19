@@ -6,8 +6,8 @@ import { cor } from 'src/app/interfaces/cor';
 import { fabricante } from 'src/app/interfaces/fabricante';
 import { combustivel } from 'src/app/interfaces/combustivel';
 import { carroService } from 'src/app/services/carro.service';
-import iziToast from 'izitoast';
 import { AuthService } from 'src/app/services/auth.service';
+import iziToast from 'izitoast';
 
 @Component({
   selector: 'app-carro',
@@ -82,14 +82,14 @@ export class CadastrarCarroComponent {
       };
 
       this.carroService.cadastrarCarro(objetoCarro).subscribe({
-        next: (response: any) => {
+        next: () => {
           iziToast.success({
             title: 'Sucesso',
             message: 'Carro cadastrado com sucesso!',
             position: 'topRight'
           })
         },
-        error: (erro: any) => {
+        error: () => {
           iziToast.error({
             title: 'Erro',
             message: 'Erro ao cadastrar carro!',
@@ -124,7 +124,11 @@ export class CadastrarCarroComponent {
           this.categorias = categorias;
         },
         error: (erro) => {
-          console.error('Erro ao buscar categorias:', erro);
+          iziToast.error({
+            title: 'Erro',
+            message: 'Erro ao carregar categorias!',
+            position: 'topRight'
+          });
         }
       });
   }
@@ -136,7 +140,11 @@ export class CadastrarCarroComponent {
           this.cores = cores;
         },
         error: (erro) => {
-          console.error('Erro ao buscar cores:', erro);
+          iziToast.error({
+            title: 'Erro',
+            message: 'Erro ao carregar cores!',
+            position: 'topRight'
+          });
         }
       });
   }
@@ -148,7 +156,11 @@ export class CadastrarCarroComponent {
           this.Fabricantes = Fabricantes;
         },
         error: (erro) => {
-          console.error('Erro ao buscar Fabricantes:', erro);
+          iziToast.error({
+            title: 'Erro',
+            message: 'Erro ao carregar fabricantes!',
+            position: 'topRight'
+          });
         }
       });
   }
@@ -160,7 +172,11 @@ export class CadastrarCarroComponent {
           this.tiposDeCombustiveis = tiposDeCombustiveis;
         },
         error: (erro) => {
-          console.error('Erro ao buscar tiposDeCombustiveis:', erro);
+          iziToast.error({
+            title: 'Erro',
+            message: 'Erro ao carregar combustíveis!',
+            position: 'topRight'
+          });
         }
       });
   }

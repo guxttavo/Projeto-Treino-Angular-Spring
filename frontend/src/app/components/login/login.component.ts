@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { loginService } from '../../services/login.service';
 import { Router } from '@angular/router';
+import { loginService } from '../../services/login.service';
+import iziToast from 'izitoast';
 
 @Component({
   selector: 'app-login',
@@ -32,27 +33,23 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     if (this.form.valid) {
       this.loginService.login(this.form.value.email, this.form.value.senha).subscribe({
-        next: (response) => {
-          console.log('Usuário logado', response);
+        next: () => {
           this.usuarioLogado = false;
           this.router.navigate(['/home']).then(() => { 
             window.location.reload();
           });
         },
-        error: (error) => {
-          console.error('Erro ao realizar o login :', error);
+        error: () => {
+          iziToast.error({
+            title: 'Erro',
+            message: 'Erro ao realizar login!',
+            position: 'topRight'
+          });
         }
       });
-    } else {
-      console.log("valores invalidos!")
     }
   }
 
-  showToast(): void {
-    this.show = true;
-    setTimeout(() => {
-      this.show = false;
-    }, 3000);
-  }
+
 
 }

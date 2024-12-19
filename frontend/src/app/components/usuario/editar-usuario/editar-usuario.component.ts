@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ViacepService } from 'src/app/services/viaCep.service';
 import iziToast from 'izitoast';
-import { usuario } from 'src/app/interfaces/usuario';
 
 @Component({
   selector: 'app-editar-usuario',
