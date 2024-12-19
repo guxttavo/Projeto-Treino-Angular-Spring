@@ -10,11 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CadastrarUsuarioComponent } from '../usuario/cadastrar-usuario/cadastrar-usuario.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'cadastrar-carro', component: CadastrarCarroComponent, canActivate: [AuthGuard] },
     { path: 'meu-perfil/:id', component: EditarUsuarioComponent, canActivate: [AuthGuard] },
+    { path: 'cadastrar-usuario', component: CadastrarUsuarioComponent },
 ];
 
 @NgModule({

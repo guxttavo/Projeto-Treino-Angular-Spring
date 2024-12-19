@@ -5,7 +5,7 @@
   </button> -->
 
   <a mat-button *ngIf="!usuarioLogado" [routerLink]="['/login']">Login</a>
-  <a mat-button *ngIf="!usuarioLogado" [routerLink]="['/usuario/cadastrar-usuario']">Cadastro</a>
+  <a mat-button *ngIf="!usuarioLogado" [routerLink]="['/home/cadastrar-usuario']">Cadastro</a>
 
   <div *ngIf="usuarioLogado" class="user-actions">
     <button mat-button [routerLink]="['/home/meu-perfil', usuarioId]">Meu Perfil</button>
