@@ -17,6 +17,7 @@ export class EditarUsuarioComponent {
   showToast: boolean = false;
   showErrorToast: boolean = false;
   usuario: any;
+  usuarioId = this.route.snapshot.params['id'];
 
   constructor(
     private fb: FormBuilder,
@@ -29,12 +30,7 @@ export class EditarUsuarioComponent {
   ngOnInit(): void {
     this.initializeForm();
     this.preenchimentoCep();
-
-    const usuarioId = this.route.snapshot.params['id'];
-    console.log(usuarioId);
-    if (usuarioId) {
-        // this.carregarDadosUsuario(usuarioId);
-    }
+    this.carregarDadosUsuario(this.usuarioId);
   }
 
   initializeForm() {
@@ -53,62 +49,28 @@ export class EditarUsuarioComponent {
     }, { validators: this.senhasDevemCoincidir });
   }
 
-//   carregarDadosUsuario(usuarioId: number): void {
-//     this.usuarioService.buscarUsuarioPorId(usuarioId).subscribe({
-//         next: (usuario) => {
-//             this.form.patchValue(usuario);
-//         },
-//         error: (err) => {
-//             console.error('Erro ao carregar usuário:', err);
-//         }
-//     });
-// }
-
-  // editarUsuario(usuario: usuario): any {
-  //   if (this.form.valid) {
-  //     const formData = this.form.getRawValue();
-
-  //     const objetoUsuario: usuario = {
-  //       nome: formData.nome,
-  //       email: formData.email,
-  //       cpf: parseInt(formData.cpf),
-  //       telefone: parseInt(formData.telefone),
-  //       senha: formData.senha,
-  //       cep: parseInt(formData.cep),
-  //       logradouro: formData.logradouro,
-  //       bairro: formData.bairro,
-  //       cidade: formData.cidade,
-  //       estado: formData.estado
-  //     }
-  //     this.usuarioService.cadastrarUsuario(objetoUsuario).subscribe({
-  //       next: (response: any) => {
-  //         iziToast.success({
-  //           title: 'Sucesso',
-  //           message: 'Usuário cadastrado com sucesso!',
-  //           position: 'topRight'
-  //         })
-  //         setTimeout(() => {
-  //           this.router.navigate(['/home'])
-  //         }, 3000)
-
-  //       },
-  //       error: (error: any) => {
-  //         iziToast.error({
-  //           title: 'Erro',
-  //           message: 'Ocorreu um problema ao realizar a operação!',
-  //           position: 'topRight'
-  //         });
-  //       }
-  //     });
-  //   } else {
-  //     iziToast.error({
-  //       title: 'Erro',
-  //       message: 'Valores Inválidos!',
-  //       position: 'topRight'
-  //     });
-  //     console.log("valores invalidos!");
-  //   }
-  // }
+  carregarDadosUsuario(usuarioId: number) {
+    this.usuarioService.buscarUsuarioPorId(usuarioId).subscribe(
+      {
+        next: (usuario) => {
+          this.form.patchValue({
+            nome: usuario.nome,
+            email: usuario.email,
+            cpf: usuario.cpf,
+            telefone: usuario.telefone,
+            cep: usuario.cep,
+            logradouro: usuario.logradouro,
+            bairro: usuario.bairro,
+            cidade: usuario.cidade,
+            estado: usuario.estado
+          });
+        },
+        error: () => {
+          console.log('Erro ao carregar dados do usuário!');
+        }
+      }
+    );
+  }
 
   senhasDevemCoincidir(group: FormGroup) {
     const senha = group.get('senha')?.value;
