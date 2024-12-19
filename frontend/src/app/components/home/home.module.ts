@@ -14,7 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'cadastrar-carro', component: CadastrarCarroComponent, canActivate: [AuthGuard] },
-    { path: 'meu-perfil', component: EditarUsuarioComponent, canActivate: [AuthGuard] },
+    { path: 'meu-perfil/:id', component: EditarUsuarioComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

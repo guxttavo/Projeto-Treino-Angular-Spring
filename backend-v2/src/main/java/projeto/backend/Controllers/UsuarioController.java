@@ -47,10 +47,36 @@ public class UsuarioController {
         return ResponseEntity.badRequest().build();
     }
 
+    @PostMapping("/editarUsuario/{id}")
+    public ResponseEntity<Usuario> editarUsuario(@RequestBody Usuario usuario){
+        Optional<Usuario> usuarioExistente = usuarioService.buscarUsuarioPorId(usuario.getId());
+
+        if(usuarioExistente.isPresent()){
+            Usuario usuarioEditado = usuarioExistente.get();
+
+            usuarioEditado.setNome(usuario.getNome());
+            usuarioEditado.setEmail(usuario.getEmail());
+            usuarioEditado.setSenha(usuario.getSenha());
+            usuarioEditado.setCpf(usuario.getCpf());
+            usuarioEditado.setTelefone(usuario.getTelefone());
+            usuarioEditado.setCep(usuario.getCep());
+            usuarioEditado.setLogradouro(usuario.getLogradouro());
+            usuarioEditado.setBairro(usuario.getBairro());
+            usuarioEditado.setCidade(usuario.getCidade());
+            usuarioEditado.setEstado(usuario.getEstado());
+
+            Usuario usuarioSalvo = this.usuarioService.cadastrarUsuario(usuarioEditado);
+            return  ResponseEntity.ok(usuarioSalvo);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/buscarPorId/{id}")
     public ResponseEntity<Optional<Usuario>> buscarUsuario(@PathVariable Long id){
         Optional<Usuario> usuario = usuarioService.buscarUsuarioPorId(id);
 
+        Usuario jooj = usuario.get();
         return ResponseEntity.ok(usuario);
     }
 }

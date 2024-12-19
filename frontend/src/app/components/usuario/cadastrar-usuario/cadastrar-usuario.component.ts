@@ -45,8 +45,8 @@ export class CadastrarUsuarioComponent {
     }, { validators: this.senhasDevemCoincidir });
   }
 
-  carregarUsuario(){
-    
+  carregarUsuario() {
+
   }
 
   onSubmit(): void {
@@ -54,6 +54,7 @@ export class CadastrarUsuarioComponent {
       const formData = this.form.getRawValue();
 
       const objetoUsuario: usuario = {
+        id: null,
         nome: formData.nome,
         email: formData.email,
         cpf: parseInt(formData.cpf),
@@ -65,26 +66,27 @@ export class CadastrarUsuarioComponent {
         cidade: formData.cidade,
         estado: formData.estado
       }
-      this.usuarioService.cadastrarUsuario(objetoUsuario).subscribe({
-        next: (response: any) => {
-          iziToast.success({
-            title: 'Sucesso',
-            message: 'Usuário cadastrado com sucesso!',
-            position: 'topRight'
-          })
-          setTimeout(() => {
-            this.router.navigate(['/home'])
-          }, 3000)
+      this.usuarioService.cadastrarUsuario(objetoUsuario).subscribe(
+        {
+          next: (response: any) => {
+            iziToast.success({
+              title: 'Sucesso',
+              message: 'Usuário cadastrado com sucesso!',
+              position: 'topRight'
+            })
+            setTimeout(() => {
+              this.router.navigate(['/home'])
+            }, 3000)
 
-        },
-        error: (error: any) => {
-          iziToast.error({
-            title: 'Erro',
-            message: 'Ocorreu um problema ao realizar a operação!',
-            position: 'topRight'
-          });
-        }
-      });
+          },
+          error: (error: any) => {
+            iziToast.error({
+              title: 'Erro',
+              message: 'Ocorreu um problema ao realizar a operação!',
+              position: 'topRight'
+            });
+          }
+        });
     } else {
       iziToast.error({
         title: 'Erro',
