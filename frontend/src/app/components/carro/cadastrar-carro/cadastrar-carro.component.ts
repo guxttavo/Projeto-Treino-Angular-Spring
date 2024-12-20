@@ -40,7 +40,6 @@ export class CadastrarCarroComponent {
   }
 
   initializeForm() {
-    console.log(this.form);
     this.form = this.fb.group({
       nome: ['', Validators.required],
       ano: ['', Validators.required],

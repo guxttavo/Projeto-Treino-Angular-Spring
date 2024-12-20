@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ViacepService } from 'src/app/services/viaCep.service';
-import iziToast from 'izitoast';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -16,15 +15,15 @@ export class EditarUsuarioComponent {
   showToast: boolean = false;
   showErrorToast: boolean = false;
   usuario: any;
-  usuarioId = this.route.snapshot.params['id'];
-
+  usuarioId = Number(sessionStorage.getItem("usuario-id"));
+    
   constructor(
     private fb: FormBuilder,
     private viaCepService: ViacepService,
     private usuarioService: UsuarioService,
     private route: ActivatedRoute,
   ) { }
-
+  
   ngOnInit(): void {
     this.initializeForm();
     this.preenchimentoCep();

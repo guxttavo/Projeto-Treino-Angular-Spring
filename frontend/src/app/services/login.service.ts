@@ -19,7 +19,7 @@ export class loginService {
             tap((value) => {
                 sessionStorage.setItem("auth-token", value.token);
                 sessionStorage.setItem("usuario-id", value.usuarioId.toString())
-                sessionStorage.setItem("nome-usuario", value.nome)
+                sessionStorage.setItem("usuario-nome", value.nome)
                 this.usuarioLogado = true;
             }
             )

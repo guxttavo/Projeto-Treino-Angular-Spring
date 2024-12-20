@@ -12,7 +12,8 @@ export class MenuComponent implements OnInit {
 
   usuarioLogado: boolean = false;
   usuarioId: number | null = null;
-  nomeUsuario = sessionStorage.getItem("nome-usuario")?.split(' ')[0] || '';
+  nomeUsuario = sessionStorage.getItem("usuario-nome")?.split(' ')[0] || '';
+
 
   constructor(
     private authService: AuthService,

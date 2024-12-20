@@ -15,7 +15,7 @@ import { CadastrarUsuarioComponent } from '../usuario/cadastrar-usuario/cadastra
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'cadastrar-carro', component: CadastrarCarroComponent, canActivate: [AuthGuard] },
-    { path: 'meu-perfil/:id', component: EditarUsuarioComponent, canActivate: [AuthGuard] },
+    { path: 'meu-perfil', component: EditarUsuarioComponent, canActivate: [AuthGuard] },
     { path: 'cadastrar-usuario', component: CadastrarUsuarioComponent },
 ];
 
