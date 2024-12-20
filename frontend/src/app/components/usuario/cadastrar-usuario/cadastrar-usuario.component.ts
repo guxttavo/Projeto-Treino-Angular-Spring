@@ -16,6 +16,7 @@ export class CadastrarUsuarioComponent {
   form: FormGroup = new FormGroup({});
   showToast: boolean = false;
   showErrorToast: boolean = false;
+  usuarioId = Number(sessionStorage.getItem("usuario-id"));
 
   constructor(
     private fb: FormBuilder,
