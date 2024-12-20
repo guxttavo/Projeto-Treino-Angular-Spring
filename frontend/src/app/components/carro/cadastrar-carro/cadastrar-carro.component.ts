@@ -17,12 +17,14 @@ import iziToast from 'izitoast';
 
 export class CadastrarCarroComponent {
 
-  form: FormGroup = new FormGroup({});
   categorias: categoria[] = [];
   cores: cor[] = [];
   Fabricantes: fabricante[] = [];
   tiposDeCombustiveis: combustivel[] = [];
-  startDate: Date = new Date();
+
+  form: FormGroup = new FormGroup({});
+  usuarioId = Number(sessionStorage.getItem("usuario-id"));
+
 
   constructor(
     private fb: FormBuilder,
@@ -61,7 +63,6 @@ export class CadastrarCarroComponent {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
 
-      const usuarioId = this.authService.pegarUsuarioId();
 
       const objetoCarro: carro = {
         nome: formData.nome,
@@ -77,7 +78,7 @@ export class CadastrarCarroComponent {
         Fabricante: { id: parseInt(formData.Fabricante, 10) },
         combustivel: { id: parseInt(formData.combustivel, 10) },
         observacoes: formData.observacoes,
-        usuarioId: usuarioId
+        usuarioId: this.usuarioId
       };
 
       this.carroService.cadastrarCarro(objetoCarro).subscribe({

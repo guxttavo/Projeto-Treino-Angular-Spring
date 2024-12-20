@@ -16,8 +16,8 @@ export class UsuarioService {
     return this.http.post(`${this.apiUrl + "/cadastrarUsuario"}`, usuario);
   }
 
-  editarUsuario(usuario: usuario) {
-    return this.http.post(`${this.apiUrl + "/cadastrarUsuario"}`, usuario);
+  editarUsuario(id: number, usuario: usuario) {
+    return this.http.post(`${this.apiUrl + "/editarUsuario"}`, usuario);
   }
 
   buscarUsuarioPorId(id: number) {

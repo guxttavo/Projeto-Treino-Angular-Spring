@@ -11,9 +11,9 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class MenuComponent implements OnInit {
 
   usuarioLogado: boolean = false;
-  usuarioId: number | null = null;
+  // usuarioId: number | null = null;
   nomeUsuario = sessionStorage.getItem("usuario-nome")?.split(' ')[0] || '';
-
+  usuarioId: number | null = Number(sessionStorage.getItem("usuario-id")) || null;
 
   constructor(
     private authService: AuthService,
@@ -22,8 +22,9 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuarioLogado = this.authService.usuarioLogado();
+    
     if (this.usuarioLogado) {
-      const usuarioLogadoId = this.authService.pegarUsuarioId();
+      const usuarioLogadoId = this.usuarioId;
       if (usuarioLogadoId) {
         this.usuarioService.buscarUsuarioPorId(usuarioLogadoId).subscribe({
           next: (usuario) => {

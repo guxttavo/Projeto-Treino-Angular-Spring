@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ViacepService } from 'src/app/services/viaCep.service';
+import iziToast from 'izitoast';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -16,14 +17,14 @@ export class EditarUsuarioComponent {
   showErrorToast: boolean = false;
   usuario: any;
   usuarioId = Number(sessionStorage.getItem("usuario-id"));
-    
+
   constructor(
     private fb: FormBuilder,
     private viaCepService: ViacepService,
     private usuarioService: UsuarioService,
     private route: ActivatedRoute,
   ) { }
-  
+
   ngOnInit(): void {
     this.initializeForm();
     this.preenchimentoCep();
@@ -69,34 +70,34 @@ export class EditarUsuarioComponent {
     );
   }
 
-  // atualizarUsuario() {
-  //   if (this.form.valid) {
-  //     const usuarioAtualizado = this.form.value;
+  atualizarUsuario() {
+    if (this.form.valid) {
+      const usuarioAtualizado = this.form.value;
 
-  //     this.usuarioService.editarUsuario(this.usuarioId, usuarioAtualizado).subscribe(
-  //       {
-  //         next: () => {
-  //           iziToast.success({
-  //             title: 'Sucesso!',
-  //             message: 'Usuário atualizado com sucesso.',
-  //           });
-  //         },
-  //         error: (err) => {
-  //           iziToast.error({
-  //             title: 'Erro!',
-  //             message: 'Ocorreu um erro ao atualizar o usuário.',
-  //           });
-  //           console.log('Erro ao editar usuário', err);
-  //         }
-  //       }
-  //     );
-  //   } else {
-  //     iziToast.error({
-  //       title: 'Erro!',
-  //       message: 'Por favor, preencha todos os campos corretamente.',
-  //     });
-  //   }
-  // }
+      this.usuarioService.editarUsuario(this.usuarioId, usuarioAtualizado).subscribe(
+        {
+          next: () => {
+            iziToast.success({
+              title: 'Sucesso!',
+              message: 'Usuário atualizado com sucesso.',
+            });
+          },
+          error: (err) => {
+            iziToast.error({
+              title: 'Erro!',
+              message: 'Ocorreu um erro ao atualizar o usuário.',
+            });
+            console.log('Erro ao editar usuário', err);
+          }
+        }
+      );
+    } else {
+      iziToast.error({
+        title: 'Erro!',
+        message: 'Por favor, preencha todos os campos corretamente.',
+      });
+    }
+  }
 
   senhasDevemCoincidir(group: FormGroup) {
     const senha = group.get('senha')?.value;

@@ -17,19 +17,4 @@ export class AuthService {
       return false;
     }
   }
-
-  pegarUsuarioId(): number | undefined {
-    const token = sessionStorage.getItem('usuario-id');
-    if (token) {
-      const usuarioId = Number(token);
-      if (!isNaN(usuarioId)) {
-        return usuarioId;
-      }
-      console.error('O valor de usuario-id não é um número válido.');
-      return undefined;
-    } else {
-      console.warn('Chave usuario-id não encontrada no sessionStorage.');
-      return undefined;
-    }
-  }
 }
