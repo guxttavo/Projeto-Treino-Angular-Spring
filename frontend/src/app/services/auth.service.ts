@@ -17,11 +17,11 @@ export class AuthService {
       return false;
     }
   }
-  
+
   pegarUsuarioIdToken(): number | undefined {
     const token = sessionStorage.getItem('usuario-id');
     if (token) {
-      const usuarioId = Number(token); // Converte o valor para número
+      const usuarioId = Number(token);
       if (!isNaN(usuarioId)) {
         return usuarioId;
       }
@@ -32,5 +32,4 @@ export class AuthService {
       return undefined;
     }
   }
-
 }

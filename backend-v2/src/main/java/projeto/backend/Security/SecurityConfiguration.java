@@ -38,6 +38,8 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/usuario/cadastrarUsuario").permitAll()
                         .requestMatchers(HttpMethod.GET, "/usuario/buscarPorId/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/usuario/buscarUsuarioPorNome/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/usuario/editarUsuario/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/carro/cadastrarCarro").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/categoria").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/cor").permitAll()

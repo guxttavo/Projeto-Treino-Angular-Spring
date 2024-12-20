@@ -22,7 +22,6 @@ export class EditarUsuarioComponent {
     private fb: FormBuilder,
     private viaCepService: ViacepService,
     private usuarioService: UsuarioService,
-    private router: Router,
     private route: ActivatedRoute,
   ) { }
 
@@ -70,6 +69,38 @@ export class EditarUsuarioComponent {
       }
     );
   }
+
+  atualizarUsuario() {
+    if (this.form.valid) {
+      const usuarioAtualizado = this.form.value;
+
+      this.usuarioService.editarUsuario(this.usuarioId, usuarioAtualizado).subscribe(
+        {
+          next: () => {
+            iziToast.success({
+              title: 'Sucesso!',
+              message: 'Usuário atualizado com sucesso.',
+            });
+          },
+          error: (err) => {
+            iziToast.error({
+              title: 'Erro!',
+              message: 'Ocorreu um erro ao atualizar o usuário.',
+            });
+            console.log('Erro ao editar usuário', err);
+          }
+        }
+      );
+    } else {
+      iziToast.error({
+        title: 'Erro!',
+        message: 'Por favor, preencha todos os campos corretamente.',
+      });
+    }
+  }
+
+
+
 
   senhasDevemCoincidir(group: FormGroup) {
     const senha = group.get('senha')?.value;
