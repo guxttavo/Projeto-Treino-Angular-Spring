@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
 
   usuarioLogado: boolean = false;
   usuarioId: number | null = null;
+  nomeUsuario = sessionStorage.getItem("nome-usuario")?.split(' ')[0] || '';
 
   constructor(
     private authService: AuthService,
@@ -21,7 +22,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioLogado = this.authService.usuarioLogado();
     if (this.usuarioLogado) {
-      const usuarioLogadoId = this.authService.pegarUsuarioIdToken();
+      const usuarioLogadoId = this.authService.pegarUsuarioId();
       if (usuarioLogadoId) {
         this.usuarioService.buscarUsuarioPorId(usuarioLogadoId).subscribe({
           next: (usuario) => {
@@ -32,7 +33,7 @@ export class MenuComponent implements OnInit {
         }
         )
       }
-    } 
+    }
   }
 
   sair(): void {

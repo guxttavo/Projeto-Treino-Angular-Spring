@@ -18,7 +18,7 @@ export class AuthService {
     }
   }
 
-  pegarUsuarioIdToken(): number | undefined {
+  pegarUsuarioId(): number | undefined {
     const token = sessionStorage.getItem('usuario-id');
     if (token) {
       const usuarioId = Number(token);

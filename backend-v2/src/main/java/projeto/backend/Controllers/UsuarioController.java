@@ -48,10 +48,10 @@ public class UsuarioController {
     }
 
     @PutMapping("/editarUsuario/{id}")
-    public ResponseEntity<Usuario> editarUsuario(@PathVariable Long id, @RequestBody Usuario usuario){
+    public ResponseEntity<Usuario> editarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
         Optional<Usuario> usuarioExistente = usuarioService.buscarUsuarioPorId(usuario.getId());
 
-        if(usuarioExistente.isPresent()){
+        if (usuarioExistente.isPresent()) {
             Usuario usuarioEditado = usuarioExistente.get();
 
             usuarioEditado.setNome(usuario.getNome());
@@ -66,22 +66,15 @@ public class UsuarioController {
             usuarioEditado.setEstado(usuario.getEstado());
 
             Usuario usuarioSalvo = this.usuarioService.cadastrarUsuario(usuarioEditado);
-            return  ResponseEntity.ok(usuarioSalvo);
-        }else{
+            return ResponseEntity.ok(usuarioSalvo);
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
 
     @GetMapping("/buscarPorId/{id}")
-    public ResponseEntity<Optional<Usuario>> buscarUsuarioPorId(@PathVariable Long id){
+    public ResponseEntity<Optional<Usuario>> buscarUsuarioPorId(@PathVariable Long id) {
         Optional<Usuario> usuario = usuarioService.buscarUsuarioPorId(id);
-
-        return ResponseEntity.ok(usuario);
-    }
-
-    @GetMapping("/buscarUsuarioPorNome/{nome}")
-    public ResponseEntity<Optional<Usuario>> buscarUsuarioPorNome(@PathVariable String nome){
-        Optional<Usuario> usuario = usuarioService.buscarUsuarioPorNome(nome);
 
         return ResponseEntity.ok(usuario);
     }

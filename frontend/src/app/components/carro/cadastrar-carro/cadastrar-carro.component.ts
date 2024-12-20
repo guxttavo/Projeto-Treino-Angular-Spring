@@ -62,7 +62,7 @@ export class CadastrarCarroComponent {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
 
-      const usuarioId = this.authService.pegarUsuarioIdToken();
+      const usuarioId = this.authService.pegarUsuarioId();
 
       const objetoCarro: carro = {
         nome: formData.nome,
