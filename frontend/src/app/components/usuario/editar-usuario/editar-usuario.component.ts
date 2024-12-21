@@ -40,11 +40,13 @@ export class EditarUsuarioComponent {
       senha: ['', [Validators.required, Validators.minLength(3)]],
       confirmarSenha: ['', [Validators.required]],
       cep: ['', [Validators.required]],
-      logradouro: [{ value: '', disabled: true }],
-      bairro: [{ value: '', disabled: true }],
-      cidade: [{ value: '', disabled: true }],
-      estado: [{ value: '', disabled: true }],
+      logradouro: [{ value: '' }],
+      bairro: [{ value: '' }],
+      cidade: [{ value: '' }],
+      estado: [{ value: '' }],
     }, { validators: this.senhasDevemCoincidir });
+
+    console.log(this.form);
   }
 
   carregarDadosUsuario(usuarioId: number) {
@@ -70,7 +72,7 @@ export class EditarUsuarioComponent {
     );
   }
 
-  atualizarUsuario() {
+  editarUsuario() {
     if (this.form.valid) {
       const usuarioAtualizado = this.form.value;
 

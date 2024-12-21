@@ -49,7 +49,7 @@ public class UsuarioController {
 
     @PutMapping("/editarUsuario/{id}")
     public ResponseEntity<Usuario> editarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
-        Optional<Usuario> usuarioExistente = usuarioService.buscarUsuarioPorId(usuario.getId());
+        Optional<Usuario> usuarioExistente = usuarioService.buscarUsuarioPorId(id);
 
         if (usuarioExistente.isPresent()) {
             Usuario usuarioEditado = usuarioExistente.get();

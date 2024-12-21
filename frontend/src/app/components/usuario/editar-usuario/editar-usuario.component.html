@@ -1,7 +1,7 @@
 <div class="alinhamento">
     <div class="custom-container p-4 mt-1 bg-light rounded">
         <h2 class="text-center" style="font-size: 1.8rem;">Suas Informações</h2>
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="editarUsuario()">
             <div class="row mb-3">
                 <div class="col-md-3">
                     <mat-form-field appearance="fill" class="w-100">
@@ -50,28 +50,28 @@
                 <div class="col-md-3">
                     <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Logradouro</mat-label>
-                        <input matInput type="text" id="logradouro" formControlName="logradouro" />
+                        <input matInput type="text" id="logradouro" formControlName="logradouro" [readonly]="true" />
                     </mat-form-field>
                 </div>
 
                 <div class="col-md-3">
                     <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Bairro</mat-label>
-                        <input matInput type="text" id="bairro" formControlName="bairro" />
+                        <input matInput type="text" id="bairro" formControlName="bairro" [readonly]="true" />
                     </mat-form-field>
                 </div>
 
                 <div class="col-md-3">
                     <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Cidade</mat-label>
-                        <input matInput type="text" id="cidade" formControlName="cidade" />
+                        <input matInput type="text" id="cidade" formControlName="cidade" [readonly]="true" />
                     </mat-form-field>
                 </div>
 
                 <div class="col-md-3">
                     <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Estado</mat-label>
-                        <input matInput type="text" id="estado" formControlName="estado" />
+                        <input matInput type="text" id="estado" formControlName="estado" [readonly]="true" />
                     </mat-form-field>
                 </div>
 
