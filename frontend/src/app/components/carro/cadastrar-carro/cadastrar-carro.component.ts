@@ -118,7 +118,7 @@ export class CadastrarCarroComponent {
   }
 
   dropDownCategorias() {
-    this.carroService.buscarCategorias()
+    this.carroService.listarCategoria()
       .subscribe({
         next: (categorias: categoria[]) => {
           this.categorias = categorias;
@@ -134,7 +134,7 @@ export class CadastrarCarroComponent {
   }
 
   dropDownCor() {
-    this.carroService.buscarCores()
+    this.carroService.listarCor()
       .subscribe({
         next: (cores: cor[]) => {
           this.cores = cores;
@@ -150,7 +150,7 @@ export class CadastrarCarroComponent {
   }
 
   dropDownFabricante() {
-    this.carroService.buscarFabricantes()
+    this.carroService.listarFabricante()
       .subscribe({
         next: (Fabricantes: fabricante[]) => {
           this.Fabricantes = Fabricantes;
@@ -166,7 +166,7 @@ export class CadastrarCarroComponent {
   }
 
   dropDownTipoDeCombustivel() {
-    this.carroService.buscarTiposDeCombustiveis()
+    this.carroService.listarCombustivel()
       .subscribe({
         next: (tiposDeCombustiveis: combustivel[]) => {
           this.tiposDeCombustiveis = tiposDeCombustiveis;

@@ -21,20 +21,24 @@ export class carroService {
         return this.http.post(`${this.apiUrl + "/cadastrarCarro"}`, carro);
     }
 
-    buscarCategorias(): Observable<categoria[]> {
-        return this.http.get<categoria[]>(`${this.apiUrl}/categoria`);
+    listarCarro(): Observable<carro[]>{
+        return this.http.get<carro[]>(`${this.apiUrl}/listarCarro`)
     }
 
-    buscarCores(): Observable<cor[]> {
-        return this.http.get<cor[]>(`${this.apiUrl}/cor`);
+    listarCategoria(): Observable<categoria[]> {
+        return this.http.get<categoria[]>(`${this.apiUrl}/listarCategoria`);
     }
 
-    buscarFabricantes(): Observable<fabricante[]> {
-        return this.http.get<fabricante[]>(`${this.apiUrl}/fabricante`);
+    listarCor(): Observable<cor[]> {
+        return this.http.get<cor[]>(`${this.apiUrl}/listarCor`);
     }
 
-    buscarTiposDeCombustiveis(): Observable<combustivel[]> {
-        return this.http.get<combustivel[]>(`${this.apiUrl}/tipoDeCombustivel`);
+    listarFabricante(): Observable<fabricante[]> {
+        return this.http.get<fabricante[]>(`${this.apiUrl}/listarFabricante`);
+    }
+
+    listarCombustivel(): Observable<combustivel[]> {
+        return this.http.get<combustivel[]>(`${this.apiUrl}/listarCombustivel`);
     }
 
   

@@ -15,30 +15,6 @@ public class CarroController {
     @Autowired
     private CarroService carroService;
 
-    @GetMapping("/categoria")
-    public ResponseEntity<List<Categoria>> buscarCategorias() {
-        List<Categoria> categorias = carroService.buscarCategorias();
-        return ResponseEntity.ok(categorias);
-    }
-
-    @GetMapping("/cor")
-    public ResponseEntity<List<Cor>> buscarCores() {
-        List<Cor> cores = carroService.buscarCores();
-        return ResponseEntity.ok(cores);
-    }
-
-    @GetMapping("/fabricante")
-    public ResponseEntity<List<Fabricante>> buscarMarcas() {
-        List<Fabricante> fabricantes = carroService.buscarMarcas();
-        return ResponseEntity.ok(fabricantes);
-    }
-
-    @GetMapping("/tipoDeCombustivel")
-    public ResponseEntity<List<Combustivel>> buscarTiposDeCombustiveis() {
-        List<Combustivel> tiposDeCombustiveis = carroService.buscarTipoDeCombustive();
-        return ResponseEntity.ok(tiposDeCombustiveis);
-    }
-
     @PostMapping("/cadastrarCarro")
     public ResponseEntity<Carro> cadastrarCarro(@RequestBody Carro carro) {
         Carro carroExistente = carroService.buscarCarroPorPlaca(carro.getPlaca());
@@ -48,5 +24,35 @@ public class CarroController {
         }
 
         return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping("/listarCategoria")
+    public ResponseEntity<List<Categoria>> listarCategoria() {
+        List<Categoria> categorias = carroService.listarCategoria();
+        return ResponseEntity.ok(categorias);
+    }
+
+    @GetMapping("/listarCor")
+    public ResponseEntity<List<Cor>> listarCor() {
+        List<Cor> cores = carroService.listarCor();
+        return ResponseEntity.ok(cores);
+    }
+
+    @GetMapping("/listarFabricante")
+    public ResponseEntity<List<Fabricante>> listarFabricante() {
+        List<Fabricante> fabricantes = carroService.listarFabricante();
+        return ResponseEntity.ok(fabricantes);
+    }
+
+    @GetMapping("/listarCombustivel")
+    public ResponseEntity<List<Combustivel>> listarCombustivel() {
+        List<Combustivel> tiposDeCombustiveis = carroService.listarCombustivel();
+        return ResponseEntity.ok(tiposDeCombustiveis);
+    }
+
+    @GetMapping("/listarCarro")
+    public ResponseEntity<List<Carro>> listarCarro(){
+        List<Carro> listaDeCarros = carroService.listarCarro();
+        return  ResponseEntity.ok(listaDeCarros);
     }
 }
