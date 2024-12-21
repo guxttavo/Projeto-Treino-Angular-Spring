@@ -41,6 +41,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.GET, "/usuario/buscarUsuarioPorNome/**").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/usuario/editarUsuario/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/carro/cadastrarCarro").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/carro/listarCarro/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/listarCategoria").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/listarCor").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/listarFabricante").permitAll()

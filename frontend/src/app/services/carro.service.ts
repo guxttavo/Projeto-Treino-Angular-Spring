@@ -40,6 +40,4 @@ export class carroService {
     listarCombustivel(): Observable<combustivel[]> {
         return this.http.get<combustivel[]>(`${this.apiUrl}/listarCombustivel`);
     }
-
-  
 }
