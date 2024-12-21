@@ -1,0 +1,49 @@
+.car-card {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .car-header {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+  }
+  
+  .car-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .car-header .placa {
+    font-size: 0.875rem;
+    color: #888;
+  }
+  
+  .car-body {
+    margin-top: 12px;
+  }
+  
+  .car-body p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .car-body p strong {
+    color: #000;
+  }
+  
+  .car-footer {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-around;
+  }
+  

@@ -1,3 +1,25 @@
 <button mat-raised-button color="primary" class="mt-3" [routerLink]="['cadastrar-carro']">
   Cadastrar um carro
 </button>
+
+<div class="car-card mat-elevation-z4">
+  <div class="car-header">
+    <h3></h3>
+    <p class="placa">Placa: </p>
+  </div>
+  <div class="car-body">
+    <p><strong>Quilometragem:</strong>  km</p>
+    <p><strong>Valor Bruto:</strong> R$</p>
+    <p><strong>Valor Líquido:</strong> R$ </p>
+    <p><strong>Concessionária:</strong> </p>
+    <p><strong>Categoria:</strong> </p>
+    <p><strong>Cor:</strong> </p>
+    <p><strong>Fabricante:</strong> </p>
+    <p><strong>Combustível:</strong> </p>
+    <p><strong>Observações:</strong> </p>
+  </div>
+  <div class="car-footer">
+    <button mat-raised-button color="primary">Editar</button>
+    <button mat-stroked-button color="warn">Excluir</button>
+  </div>
+</div>
