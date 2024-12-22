@@ -54,14 +54,14 @@ export class CadastrarCarroComponent {
       cor: ['', Validators.required],
       fabricante: ['', Validators.required],
       combustivel: ['', Validators.required],
-      observacoes: ['', Validators.required]
+      observacoes: ['', Validators.required],
+      usuario: this.usuarioId
     });
   }
 
   onSubmit(): void {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
-
 
       const objetoCarro: carro = {
         nome: formData.nome,
@@ -77,7 +77,7 @@ export class CadastrarCarroComponent {
         fabricante: { id: parseInt(formData.fabricante, 10) },
         combustivel: { id: parseInt(formData.combustivel, 10) },
         observacoes: formData.observacoes,
-        usuarioId: this.usuarioId
+        usuario: { id: parseInt(formData.usuario, 10) }
       };
 
       this.carroService.cadastrarCarro(objetoCarro).subscribe({
