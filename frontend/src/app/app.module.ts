@@ -30,6 +30,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { MatOptionModule } from '@angular/material/core';
     MenuComponent,
     CadastrarUsuarioComponent,
     CadastrarCarroComponent,
-    EditarUsuarioComponent
+    EditarUsuarioComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatListModule,
     MatRadioModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatDialogModule
   ],
   providers: [
     provideNgxMask(),

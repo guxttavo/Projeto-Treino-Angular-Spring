@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { carroService } from 'src/app/services/carro.service';
 import { carro } from 'src/app/interfaces/carro';
+import { ConfirmDialogComponent } from '../../shared/dialogs/confirm-dialog/confirm-dialog.component';
+
 import iziToast from 'izitoast';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private carroService: carroService
+    private carroService: carroService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -43,24 +47,31 @@ export class HomeComponent implements OnInit {
   }
 
   deletarCarro(id: number) {
-    if (confirm('Tem certeza de que deseja excluir este carro?')) {
-      this.carroService.deletarCarro(id).subscribe({
-        next: () => {
-          iziToast.success({
-            title: 'Sucesso',
-            message: 'Carro excluído com sucesso!',
-            position: 'topRight'
-          });
-          window.location.reload();
-        },
-        error: (erro) => {
-          iziToast.error({
-            title: 'Erro',
-            message: 'Erro ao excluir o carro!',
-            position: 'topRight'
-          });
-        }
-      });
-    }
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
+      data: { message: 'Tem certeza de que deseja excluir este carro?' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.carroService.deletarCarro(id).subscribe({
+          next: () => {
+            iziToast.success({
+              title: 'Sucesso',
+              message: 'Carro excluído com sucesso!',
+              position: 'topRight'
+            });
+            this.listarCarro(); 
+          },
+          error: (erro) => {
+            iziToast.error({
+              title: 'Erro',
+              message: 'Erro ao excluir o carro!',
+              position: 'topRight'
+            });
+          }
+        });
+      }
+    });
   }
 }
