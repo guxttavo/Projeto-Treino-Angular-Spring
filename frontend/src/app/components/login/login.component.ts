@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  logar(): void {
     if (this.form.valid) {
       this.loginService.login(this.form.value.email, this.form.value.senha).subscribe({
         next: () => {
@@ -49,7 +49,4 @@ export class LoginComponent implements OnInit {
       });
     }
   }
-
-
-
 }

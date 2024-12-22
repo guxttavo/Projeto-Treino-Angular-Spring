@@ -11,7 +11,6 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class MenuComponent implements OnInit {
 
   usuarioLogado: boolean = false;
-  // usuarioId: number | null = null;
   nomeUsuario = sessionStorage.getItem("usuario-nome")?.split(' ')[0] || '';
   usuarioId: number | null = Number(sessionStorage.getItem("usuario-id")) || null;
 
@@ -43,5 +42,4 @@ export class MenuComponent implements OnInit {
     this.usuarioLogado = false;
     window.location.reload();
   }
-
 }

@@ -59,7 +59,7 @@ export class CadastrarCarroComponent {
     });
   }
 
-  onSubmit(): void {
+  cadastrarCarro(): void {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
 

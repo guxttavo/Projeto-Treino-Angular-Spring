@@ -46,7 +46,7 @@ export class CadastrarUsuarioComponent {
     }, { validators: this.senhasDevemCoincidir });
   }
 
-  onSubmit(): void {
+  cadastrarUsuario(): void {
     if (this.form.valid) {
       const formData = this.form.getRawValue();
 
