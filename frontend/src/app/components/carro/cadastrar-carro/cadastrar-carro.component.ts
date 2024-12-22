@@ -28,7 +28,6 @@ export class CadastrarCarroComponent {
   constructor(
     private fb: FormBuilder,
     private carroService: carroService,
-    private authService: AuthService
   ) {
   }
 
@@ -64,6 +63,7 @@ export class CadastrarCarroComponent {
       const formData = this.form.getRawValue();
 
       const objetoCarro: carro = {
+        id: null,
         nome: formData.nome,
         ano: parseInt(formData.ano, 10),
         quilometragem: parseFloat(formData.quilometragem.replace(/\./g, '').replace(',', '.')),

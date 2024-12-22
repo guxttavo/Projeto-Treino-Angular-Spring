@@ -1,4 +1,5 @@
 export interface carro {
+  id: number | null;
   nome: string;
   ano: number;
   quilometragem: number;

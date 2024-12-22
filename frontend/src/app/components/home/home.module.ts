@@ -11,6 +11,7 @@ import { HomeComponent } from './home.component';
 import { CadastrarCarroComponent } from '../carro/cadastrar-carro/cadastrar-carro.component';
 import { EditarUsuarioComponent } from '../usuario/editar-usuario/editar-usuario.component';
 import { CadastrarUsuarioComponent } from '../usuario/cadastrar-usuario/cadastrar-usuario.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
         HomeComponent,
     ],
     imports: [
+        MatDialogModule,
         MatCardModule,
         MatFormFieldModule,
         ReactiveFormsModule,

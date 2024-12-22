@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
             message: 'Carro excluído com sucesso!',
             position: 'topRight'
           });
+          window.location.reload();
         },
         error: (erro) => {
           iziToast.error({
@@ -62,7 +63,4 @@ export class HomeComponent implements OnInit {
       });
     }
   }
-
-
-
 }

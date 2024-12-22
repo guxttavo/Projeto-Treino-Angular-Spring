@@ -30,12 +30,19 @@ public class CarroController {
     @DeleteMapping("/deletarCarro/{id}")
     public ResponseEntity<Optional<Carro>> deletarCarro(@PathVariable Long id){
         Optional<Carro> carroExistente = carroService.buscarCarroPorId(id);
-        
-        if(carroExistente.isEmpty()){
-            return ResponseEntity.ok(carroService.deletarCarro(id));
+
+        if(carroExistente.isPresent()){
+            carroService.deletarCarro(id);
+            return ResponseEntity.ok().build();
         }
 
         return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping("/listarCarro")
+    public ResponseEntity<List<Carro>> listarCarro(){
+        List<Carro> listaDeCarros = carroService.listarCarro();
+        return  ResponseEntity.ok(listaDeCarros);
     }
 
     @GetMapping("/listarCategoria")
@@ -62,9 +69,5 @@ public class CarroController {
         return ResponseEntity.ok(tiposDeCombustiveis);
     }
 
-    @GetMapping("/listarCarro")
-    public ResponseEntity<List<Carro>> listarCarro(){
-        List<Carro> listaDeCarros = carroService.listarCarro();
-        return  ResponseEntity.ok(listaDeCarros);
-    }
+
 }

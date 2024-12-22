@@ -54,7 +54,7 @@ public class CarroService {
         return carroRepository.save(carro);
     }
 
-    public Optional<Carro> deletarCarro(Long id){
-        return  carroRepository.findById(id);
+    public void deletarCarro(Long id){
+        carroRepository.deleteById(id);
     }
 }
