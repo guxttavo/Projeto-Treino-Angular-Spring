@@ -19,7 +19,7 @@ export class CadastrarCarroComponent {
 
   categorias: categoria[] = [];
   cores: cor[] = [];
-  Fabricantes: fabricante[] = [];
+  fabricantes: fabricante[] = [];
   tiposDeCombustiveis: combustivel[] = [];
 
   form: FormGroup = new FormGroup({});
@@ -152,7 +152,7 @@ export class CadastrarCarroComponent {
     this.carroService.listarFabricante()
       .subscribe({
         next: (Fabricantes: fabricante[]) => {
-          this.Fabricantes = Fabricantes;
+          this.fabricantes = Fabricantes;
         },
         error: (erro) => {
           iziToast.error({

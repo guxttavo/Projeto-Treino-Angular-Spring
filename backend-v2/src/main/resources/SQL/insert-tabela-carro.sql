@@ -12,8 +12,8 @@ INSERT INTO carro (
     usuario_id,
     categoria_id,
     cor_id,
-    marca_id,
-    tipo_de_combustivel_id
+    fabricante_id,
+    combustivel_id
 ) VALUES (
      1 ,
     'Fusca',
@@ -25,7 +25,7 @@ INSERT INTO carro (
     1,
     14000.00,
     'Carro em ótimo estado',
-    152,
+    252,
     2,
     3,
     4,

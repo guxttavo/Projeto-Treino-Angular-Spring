@@ -5,11 +5,12 @@ import org.springframework.stereotype.Repository;
 import projeto.backend.Entities.Carro;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CarroRepository extends JpaRepository<Carro, Long> {
 
-    Carro findByPlaca(String placa);
+    Optional<Carro> findByPlaca(String placa);
 
     List<Carro> findAll();
 }

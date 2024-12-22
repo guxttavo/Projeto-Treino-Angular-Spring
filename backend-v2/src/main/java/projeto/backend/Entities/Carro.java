@@ -38,10 +38,10 @@ public class Carro {
     private Cor cor;
 
     @ManyToOne
-    @JoinColumn(name = "marca_id")
+    @JoinColumn(name = "fabricante_id")
     private Fabricante fabricante;
 
     @ManyToOne
-    @JoinColumn(name = "tipo_de_combustivel_id")
+    @JoinColumn(name = "combustivel_id")
     private Combustivel combustivel;
 }

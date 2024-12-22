@@ -28,6 +28,7 @@ public class UsuarioController {
 
         if (usuarioExistente.isEmpty()) {
             Usuario novoUsuario = new Usuario();
+
             novoUsuario.setNome(usuario.getNome());
             novoUsuario.setEmail(usuario.getEmail());
             novoUsuario.setSenha(passwordEncoder.encode(usuario.getSenha()));

@@ -7,6 +7,7 @@ import projeto.backend.Entities.*;
 import projeto.backend.Services.CarroService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/carro")
@@ -17,9 +18,9 @@ public class CarroController {
 
     @PostMapping("/cadastrarCarro")
     public ResponseEntity<Carro> cadastrarCarro(@RequestBody Carro carro) {
-        Carro carroExistente = carroService.buscarCarroPorPlaca(carro.getPlaca());
+        Optional<Carro> carroExistente = carroService.buscarCarroPorPlaca(carro.getPlaca());
 
-        if (carroExistente == null) {
+        if (carroExistente.isEmpty()) {
             return ResponseEntity.ok(carroService.cadastrarCarro(carro));
         }
 

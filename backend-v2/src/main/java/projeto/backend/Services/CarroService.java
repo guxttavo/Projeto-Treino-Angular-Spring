@@ -6,6 +6,7 @@ import projeto.backend.Entities.*;
 import projeto.backend.Repositories.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarroService {
@@ -37,7 +38,7 @@ public class CarroService {
         return tipoDeCombustivelRepository.findAll();
     }
 
-    public Carro buscarCarroPorPlaca(String placa) {
+    public Optional<Carro> buscarCarroPorPlaca(String placa) {
         return carroRepository.findByPlaca(placa);
     }
 

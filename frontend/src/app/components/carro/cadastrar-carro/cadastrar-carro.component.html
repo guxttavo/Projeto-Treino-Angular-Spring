@@ -82,7 +82,7 @@
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Fabricante</mat-label>
           <mat-select formControlName="fabricante">
-            <mat-option *ngFor="let Fabricante of Fabricantes" [value]="Fabricante.id">{{ Fabricante.nome }}</mat-option>
+            <mat-option *ngFor="let fabricante of fabricantes" [value]="fabricante.id">{{ fabricante.nome }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
