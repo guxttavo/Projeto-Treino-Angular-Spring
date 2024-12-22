@@ -41,4 +41,28 @@ export class HomeComponent implements OnInit {
         }
       })
   }
+
+  deletarCarro(id: number) {
+    if (confirm('Tem certeza de que deseja excluir este carro?')) {
+      this.carroService.deletarCarro(id).subscribe({
+        next: () => {
+          iziToast.success({
+            title: 'Sucesso',
+            message: 'Carro excluído com sucesso!',
+            position: 'topRight'
+          });
+        },
+        error: (erro) => {
+          iziToast.error({
+            title: 'Erro',
+            message: 'Erro ao excluir o carro!',
+            position: 'topRight'
+          });
+        }
+      });
+    }
+  }
+
+
+
 }

@@ -42,11 +42,19 @@ public class CarroService {
         return carroRepository.findByPlaca(placa);
     }
 
+    public Optional<Carro> buscarCarroPorId(Long id){
+        return carroRepository.findById(id);
+    }
+
     public List<Carro> listarCarro(){
         return  carroRepository.findAll();
     }
 
     public Carro cadastrarCarro(Carro carro){
         return carroRepository.save(carro);
+    }
+
+    public Optional<Carro> deletarCarro(Long id){
+        return  carroRepository.findById(id);
     }
 }

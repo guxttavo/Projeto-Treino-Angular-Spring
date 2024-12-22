@@ -27,6 +27,17 @@ public class CarroController {
         return ResponseEntity.badRequest().build();
     }
 
+    @DeleteMapping("/deletarCarro/{id}")
+    public ResponseEntity<Optional<Carro>> deletarCarro(@PathVariable Long id){
+        Optional<Carro> carroExistente = carroService.buscarCarroPorId(id);
+        
+        if(carroExistente.isEmpty()){
+            return ResponseEntity.ok(carroService.deletarCarro(id));
+        }
+
+        return ResponseEntity.badRequest().build();
+    }
+
     @GetMapping("/listarCategoria")
     public ResponseEntity<List<Categoria>> listarCategoria() {
         List<Categoria> categorias = carroService.listarCategoria();

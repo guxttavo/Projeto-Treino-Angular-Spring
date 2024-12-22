@@ -21,7 +21,11 @@ export class carroService {
         return this.http.post(`${this.apiUrl + "/cadastrarCarro"}`, carro);
     }
 
-    listarCarro(): Observable<carro[]>{
+    deletarCarro(id: number): Observable<any> {
+        return this.http.delete(`${this.apiUrl}/deletarCarro/${id}`);
+    }
+
+    listarCarro(): Observable<carro[]> {
         return this.http.get<carro[]>(`${this.apiUrl}/listarCarro`)
     }
 
