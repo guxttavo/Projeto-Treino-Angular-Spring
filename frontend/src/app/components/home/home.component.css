@@ -1,19 +1,87 @@
-.carro-list {
+.toolbar {
   display: flex;
-  flex-wrap: wrap; /* Permite quebra de linha quando o espaço não é suficiente */
-  gap: 20px; /* Espaço entre os carrods */
-  justify-content: center; /* Centraliza os carrods */
-  margin-top: 20px;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.carro-carrod {
-  width: calc(33.333% - 20px); /* 3 carrods por linha */
-  min-width: 300px; /* Largura mínima */
-  max-width: 400px; /* Largura máxima */
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.input-pesquisa, .select-filtro {
+  width: 200px; 
+}
+
+button.mat-icon-button {
+  margin-left: -10px;
+}
+
+button {
+  margin-top: 10px;
+  min-width: 120px; 
+}
+
+button.mat-raised-button {
+  padding: 8px 16px;
+  font-weight: bold;
+}
+
+.text-center {
+  font-size: 16px; 
+  font-weight: 500;
+  color: #666;
+}
+
+.carro-card {
+  margin: 10px; 
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  width: 300px; 
+}
+
+.carro-header h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0; 
+}
+
+.carro-body {
+  font-size: 0.9rem;
+  /* color: #444; */
+}
+
+.carro-body p {
+  margin-bottom: 8px;
+}
+
+.carro-body button {
+  margin-right: 8px; 
+  font-size: 0.9rem;
+}
+
+/* Defina a classe carro-list para usar flexbox */
+.carro-list {
   display: flex;
-  flex-direction: column; /* Certifica que o conteúdo do carrod fica em coluna */
+  flex-wrap: wrap; /* Permite que os itens "quebrem" para a próxima linha quando necessário */
+  gap: 16px; /* Espaço entre os cards */
+  justify-content: flex-start; /* Alinha os itens à esquerda */
+}
+
+/* Estilo para cada carro-card */
+.carro-card {
+  width: calc(33.33% - 16px); /* 3 itens por linha, com espaçamento */
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+/* Responsividade: se a tela for menor, exibe 2 itens por linha */
+@media (max-width: 768px) {
+  .carro-card {
+    width: calc(50% - 16px); /* 2 itens por linha em telas menores */
+  }
+}
+
+/* Responsividade: se a tela for muito pequena, exibe 1 item por linha */
+@media (max-width: 480px) {
+  .carro-card {
+    width: 100%; /* 1 item por linha em telas pequenas */
+  }
 }

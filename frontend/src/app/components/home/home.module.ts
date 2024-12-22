@@ -12,6 +12,9 @@ import { CadastrarCarroComponent } from '../carro/cadastrar-carro/cadastrar-carr
 import { EditarUsuarioComponent } from '../usuario/editar-usuario/editar-usuario.component';
 import { CadastrarUsuarioComponent } from '../usuario/cadastrar-usuario/cadastrar-usuario.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';  // Adicione esta linha
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -25,6 +28,9 @@ const routes: Routes = [
         HomeComponent,
     ],
     imports: [
+        MatIconModule,
+        MatSelectModule,
+        FormsModule,
         MatDialogModule,
         MatCardModule,
         MatFormFieldModule,

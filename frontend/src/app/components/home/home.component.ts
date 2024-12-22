@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit {
 
   usuarioLogado: boolean = false;
   carros: carro[] = [];
+  // carrosFiltrados: carro[] = [];
+  categorias: { nome: string }[] = [];
+  filtroNome: string = '';
+  filtroCategoria: string = '';
 
   constructor(
     private authService: AuthService,
@@ -74,4 +78,17 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
+  filtrarCarros() {
+    this.carros = this.carros.filter((carro) => {
+      const nomeValido = this.filtroNome
+        ? carro.nome.toLowerCase().includes(this.filtroNome.toLowerCase())
+        : true;
+      const categoriaValida = this.filtroCategoria
+        ? carro.categoria.nome === this.filtroCategoria
+        : true;
+      return nomeValido && categoriaValida;
+    });
+  }
+
 }
