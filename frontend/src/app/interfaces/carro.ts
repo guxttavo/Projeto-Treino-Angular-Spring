@@ -7,10 +7,10 @@ export interface carro {
   placa: string;
   dono: number;
   valorLiquido: number;
-  categoria: { id: number };
-  cor: { id: number };
-  fabricante: { id: number };
-  combustivel: { id: number };
+  categoria: { id: number; nome?: string };
+  cor: { id: number; nome?: string };
+  fabricante: { id: number; nome?: string };
+  combustivel: { id: number; nome?: string };
   observacoes: string;
   usuario: { id: number };
 }

@@ -1,0 +1,33 @@
+INSERT INTO carro (
+    id,
+    nome,
+    ano,
+    quilometragem,
+    valor_bruto,
+    concessionaria,
+    placa,
+    dono,
+    valor_liquido,
+    observacoes,
+    usuario_id,
+    categoria_id,
+    cor_id,
+    marca_id,
+    tipo_de_combustivel_id
+) VALUES (
+     1 ,
+    'Fusca',
+    '1985',
+    12345.67,
+    15000.00,
+    'Concessionária XYZ',
+    'ABC-1234',
+    1,
+    14000.00,
+    'Carro em ótimo estado',
+    152,
+    2,
+    3,
+    4,
+    5
+);
