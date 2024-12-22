@@ -9,7 +9,7 @@ export interface carro {
     valorLiquido: number;
     categoria: { id: number };
     cor: { id: number };
-    Fabricante: { id: number };
+    fabricante: { id: number };
     combustivel: { id: number }; 
     observacoes: string;
     usuarioId?: number | undefined;  

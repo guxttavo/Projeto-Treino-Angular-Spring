@@ -25,7 +25,6 @@ export class CadastrarCarroComponent {
   form: FormGroup = new FormGroup({});
   usuarioId = Number(sessionStorage.getItem("usuario-id"));
 
-
   constructor(
     private fb: FormBuilder,
     private carroService: carroService,
@@ -53,7 +52,7 @@ export class CadastrarCarroComponent {
       categoria: ['', Validators.required],
       valorLiquido: ['', Validators.required],
       cor: ['', Validators.required],
-      Fabricante: ['', Validators.required],
+      fabricante: ['', Validators.required],
       combustivel: ['', Validators.required],
       observacoes: ['', Validators.required]
     });
@@ -75,7 +74,7 @@ export class CadastrarCarroComponent {
         valorLiquido: parseFloat(formData.valorLiquido.replace(/\./g, '').replace(',', '.')),
         categoria: { id: parseInt(formData.categoria, 10) },
         cor: { id: parseInt(formData.cor, 10) },
-        Fabricante: { id: parseInt(formData.Fabricante, 10) },
+        fabricante: { id: parseInt(formData.fabricante, 10) },
         combustivel: { id: parseInt(formData.combustivel, 10) },
         observacoes: formData.observacoes,
         usuarioId: this.usuarioId
