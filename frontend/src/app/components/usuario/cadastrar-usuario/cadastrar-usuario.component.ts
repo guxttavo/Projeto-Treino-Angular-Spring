@@ -61,7 +61,8 @@ export class CadastrarUsuarioComponent {
         logradouro: formData.logradouro,
         bairro: formData.bairro,
         cidade: formData.cidade,
-        estado: formData.estado
+        estado: formData.estado,
+        carros: null
       }
       this.usuarioService.cadastrarUsuario(objetoUsuario).subscribe(
         {

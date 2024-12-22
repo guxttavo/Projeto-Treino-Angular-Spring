@@ -10,4 +10,5 @@ export interface usuario {
   bairro: string;
   cidade: string;
   estado: string;
+  carros?: { id: number } | null
 }
