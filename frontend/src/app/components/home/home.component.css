@@ -57,31 +57,27 @@ button.mat-raised-button {
   font-size: 0.9rem;
 }
 
-/* Defina a classe carro-list para usar flexbox */
 .carro-list {
   display: flex;
-  flex-wrap: wrap; /* Permite que os itens "quebrem" para a próxima linha quando necessário */
-  gap: 16px; /* Espaço entre os cards */
-  justify-content: flex-start; /* Alinha os itens à esquerda */
+  flex-wrap: wrap; 
+  gap: 16px; 
+  justify-content: flex-start; 
 }
 
-/* Estilo para cada carro-card */
 .carro-card {
-  width: calc(33.33% - 16px); /* 3 itens por linha, com espaçamento */
+  width: calc(33.33% - 16px); 
   box-sizing: border-box;
   margin-bottom: 16px;
 }
 
-/* Responsividade: se a tela for menor, exibe 2 itens por linha */
 @media (max-width: 768px) {
   .carro-card {
-    width: calc(50% - 16px); /* 2 itens por linha em telas menores */
+    width: calc(50% - 16px); 
   }
 }
 
-/* Responsividade: se a tela for muito pequena, exibe 1 item por linha */
 @media (max-width: 480px) {
   .carro-card {
-    width: 100%; /* 1 item por linha em telas pequenas */
+    width: 100%; 
   }
 }
