@@ -19,6 +19,7 @@ import { EditarCarroComponent } from '../carro/editar-carro/editar-carro.compone
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'cadastrar-carro', component: CadastrarCarroComponent, canActivate: [AuthGuard] },
     { path: 'meu-perfil', component: EditarUsuarioComponent, canActivate: [AuthGuard] },
     { path: 'cadastrar-usuario', component: CadastrarUsuarioComponent },

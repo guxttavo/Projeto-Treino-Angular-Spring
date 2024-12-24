@@ -14,10 +14,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HomeComponent implements OnInit {
 
-  // carroId: string | null = null;
   usuarioLogado: boolean = false;
   carros: carro[] = [];
-  // carrosFiltrados: carro[] = [];
   categorias: { nome: string }[] = [];
   filtroNome: string = '';
   filtroCategoria: string = '';
@@ -91,5 +89,4 @@ export class HomeComponent implements OnInit {
       return nomeValido && categoriaValida;
     });
   }
-
 }

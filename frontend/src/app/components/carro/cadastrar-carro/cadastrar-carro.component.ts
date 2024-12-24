@@ -96,7 +96,13 @@ export class CadastrarCarroComponent {
         }
       });
     } else {
-      console.error("Erro: Formulário inválido!");
+      error: () => {
+        iziToast.error({
+          title: 'Erro',
+          message: 'Erro ao cadastrar carro!',
+          position: 'topRight'
+        });
+      }
     }
   }
 

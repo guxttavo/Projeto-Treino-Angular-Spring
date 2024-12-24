@@ -45,8 +45,6 @@ export class EditarUsuarioComponent {
       cidade: [{ value: '' }],
       estado: [{ value: '' }],
     }, { validators: this.senhasDevemCoincidir });
-
-    console.log(this.form);
   }
 
   carregarDadosUsuario(usuarioId: number) {
@@ -66,7 +64,10 @@ export class EditarUsuarioComponent {
           });
         },
         error: () => {
-          console.log('Erro ao carregar dados do usuário!');
+          iziToast.error({
+            title: 'Erro!',
+            message: 'Erro ao carregar os dados do usuário',
+          });
         }
       }
     );
