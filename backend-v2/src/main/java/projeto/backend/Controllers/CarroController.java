@@ -27,11 +27,44 @@ public class CarroController {
         return ResponseEntity.badRequest().build();
     }
 
-    @DeleteMapping("/deletarCarro/{id}")
-    public ResponseEntity<Optional<Carro>> deletarCarro(@PathVariable Long id){
+    @PutMapping("/editarCarro/{id}")
+    public ResponseEntity<Carro> editarCarro(@PathVariable Long id, @RequestBody Carro carro) {
         Optional<Carro> carroExistente = carroService.buscarCarroPorId(id);
 
-        if(carroExistente.isPresent()){
+        if (carroExistente.isPresent()) {
+            Carro carroEditado = carroExistente.get();
+
+            // Atualizando os campos do carro existente com os valores do carro recebido no request
+            carroEditado.setNome(carro.getNome());
+            carroEditado.setAno(carro.getAno());
+            carroEditado.setQuilometragem(carro.getQuilometragem());
+            carroEditado.setValorBruto(carro.getValorBruto());
+            carroEditado.setConcessionaria(carro.getConcessionaria());
+            carroEditado.setPlaca(carro.getPlaca());
+            carroEditado.setDono(carro.getDono());
+            carroEditado.setValorLiquido(carro.getValorLiquido());
+            carroEditado.setObservacoes(carro.getObservacoes());
+            carroEditado.setUsuario(carro.getUsuario());
+            carroEditado.setCategoria(carro.getCategoria());
+            carroEditado.setCor(carro.getCor());
+            carroEditado.setFabricante(carro.getFabricante());
+            carroEditado.setCombustivel(carro.getCombustivel());
+
+            // Salvando as alterações
+            Carro carroAtualizado = carroService.cadastrarCarro(carroEditado);
+
+            return ResponseEntity.ok(carroAtualizado);
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+
+
+    @DeleteMapping("/deletarCarro/{id}")
+    public ResponseEntity<Optional<Carro>> deletarCarro(@PathVariable Long id) {
+        Optional<Carro> carroExistente = carroService.buscarCarroPorId(id);
+
+        if (carroExistente.isPresent()) {
             carroService.deletarCarro(id);
             return ResponseEntity.ok().build();
         }
@@ -40,9 +73,9 @@ public class CarroController {
     }
 
     @GetMapping("/listarCarro")
-    public ResponseEntity<List<Carro>> listarCarro(){
+    public ResponseEntity<List<Carro>> listarCarro() {
         List<Carro> listaDeCarros = carroService.listarCarro();
-        return  ResponseEntity.ok(listaDeCarros);
+        return ResponseEntity.ok(listaDeCarros);
     }
 
     @GetMapping("/listarCategoria")
@@ -70,10 +103,10 @@ public class CarroController {
     }
 
     @GetMapping("/buscarCarroPorId/{id}")
-    public ResponseEntity<Optional<Carro>> buscarCarroPorId(@PathVariable Long id){
-    Optional<Carro> carro = carroService.buscarCarroPorId(id);
+    public ResponseEntity<Optional<Carro>> buscarCarroPorId(@PathVariable Long id) {
+        Optional<Carro> carro = carroService.buscarCarroPorId(id);
 
-    return ResponseEntity.ok(carro);
+        return ResponseEntity.ok(carro);
     }
 
 }

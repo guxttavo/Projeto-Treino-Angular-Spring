@@ -61,8 +61,33 @@ export class EditarCarroComponent {
     });
   }
 
-  editarCarro(): void {
+  editarCarro() {
+    if (this.form.valid) {
+      const carroAtualiado = this.form.value;
 
+      this.carroService.editarCarro(this.carroId, carroAtualiado).subscribe(
+        {
+          next: () => {
+            iziToast.success({
+              title: 'Sucesso!',
+              message: 'Carro atualizado com sucesso.',
+            });
+          },
+          error: (err) => {
+            iziToast.error({
+              title: 'Erro!',
+              message: 'Ocorreu um erro ao atualizar o Carro.',
+            });
+            console.log('Erro ao editar Carro', err);
+          }
+        }
+      );
+    } else {
+      iziToast.error({
+        title: 'Erro!',
+        message: 'Por favor, preencha todos os campos corretamente.',
+      });
+    }
   }
 
   listarCategoria() {
@@ -140,10 +165,10 @@ export class EditarCarroComponent {
             valorBruto: carro.valorBruto,
             concessionaria: carro.concessionaria,
             placa: carro.placa,
-            donos: carro.dono,
+            donos: carro.dono.toString(),
             categoria: carro.categoria.id,
             cor: carro.cor.id,
-            fabricante: carro.fabricante.id, 
+            fabricante: carro.fabricante.id,
             combustivel: carro.combustivel.id,
             valorLiquido: carro.valorLiquido,
             observacoes: carro.observacoes,
