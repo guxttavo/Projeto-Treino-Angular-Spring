@@ -7,6 +7,7 @@ import { carroService } from 'src/app/services/carro.service';
 import iziToast from 'izitoast';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { carro } from 'src/app/interfaces/carro';
 
 @Component({
   selector: 'app-editar-carro',
@@ -38,8 +39,6 @@ export class EditarCarroComponent {
     this.listarFabricante();
     this.listarCombustivel();
     this.carregarDadosCarro(this.carroId);
-    console.log(this.carroId);
-
   }
 
   initializeForm() {
@@ -63,9 +62,27 @@ export class EditarCarroComponent {
 
   editarCarro() {
     if (this.form.valid) {
-      const carroAtualiado = this.form.value;
+      const formData = this.form.getRawValue();
 
-      this.carroService.editarCarro(this.carroId, carroAtualiado).subscribe(
+      const carroAtualizado: carro = {
+        id: null,
+        nome: formData.nome,
+        ano: formData.ano,
+        quilometragem: formData.quilometragem,
+        valorBruto: formData.valorBruto,
+        concessionaria: formData.concessionaria,
+        placa: formData.placa,
+        dono: parseInt(formData.donos, 10),
+        valorLiquido: formData.valorLiquido,
+        categoria: { id: parseInt(formData.categoria, 10) },
+        cor: { id: parseInt(formData.cor, 10) },
+        fabricante: { id: parseInt(formData.fabricante, 10) },
+        combustivel: { id: parseInt(formData.combustivel, 10) },
+        observacoes: formData.observacoes,
+        usuario: { id: parseInt(formData.usuario, 10) }
+      };
+
+      this.carroService.editarCarro(this.carroId, carroAtualizado).subscribe(
         {
           next: () => {
             iziToast.success({

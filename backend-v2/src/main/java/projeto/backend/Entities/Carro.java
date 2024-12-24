@@ -16,7 +16,7 @@ public class Carro {
     @GeneratedValue
     private Long id;
     private String nome;
-    private String ano;
+    private Integer ano;
     private Double quilometragem;
     private Double valorBruto;
     private String concessionaria;

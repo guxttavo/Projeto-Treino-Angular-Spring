@@ -64,7 +64,7 @@ export class CadastrarCarroComponent {
       const objetoCarro: carro = {
         id: null,
         nome: formData.nome,
-        ano: parseInt(formData.ano, 10),
+        ano: formData.ano,
         quilometragem: parseFloat(formData.quilometragem.replace(/\./g, '').replace(',', '.')),
         valorBruto: parseFloat(formData.valorBruto.replace(/\./g, '').replace(',', '.')),
         concessionaria: formData.concessionaria,
