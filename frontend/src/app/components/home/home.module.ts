@@ -15,12 +15,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';  // Adicione esta linha
+import { EditarCarroComponent } from '../carro/editar-carro/editar-carro.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'cadastrar-carro', component: CadastrarCarroComponent, canActivate: [AuthGuard] },
     { path: 'meu-perfil', component: EditarUsuarioComponent, canActivate: [AuthGuard] },
     { path: 'cadastrar-usuario', component: CadastrarUsuarioComponent },
+    { path: 'editar-carro/:id', component: EditarCarroComponent }
 ];
 
 @NgModule({

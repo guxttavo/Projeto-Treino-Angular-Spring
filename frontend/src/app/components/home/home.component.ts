@@ -14,6 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HomeComponent implements OnInit {
 
+  // carroId: string | null = null;
   usuarioLogado: boolean = false;
   carros: carro[] = [];
   // carrosFiltrados: carro[] = [];

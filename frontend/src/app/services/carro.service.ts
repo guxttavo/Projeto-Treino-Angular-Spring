@@ -24,8 +24,12 @@ export class carroService {
     deletarCarro(id: number): Observable<carro> {
         return this.http.delete<carro>(`${this.apiUrl}/deletarCarro/${id}`);
     }
-    
-    listarCarro(): Observable<carro[]>{
+
+    buscarCarroPorId(id: number) {
+        return this.http.get<carro>(`${this.apiUrl}/buscarCarroPorId/${id}`);
+    }
+
+    listarCarro(): Observable<carro[]> {
         return this.http.get<carro[]>(`${this.apiUrl}/listarCarro`)
     }
 

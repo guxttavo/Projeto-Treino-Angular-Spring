@@ -1,34 +1,35 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { carro } from 'src/app/interfaces/carro';
 import { categoria } from 'src/app/interfaces/categoria';
 import { cor } from 'src/app/interfaces/cor';
 import { fabricante } from 'src/app/interfaces/fabricante';
 import { combustivel } from 'src/app/interfaces/combustivel';
 import { carroService } from 'src/app/services/carro.service';
 import iziToast from 'izitoast';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-carro',
-  templateUrl: './cadastrar-carro.component.html',
-  styleUrls: ['./cadastrar-carro.component.css']
+  selector: 'app-editar-carro',
+  templateUrl: './editar-carro.component.html',
+  styleUrls: ['./editar-carro.component.css']
 })
+export class EditarCarroComponent {
 
-export class CadastrarCarroComponent {
+  constructor(
+    private fb: FormBuilder,
+    private carroService: carroService,
+    private route: ActivatedRoute
+  ) {
+  }
 
   categorias: categoria[] = [];
   cores: cor[] = [];
   fabricantes: fabricante[] = [];
   combustiveis: combustivel[] = [];
-
-  form: FormGroup = new FormGroup({});
   usuarioId = Number(sessionStorage.getItem("usuario-id"));
 
-  constructor(
-    private fb: FormBuilder,
-    private carroService: carroService,
-  ) {
-  }
+  form: FormGroup = new FormGroup({});
+  carroId = Number(this.route.snapshot.paramMap.get('id'));
 
   ngOnInit(): void {
     this.initializeForm();
@@ -36,6 +37,9 @@ export class CadastrarCarroComponent {
     this.listarCor();
     this.listarFabricante();
     this.listarCombustivel();
+    this.carregarDadosCarro(this.carroId);
+    console.log(this.carroId);
+
   }
 
   initializeForm() {
@@ -53,51 +57,12 @@ export class CadastrarCarroComponent {
       fabricante: ['', Validators.required],
       combustivel: ['', Validators.required],
       observacoes: ['', Validators.required],
-      usuario: this.usuarioId
+      usuario: this.carroId
     });
   }
 
-  cadastrarCarro(): void {
-    if (this.form.valid) {
-      const formData = this.form.getRawValue();
+  editarCarro(): void {
 
-      const objetoCarro: carro = {
-        id: null,
-        nome: formData.nome,
-        ano: parseInt(formData.ano, 10),
-        quilometragem: parseFloat(formData.quilometragem.replace(/\./g, '').replace(',', '.')),
-        valorBruto: parseFloat(formData.valorBruto.replace(/\./g, '').replace(',', '.')),
-        concessionaria: formData.concessionaria,
-        placa: formData.placa,
-        dono: parseInt(formData.donos, 10),
-        valorLiquido: parseFloat(formData.valorLiquido.replace(/\./g, '').replace(',', '.')),
-        categoria: { id: parseInt(formData.categoria, 10) },
-        cor: { id: parseInt(formData.cor, 10) },
-        fabricante: { id: parseInt(formData.fabricante, 10) },
-        combustivel: { id: parseInt(formData.combustivel, 10) },
-        observacoes: formData.observacoes,
-        usuario: { id: parseInt(formData.usuario, 10) }
-      };
-
-      this.carroService.cadastrarCarro(objetoCarro).subscribe({
-        next: () => {
-          iziToast.success({
-            title: 'Sucesso',
-            message: 'Carro cadastrado com sucesso!',
-            position: 'topRight'
-          })
-        },
-        error: () => {
-          iziToast.error({
-            title: 'Erro',
-            message: 'Erro ao cadastrar carro!',
-            position: 'topRight'
-          });
-        }
-      });
-    } else {
-      console.error("Erro: Formulário inválido!");
-    }
   }
 
   listarCategoria() {
@@ -154,7 +119,7 @@ export class CadastrarCarroComponent {
         next: (combustiveis: combustivel[]) => {
           this.combustiveis = combustiveis;
         },
-        error: (erro) => {
+        error: () => {
           iziToast.error({
             title: 'Erro',
             message: 'Erro ao carregar combustíveis!',
@@ -162,6 +127,34 @@ export class CadastrarCarroComponent {
           });
         }
       });
+  }
+
+  carregarDadosCarro(carroId: number) {
+    this.carroService.buscarCarroPorId(carroId).subscribe(
+      {
+        next: (carro) => {
+          this.form.patchValue({
+            nome: carro.nome,
+            ano: carro.ano,
+            quilometragem: carro.quilometragem,
+            valorBruto: carro.valorBruto,
+            concessionaria: carro.concessionaria,
+            placa: carro.placa,
+            donos: carro.dono,
+            categoria: carro.categoria.id,
+            cor: carro.cor.id,
+            fabricante: carro.fabricante.id, 
+            combustivel: carro.combustivel.id,
+            valorLiquido: carro.valorLiquido,
+            observacoes: carro.observacoes,
+            usuario: this.usuarioId
+          });
+        },
+        error: () => {
+          console.log('Erro ao carregar dados do usuário!');
+        }
+      }
+    );
   }
 
   formatarParaMilhar(event: Event, formControlName: string) {

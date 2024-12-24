@@ -16,7 +16,7 @@ import { EditarUsuarioComponent } from './components/usuario/editar-usuario/edit
 import { CadastrarCarroComponent } from './components/carro/cadastrar-carro/cadastrar-carro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core'; 
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -32,6 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EditarCarroComponent } from './components/carro/editar-carro/editar-carro.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     CadastrarUsuarioComponent,
     CadastrarCarroComponent,
     EditarUsuarioComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    EditarCarroComponent
+
   ],
   imports: [
     BrowserModule,
@@ -70,8 +73,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatRadioModule,
     MatSelectModule,
     MatOptionModule,
-    MatDialogModule
-  ],
+    MatDialogModule],
   providers: [
     provideNgxMask(),
     MatDatepickerModule

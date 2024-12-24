@@ -65,9 +65,15 @@ public class CarroController {
 
     @GetMapping("/listarCombustivel")
     public ResponseEntity<List<Combustivel>> listarCombustivel() {
-        List<Combustivel> tiposDeCombustiveis = carroService.listarCombustivel();
-        return ResponseEntity.ok(tiposDeCombustiveis);
+        List<Combustivel> combustiveis = carroService.listarCombustivel();
+        return ResponseEntity.ok(combustiveis);
     }
 
+    @GetMapping("/buscarCarroPorId/{id}")
+    public ResponseEntity<Optional<Carro>> buscarCarroPorId(@PathVariable Long id){
+    Optional<Carro> carro = carroService.buscarCarroPorId(id);
+
+    return ResponseEntity.ok(carro);
+    }
 
 }

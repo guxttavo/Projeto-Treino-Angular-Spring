@@ -1,0 +1,117 @@
+<div class="custom-container p-4 mt-2 bg-light rounded">
+    <h2 class="text-center" style="font-size: 1.8rem;">Editar Carro</h2>
+    <form [formGroup]="form" (ngSubmit)="editarCarro()">
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Nome</mat-label>
+            <input matInput type="text" formControlName="nome" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Ano</mat-label>
+            <input matInput type="text" formControlName="ano" maxlength="4" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>KMs</mat-label>
+            <input matInput placeholder="Digite a quilometragem" formControlName="quilometragem"
+              (input)="formatarParaMilhar($event, 'quilometragem')" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Valor Bruto</mat-label>
+            <input matInput type="number" formControlName="valorBruto"
+              (input)="formatarParaMilhar($event,'valorBruto')" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Concessionária</mat-label>
+            <input matInput type="text" formControlName="concessionaria" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Placa</mat-label>
+            <input matInput type="text" formControlName="placa" maxlength="7" (input)="formatarPlaca($event)" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Donos</label>
+          <div class="d-flex align-items-center">
+            <mat-radio-group formControlName="donos">
+              <mat-radio-button value="1">1</mat-radio-button>
+              <mat-radio-button value="2">2</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Valor Líquido</mat-label>
+            <input matInput type="number" formControlName="valorLiquido"
+              (input)="formatarParaMilhar($event,'valorLiquido')" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Categoria</mat-label>
+            <mat-select formControlName="categoria">
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+                {{ categoria.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Cor</mat-label>
+            <mat-select formControlName="cor">
+              <mat-option *ngFor="let cor of cores" [value]="cor.id">{{ cor.nome }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Fabricante</mat-label>
+            <mat-select formControlName="fabricante">
+              <mat-option *ngFor="let fabricante of fabricantes" [value]="fabricante.id">{{ fabricante.nome }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Combustível</mat-label>
+            <mat-select formControlName="combustivel">
+              <mat-option *ngFor="let combustivel of combustiveis" [value]="combustivel.id">
+                {{ combustivel.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+      </div>
+      <div class="row mb-3">
+  
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Observações</mat-label>
+            <textarea matInput formControlName="observacoes" rows="4"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <button mat-raised-button color="primary" type="submit" class="mx-2">Cadastrar</button>
+        <button mat-raised-button color="accent" type="button" class="mx-2" [routerLink]="['/home']">Voltar</button>
+      </div>
+    </form>
+  </div>

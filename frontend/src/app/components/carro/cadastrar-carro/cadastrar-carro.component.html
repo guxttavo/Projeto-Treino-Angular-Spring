@@ -90,7 +90,7 @@
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Combustível</mat-label>
           <mat-select formControlName="combustivel">
-            <mat-option *ngFor="let tipoDeCombustivel of tiposDeCombustiveis" [value]="tipoDeCombustivel.id">
+            <mat-option *ngFor="let tipoDeCombustivel of combustiveis" [value]="tipoDeCombustivel.id">
               {{ tipoDeCombustivel.nome }}
             </mat-option>
           </mat-select>
