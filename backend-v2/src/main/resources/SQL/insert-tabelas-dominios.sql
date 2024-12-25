@@ -40,3 +40,7 @@ INSERT INTO combustivel (id, nome) VALUES
 (5, 'Híbrido'),
 (6, 'Elétrico');
 
+INSERT INTO role (id, nome)
+VALUES
+  (1, 'admin'),
+  (2, 'padrao');
