@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { loginService } from '../../services/login.service';
 import iziToast from 'izitoast';
+import { GithubApiService } from 'src/app/services/github-api.service';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +16,13 @@ export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   show: boolean = false;
   usuarioLogado: boolean = false;
+  userProfile: any;
 
   constructor(
     private fb: FormBuilder,
     private loginService: loginService,
-    private router: Router
-
+    private router: Router,
+    private readonly githubApi: GithubApiService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,12 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       senha: ['', Validators.required]
     });
+
+    if (this.githubApi.idendityClaims) {
+      this.githubApi.userProfile.subscribe((profile) => {
+        this.userProfile = profile;
+      })
+    }
   }
 
   logar(): void {
@@ -35,7 +43,7 @@ export class LoginComponent implements OnInit {
       this.loginService.login(this.form.value.email, this.form.value.senha).subscribe({
         next: () => {
           this.usuarioLogado = false;
-          this.router.navigate(['/home']).then(() => { 
+          this.router.navigate(['/home']).then(() => {
             window.location.reload();
           });
         },
@@ -48,5 +56,9 @@ export class LoginComponent implements OnInit {
         }
       });
     }
+  }
+
+  logarComGitHub() {
+    this.githubApi.login();
   }
 }
