@@ -79,6 +79,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  favoritarCarro(){
+    
+  }
+
   filtrarCarros() {
     this.carros = this.carros.filter((carro) => {
       const nomeValido = this.filtroNome

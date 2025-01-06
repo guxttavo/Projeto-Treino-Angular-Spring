@@ -39,8 +39,11 @@
       <p><strong>Valor Líquido:</strong> R$ {{ carro.valorLiquido | number: '1.2-2' }}</p>
       <p><strong>Concessionária:</strong> {{ carro.concessionaria }}</p>
       <p><strong>Categoria:</strong> {{ carro.categoria.nome }}</p>
-      <button mat-raised-button color="primary"  [routerLink]="['editar-carro', carro.id]" >Editar</button>
-      <button mat-stroked-button color="warn" (click)="deletarCarro(carro.id!)">Excluir</button>
+      <div class="buttons">
+        <button mat-raised-button color="primary" [routerLink]="['editar-carro', carro.id]">Editar</button>
+        <button mat-stroked-button color="warn" (click)="deletarCarro(carro.id!)">Excluir</button>
+        <button mat-outline-button class="favoritar" (click)="favoritarCarro()">Favoritar</button>
+      </div>
     </div>
   </div>
 </div>
