@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   categorias: { nome: string }[] = [];
   filtroNome: string = '';
   filtroCategoria: string = '';
+  usuarioId = Number(sessionStorage.getItem("usuario-id"));
 
   constructor(
     private authService: AuthService,
@@ -37,7 +38,7 @@ export class HomeComponent implements OnInit {
     this.carroService.listarCarro()
       .subscribe({
         next: (carros: carro[]) => {
-          this.carros = carros
+          this.carros = carros.filter(carro=>carro.usuario.id == this.usuarioId);
         },
         error: (erro) => {
           iziToast.error({
