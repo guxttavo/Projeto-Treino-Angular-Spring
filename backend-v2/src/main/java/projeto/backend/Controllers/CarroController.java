@@ -78,31 +78,31 @@ public class CarroController {
         return ResponseEntity.ok(listaDeCarros);
     }
 
-    @GetMapping("/listarCategoria")
+    @GetMapping("/public/listarCategoria")
     public ResponseEntity<List<Categoria>> listarCategoria() {
         List<Categoria> categorias = carroService.listarCategoria();
         return ResponseEntity.ok(categorias);
     }
 
-    @GetMapping("/listarCor")
+    @GetMapping("/public/listarCor")
     public ResponseEntity<List<Cor>> listarCor() {
         List<Cor> cores = carroService.listarCor();
         return ResponseEntity.ok(cores);
     }
 
-    @GetMapping("/listarFabricante")
+    @GetMapping("/public/listarFabricante")
     public ResponseEntity<List<Fabricante>> listarFabricante() {
         List<Fabricante> fabricantes = carroService.listarFabricante();
         return ResponseEntity.ok(fabricantes);
     }
 
-    @GetMapping("/listarCombustivel")
+    @GetMapping("/public/listarCombustivel")
     public ResponseEntity<List<Combustivel>> listarCombustivel() {
         List<Combustivel> combustiveis = carroService.listarCombustivel();
         return ResponseEntity.ok(combustiveis);
     }
 
-    @GetMapping("/buscarCarroPorId/{id}")
+    @GetMapping("/public/buscarCarroPorId/{id}")
     public ResponseEntity<Optional<Carro>> buscarCarroPorId(@PathVariable Long id) {
         Optional<Carro> carro = carroService.buscarCarroPorId(id);
 

@@ -35,6 +35,7 @@ public class SecurityConfiguration {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/carro/public/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/usuario/cadastrarUsuario").permitAll()
                         .requestMatchers(HttpMethod.GET, "/usuario/buscarPorId/**").permitAll()
@@ -43,13 +44,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, "/carro/cadastrarCarro").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/carro/editarCarro/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/carro/deletarCarro/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/carro/deletarCarro/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/carro/listarCarro/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/carro/buscarCarroPorId/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/carro/listarCor").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/carro/listarFabricante").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/carro/listarCombustivel").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/carro/listarCategoria").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);

@@ -30,7 +30,7 @@ export class carroService {
     }
 
     buscarCarroPorId(id: number) {
-        return this.http.get<carro>(`${this.apiUrl}/buscarCarroPorId/${id}`);
+        return this.http.get<carro>(`${this.apiUrl}/public/buscarCarroPorId/${id}`);
     }
 
     listarCarro(): Observable<carro[]> {
@@ -38,18 +38,18 @@ export class carroService {
     }
 
     listarCategoria(): Observable<categoria[]> {
-        return this.http.get<categoria[]>(`${this.apiUrl}/listarCategoria`);
+        return this.http.get<categoria[]>(`${this.apiUrl}/public/listarCategoria`);
     }
 
     listarCor(): Observable<cor[]> {
-        return this.http.get<cor[]>(`${this.apiUrl}/listarCor`);
+        return this.http.get<cor[]>(`${this.apiUrl}/public/listarCor`);
     }
 
     listarFabricante(): Observable<fabricante[]> {
-        return this.http.get<fabricante[]>(`${this.apiUrl}/listarFabricante`);
+        return this.http.get<fabricante[]>(`${this.apiUrl}/public/listarFabricante`);
     }
 
     listarCombustivel(): Observable<combustivel[]> {
-        return this.http.get<combustivel[]>(`${this.apiUrl}/listarCombustivel`);
+        return this.http.get<combustivel[]>(`${this.apiUrl}/public/listarCombustivel`);
     }
 }
