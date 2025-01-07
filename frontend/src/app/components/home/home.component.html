@@ -42,7 +42,7 @@
       <div class="buttons">
         <button mat-raised-button color="primary" [routerLink]="['editar-carro', carro.id]">Editar</button>
         <button mat-stroked-button color="warn" (click)="deletarCarro(carro.id!)">Excluir</button>
-        <button mat-outline-button class="favoritar" (click)="favoritarCarro()">Favoritar</button>
+        <button mat-outline-button class="favoritar" (click)="favoritarCarro(carro)">Favoritar</button>
       </div>
     </div>
   </div>

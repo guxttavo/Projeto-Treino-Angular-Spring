@@ -79,10 +79,29 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  favoritarCarro(){
+  favoritarCarro(carro: carro) {
+    let carrosFavoritados = JSON.parse(localStorage.getItem('carrosFavoritados') || '[]');
+  
+    const carroExistente = carrosFavoritados.find((item: carro) => item.id === carro.id);
     
+    if (!carroExistente) {
+      carrosFavoritados.push(carro);
+      localStorage.setItem('carrosFavoritados', JSON.stringify(carrosFavoritados));
+  
+      iziToast.success({
+        title: 'Favorito',
+        message: `${carro.nome} foi adicionado aos seus favoritos.`,
+        position: 'topRight'
+      });
+    } else {
+      iziToast.info({
+        title: 'Info',
+        message: `${carro.nome} já está nos seus favoritos.`,
+        position: 'topRight'
+      });
+    }
   }
-
+  
   filtrarCarros() {
     this.carros = this.carros.filter((carro) => {
       const nomeValido = this.filtroNome

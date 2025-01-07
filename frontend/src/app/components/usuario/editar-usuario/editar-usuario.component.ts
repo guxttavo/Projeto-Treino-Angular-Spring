@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ViacepService } from 'src/app/services/viaCep.service';
 import iziToast from 'izitoast';
+import { carro } from 'src/app/interfaces/carro';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -17,6 +18,7 @@ export class EditarUsuarioComponent {
   showErrorToast: boolean = false;
   usuario: any;
   usuarioId = Number(sessionStorage.getItem("usuario-id"));
+   carros: carro[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -29,6 +31,7 @@ export class EditarUsuarioComponent {
     this.initializeForm();
     this.preenchimentoCep();
     this.carregarDadosUsuario(this.usuarioId);
+    this.carregarCarros();
   }
 
   initializeForm() {
@@ -100,6 +103,13 @@ export class EditarUsuarioComponent {
         message: 'Por favor, preencha todos os campos corretamente.',
       });
     }
+  }
+
+  carregarCarros(){
+    const listaDeCarros = localStorage.getItem("carrosFavoritados");
+    if (listaDeCarros) {
+      this.carros = JSON.parse(listaDeCarros);  // Convertendo de volta para array
+    } 
   }
 
   senhasDevemCoincidir(group: FormGroup) {
