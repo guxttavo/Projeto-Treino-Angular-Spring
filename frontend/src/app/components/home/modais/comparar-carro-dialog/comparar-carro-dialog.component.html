@@ -1,0 +1,27 @@
+<div class="comparar-carro-dialog">
+    <div class="carro-selecionado">
+        <h2>Carro Selecionado</h2>
+        <p><strong>Nome:</strong> {{ data.nome }}</p>
+        <p><strong>Ano:</strong> {{ data.ano }}</p>
+        <p><strong>Placa:</strong> {{ data.placa }}</p>
+        <p><strong>Quilometragem:</strong> {{ data.quilometragem }} km</p>
+        <p><strong>Valor Bruto:</strong> R$ {{ data.valorBruto | number: '1.2-2' }}</p>
+        <p><strong>Valor Líquido:</strong> R$ {{ data.valorLiquido | number: '1.2-2' }}</p>
+        <p><strong>Concessionária:</strong> {{ data.concessionaria }}</p>
+        <p><strong>Categoria:</strong> {{ data.categoria.nome }}</p>
+    </div>
+
+    <div class="carros-disponiveis">
+        <div *ngFor="let carro of carros" class="carro-item">
+            <h3>{{ carro.nome }} - {{ carro.ano }}</h3>
+            <p class="placa">Placa: {{ carro.placa }}</p>
+            <p><strong>Quilometragem:</strong> {{ carro.quilometragem }} km</p>
+            <p><strong>Valor Bruto:</strong> R$ {{ carro.valorBruto | number: '1.2-2' }}</p>
+            <p><strong>Valor Líquido:</strong> R$ {{ carro.valorLiquido | number: '1.2-2' }}</p>
+            <p><strong>Concessionária:</strong> {{ carro.concessionaria }}</p>
+            <p><strong>Categoria:</strong> {{ carro.categoria.nome }}</p>
+            <!-- <button class="comparar-btn" (click)="compararCarro(carro)">Comparar</button> -->
+            <button class="comparar-btn">Comparar</button>
+        </div>
+    </div>
+</div>

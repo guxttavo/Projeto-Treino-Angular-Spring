@@ -13,6 +13,10 @@
   justify-content: space-between;
 }
 
+.alinhamento {
+  margin: 10px;
+}
+
 .carro-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -120,10 +124,31 @@ button.mat-outline-button:hover {
 
 .favoritar {
   border: 2px solid white;
-  color: white; 
+  color: white;
   background-color: #ffeb3b;
 }
 
 .favoritar:hover {
   color: #fff;
+}
+
+.comparar {
+  background-color: #3d94db;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.comparar:hover {
+  background-color: #3d94db;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.excluir{
+  background-color: red;
+  color: white;
 }

@@ -6,6 +6,7 @@ import { ConfirmDialogComponent } from '../../shared/dialogs/confirm-dialog/conf
 
 import iziToast from 'izitoast';
 import { MatDialog } from '@angular/material/dialog';
+import { CompararCarroDialogComponent } from './modais/comparar-carro-dialog/comparar-carro-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -38,7 +39,7 @@ export class HomeComponent implements OnInit {
     this.carroService.listarCarro()
       .subscribe({
         next: (carros: carro[]) => {
-          this.carros = carros.filter(carro=>carro.usuario.id == this.usuarioId);
+          this.carros = carros.filter(carro => carro.usuario.id == this.usuarioId);
         },
         error: (erro) => {
           iziToast.error({
@@ -65,7 +66,7 @@ export class HomeComponent implements OnInit {
               message: 'Carro excluído com sucesso!',
               position: 'topRight'
             });
-            this.listarCarro(); 
+            this.listarCarro();
           },
           error: (erro) => {
             iziToast.error({
@@ -81,13 +82,13 @@ export class HomeComponent implements OnInit {
 
   favoritarCarro(carro: carro) {
     let carrosFavoritados = JSON.parse(localStorage.getItem('carrosFavoritados') || '[]');
-  
+
     const carroExistente = carrosFavoritados.find((item: carro) => item.id === carro.id);
-    
+
     if (!carroExistente) {
       carrosFavoritados.push(carro);
       localStorage.setItem('carrosFavoritados', JSON.stringify(carrosFavoritados));
-  
+
       iziToast.success({
         title: 'Favorito',
         message: `${carro.nome} foi adicionado aos seus favoritos.`,
@@ -101,7 +102,14 @@ export class HomeComponent implements OnInit {
       });
     }
   }
-  
+
+  compararCarro(carro: any) {
+    this.dialog.open(CompararCarroDialogComponent, {
+      width: '700px',
+      data: carro
+    });
+  }
+
   filtrarCarros() {
     this.carros = this.carros.filter((carro) => {
       const nomeValido = this.filtroNome

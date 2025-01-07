@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';  // Adicione esta linha
 import { EditarCarroComponent } from '../carro/editar-carro/editar-carro.component';
+import { CompararCarroDialogComponent } from './modais/comparar-carro-dialog/comparar-carro-dialog.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         HomeComponent,
+        CompararCarroDialogComponent,
     ],
     imports: [
         MatIconModule,
