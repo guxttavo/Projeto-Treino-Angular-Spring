@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Cor {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nome;
 

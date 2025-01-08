@@ -5,7 +5,7 @@ import projeto.backend.Entities.Combustivel;
 
 import java.util.List;
 
-public interface TipoDeCombustivelRepository extends JpaRepository<Combustivel, Long> {
+public interface CombustivelRepository extends JpaRepository<Combustivel, Long> {
 
     List<Combustivel> findAll();
 

@@ -34,7 +34,6 @@ public class CarroController {
         if (carroExistente.isPresent()) {
             Carro carroEditado = carroExistente.get();
 
-            // Atualizando os campos do carro existente com os valores do carro recebido no request
             carroEditado.setNome(carro.getNome());
             carroEditado.setAno(carro.getAno());
             carroEditado.setQuilometragem(carro.getQuilometragem());

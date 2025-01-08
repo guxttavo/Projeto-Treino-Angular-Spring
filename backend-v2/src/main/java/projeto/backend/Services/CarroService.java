@@ -18,7 +18,7 @@ public class CarroService {
     @Autowired
     private FabricanteRepository fabricanteRepository;
     @Autowired
-    private TipoDeCombustivelRepository tipoDeCombustivelRepository;
+    private CombustivelRepository combustivelRepository;
     @Autowired
     private CarroRepository carroRepository;
 
@@ -35,7 +35,7 @@ public class CarroService {
     }
 
     public List<Combustivel> listarCombustivel() {
-        return tipoDeCombustivelRepository.findAll();
+        return combustivelRepository.findAll();
     }
 
     public Optional<Carro> buscarCarroPorPlaca(String placa) {
