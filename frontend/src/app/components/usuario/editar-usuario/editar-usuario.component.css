@@ -77,7 +77,12 @@
   flex-wrap: wrap;
   gap: 16px;
   justify-content: flex-start;
+  height: 400px; /* Define a altura fixa */
+  overflow-y: auto; /* Adiciona o scroll vertical */
+  padding-right: 8px; /* Espaço extra para o scroll não sobrepor conteúdo */
+  box-sizing: border-box; /* Inclui o padding na largura total */
 }
+
 
 /* ====================
    Responsividade
@@ -96,4 +101,16 @@
 
 .container-edicao{
   height: 400px;
+}
+
+@media (max-width: 768px) {
+  .carro-list {
+    height: 300px; /* Altura ajustada para telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .carro-list {
+    height: 250px; /* Altura ajustada para telas muito pequenas */
+  }
 }
