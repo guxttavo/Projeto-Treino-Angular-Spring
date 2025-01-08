@@ -13,8 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Categoria {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nome;
 

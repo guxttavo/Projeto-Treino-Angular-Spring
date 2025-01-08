@@ -17,10 +17,10 @@ VALUES (
     '58077065',
     'São Paulo',
     '12345678901',
-    'usuario@example.com',
+    'usuario@teste.com',
     'SP',
     'Rua Principal',
-    'João da Silva',
+    'Teste da Silva',
     'senha123',
     '11987654321'
 );

@@ -13,8 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Fabricante {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nome;
 
