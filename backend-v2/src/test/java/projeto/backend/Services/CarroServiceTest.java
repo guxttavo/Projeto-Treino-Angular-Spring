@@ -57,26 +57,25 @@ class CarroServiceTest {
         Usuario usuario = usuarioRepository.findById(2L)
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado no banco de dados"));
 
+        for (int i = 1; i <= 10; i++) {
+            Carro carro = new Carro();
+            carro.setNome("Carro Modelo " + i);
+            carro.setAno(2020 + i);
+            carro.setQuilometragem(15000.0 + (i * 1000));
+            carro.setValorBruto(90000.0 + (i * 5000));
+            carro.setConcessionaria("Concessionária XYZ " + i);
+            carro.setPlaca("ABC-123" + i);
+            carro.setDono(1);
+            carro.setValorLiquido(85000.0 + (i * 4000));
+            carro.setObservacoes("Carro " + i + " em perfeito estado");
+            carro.setCor(cor);
+            carro.setCategoria(categoria);
+            carro.setFabricante(fabricante);
+            carro.setCombustivel(combustivel);
+            carro.setUsuario(usuario);
 
-        // Criando o carro
-        Carro carro = new Carro();
-        carro.setNome("Corolla");
-        carro.setAno(2022);
-        carro.setQuilometragem(15000.0);
-        carro.setValorBruto(90000.0);
-        carro.setConcessionaria("Concessionária XYZ");
-        carro.setPlaca("ABC-1234");
-        carro.setDono(1);
-        carro.setValorLiquido(85000.0);
-        carro.setObservacoes("Carro em perfeito estado");
-        carro.setCor(cor);
-        carro.setCategoria(categoria);
-        carro.setFabricante(fabricante);
-        carro.setCombustivel(combustivel);
-        carro.setUsuario(usuario);
-
-        // Salvando o carro
-        Carro carroPersistido = carroRepository.save(carro);
-
+            // Salvando cada carro
+            Carro carroPersistido = carroRepository.save(carro);
+        }
     }
 }
