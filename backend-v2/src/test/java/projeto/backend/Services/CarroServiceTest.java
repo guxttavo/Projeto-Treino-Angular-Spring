@@ -29,16 +29,6 @@ class CarroServiceTest {
     @Autowired
     private CarroRepository carroRepository;
 
-//    @Test
-//    void inserirCor() {
-//        // Criação da entidade
-//        Cor cor = new Cor();
-//        cor.setNome("Rosa");
-//
-//        // Salvando a entidade usando o repositório
-//        Cor corPersistida = corRepository.save(cor);
-//    }
-
     @Test
     void cadastrarCarro() {
         // Preparando as entidades relacionadas
@@ -54,7 +44,7 @@ class CarroServiceTest {
         Combustivel combustivel = combustivelRepository.findByNome("Gasolina")
                 .orElseThrow(() -> new IllegalArgumentException("Combustível 'Gasolina' não encontrado no banco de dados"));
 
-        Usuario usuario = usuarioRepository.findById(2L)
+        Usuario usuario = usuarioRepository.findById(1L)
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado no banco de dados"));
 
         for (int i = 1; i <= 10; i++) {
