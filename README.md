@@ -39,7 +39,7 @@ Além de atender às demandas práticas de uma escola, o projeto também teve co
 - ASP.NET Core
 - Entity Framework Core
 - AutoMapper
-- SQL Server (ou outro banco, conforme configurado)
+- SQLite
 - DDD (Domain-Driven Design)
 - Repository Pattern
 
