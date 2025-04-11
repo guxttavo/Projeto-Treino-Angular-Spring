@@ -40,8 +40,6 @@ Além de atender às demandas práticas de uma escola, o projeto também teve co
 - Entity Framework Core
 - AutoMapper
 - SQLite
-- DDD (Domain-Driven Design)
-- Repository Pattern
 
 ### Frontend (Angular)
 - Angular
