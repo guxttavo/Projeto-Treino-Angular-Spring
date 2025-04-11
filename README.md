@@ -49,6 +49,9 @@ Além de atender às demandas práticas de uma escola, o projeto também teve co
 - Angular Material (ou outra biblioteca de UI, se aplicável)
 - RxJS
 
+### DevOps
+- Docker
+
 ---
 
 ## 🧱 Arquitetura do Projeto
