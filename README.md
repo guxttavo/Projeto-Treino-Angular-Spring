@@ -9,12 +9,6 @@ Sistema de gestão escolar desenvolvido utilizando as arquiteturas **DDD (Domain
 - [📖 Sobre o Projeto](#📖-sobre-o-projeto)
 - [🛠 Tecnologias Utilizadas](#🛠-tecnologias-utilizadas)
 - [🧱 Arquitetura do Projeto](#🧱-arquitetura-do-projeto)
-- [✅ Funcionalidades](#✅-funcionalidades)
-- [🚀 Como Rodar o Projeto](#🚀-como-rodar-o-projeto)
-- [🖼️ Imagens do Projeto](#🖼️-imagens-do-projeto)
-- [📚 Pontos de Aprendizado](#📚-pontos-de-aprendizado)
-- [📄 Licença](#📄-licença)
-
 ---
 
 ## 📖 Sobre o Projeto
