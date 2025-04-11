@@ -44,7 +44,6 @@ Além de atender às demandas práticas de uma escola, o projeto também teve co
 ### Frontend (Angular)
 - Angular
 - TypeScript
-- Angular Material (ou outra biblioteca de UI, se aplicável)
 - RxJS
 
 ### DevOps
