@@ -67,29 +67,3 @@ Organizado em camadas:
 Organizado por **módulos e componentes**, com uso de **services** para comunicação com a API e **interfaces** para tipagem dos dados.
 
 ---
-
-## ✅ Funcionalidades
-
-- [x] Cadastro e listagem de alunos  
-- [x] Cadastro de professores  
-- [x] Criação de turmas e disciplinas  
-- [x] Relacionamento entre alunos, turmas e disciplinas  
-- [x] Interface amigável para navegação
-
----
-
-## 🚀 Como Rodar o Projeto
-
-### Pré-requisitos
-
-- .NET 6 ou superior  
-- Node.js e Angular CLI  
-- SQL Server (ou outro banco, conforme configurado)
-
-### Backend
-
-```bash
-cd Projeto.Backend
-dotnet restore
-dotnet build
-dotnet run
