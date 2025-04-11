@@ -19,11 +19,19 @@ Sistema de gestão escolar desenvolvido utilizando as arquiteturas **DDD (Domain
 
 ## 📖 Sobre o Projeto
 
-Este projeto tem como objetivo simular um sistema de gestão para uma escola, onde é possível cadastrar alunos, professores, turmas e disciplinas.
+Este projeto tem como foco a construção de um **sistema de gestão escolar**, pensado para ser utilizado internamente por uma escola. Seu principal objetivo é **automatizar e facilitar os processos administrativos mais comuns dentro do ambiente escolar**, promovendo mais organização, agilidade e controle das informações.
 
-O sistema foi desenvolvido com foco em **boas práticas de arquitetura**, separando bem as responsabilidades através de **camadas** e utilizando os padrões **DDD** e **Repository Pattern**.
+Entre as funcionalidades principais do sistema estão:
 
----
+- Cadastro e gerenciamento de **alunos** e **professores**
+- Criação e organização de **disciplinas**
+- **Geração de certificados** personalizados para os alunos
+- **Gestão de informações internas**, como controle de turmas e estrutura pedagógica
+
+Além de atender às demandas práticas de uma escola, o projeto também teve como objetivo o estudo e a aplicação de boas práticas de desenvolvimento de software. Por isso, foi utilizado um conjunto de padrões e arquiteturas modernas, como:
+
+- **DDD (Domain-Driven Design)**, para organizar melhor a lógica de negócio e manter o código mais limpo e desacoplado
+- **Repository Pattern**, para facilitar o acesso aos dados de forma mais organizada e reutilizável
 
 ## 🛠 Tecnologias Utilizadas
 
